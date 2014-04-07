@@ -1,0 +1,50 @@
+<head>
+  <title>hembu.</title>
+</head>
+
+<body>
+  <div class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">hembu.</a>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {{> loginButtons }}
+    </ul>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            {{> postFeed}}
+            {{> feed}}      
+        </div>
+    </div>
+</div>
+
+</body>
+
+<template name="feed">
+    <ul id="feed-container" class="media-list">
+      {{#each Feeds}}
+        <li class="media">
+            <a class="pull-left" href="#">
+              <img class="media-object" src="" alt="...">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">{{name}}</h4>
+                <p>{{content}}</p>
+            </div>
+        </li>
+      {{/each}}
+    </ul>
+</template>
+<template name="postFeed">
+    <div class="clearfix">
+        <input type="text" class="form-control" name="feedContent" id="feedContent" value="" />
+        <button class="btn btn-success post" type="submit">Add</button>
+        <hr class="row" />
+    </div>
+</template>
