@@ -3,7 +3,8 @@
   "dependencies": {
     "basePackages": {
       "bootstrap-3": {},
-      "accounts-ui-bootstrap-3": {}
+      "accounts-ui-bootstrap-3": {},
+      "jade": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -15,6 +16,11 @@
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
         "tag": "v0.3.0-1",
         "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
+      },
+      "jade": {
+        "git": "https://github.com/mquandalle/meteor-jade.git",
+        "tag": "v0.2.1",
+        "commit": "969fc3dd0adbb15304e3e13c3e27260398d89503"
       }
     }
   }
