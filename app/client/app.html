@@ -22,56 +22,11 @@
     </ul>
   </nav>
 </div>
-{{#if currentUser}}
-    <div class="container" id="content">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                {{> postFeed}}
-                {{> feed}}      
-            </div>
-        </div>
-    </div>
-{{/if}}
 </body>
 
-<template name="feed">
-    <ul id="feed-container" class="media-list">
-      {{#each Feeds}}
-        <li class="media">
-            <a class="pull-left" href="#">
-              <img class="media-object" src="http://placehold.it/64x64" alt="...">
-            </a>
-            <div class="media-body">
-                <h4 class="media-heading">{{author}}</h4>
-                <p>{{content}}</p>
-                <small class="pull-right text-muted">{{timeago}}</small>
-                <a href="#" class="showComment">Comment</a>
-            </div>
-            {{#each comments}}
-                <li class="media">
-                    <a class="pull-left" href="#">
-                      <img class="media-object" src="http://placehold.it/64x64" alt="...">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">{{author}}</h4>
-                        <p>{{content}}</p>
-                        <small class="pull-right text-muted">{{timeago}}</small>
-                    </div>
-                </li>
-            {{/each}}
-            <div id="comment_{{_id}}" class="row" style="display:none;">
-                <div class="col-md-10 col-md-offset-2">
-                    <input class="form-control" type="text"/>    
-                </div>
-            </div>
-        </li>
-      {{/each}}
-    </ul>
+<template name="layout">
+  <div class="container-fluid" id="content">
+    {{> yield}}
+  </div>
 </template>
-<template name="postFeed">
-    <div class="clearfix">
-        <input type="text" class="form-control" name="feedContent" id="feedContent" value="" />
-        <button class="btn btn-success post" type="submit">Add</button>
-        <hr class="row" />
-    </div>
-</template>
+

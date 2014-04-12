@@ -16,6 +16,22 @@ Meteor.methods({
       postedAt: new Date(),
       comments: []
     });
+  },
+  addComment: function(options){
+      options = options || {};
+      if (!(typeof options.content === "string" && options.content.length) || !options.feedItem)
+        throw new Meteor.Error(400, "Required parameter missing");
+      var feed = Feeds.findOne(options.feedItem);
+      if(!feed)
+        throw new Meteor.Error(404, "No such feed item");
+      Feeds.update(options.feedItem, { $addToSet: { 
+          comments: {
+            owner: this.userId,
+            author: displayName(Meteor.user()),
+            content: options.content,
+            postedAt: new Date()
+          }
+      }});
   }
 });
 

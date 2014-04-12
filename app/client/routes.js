@@ -2,8 +2,13 @@
  * Route map for the application
  */ 
 Router.map(function() {
-  this.route('login', {path: '/'});
-  this.route('signup');
+  this.route('feed', {path:'/'});
+  this.route('login', {path: '/login', layoutTemplate: 'layout'});
+  this.route('signup', {path: '/signup', layoutTemplate: 'layout', action: function(){
+    if (Meteor.user()) {
+        this.redirect('/');
+    }  
+  }});
 });
 
 /**
@@ -15,4 +20,16 @@ Router.onBeforeAction(function(){
           this.render('login');
           this.pause();
     }
-}, {only: ['signup', 'bar']});
+}, {except: ['login', 'signup']});
+
+/**
+ * Content loading animation
+ */
+Router.onBeforeAction(function(){
+    // for existing content
+    $('#content').hide();
+});
+Router.onAfterAction(function(){
+    // for new content
+     $('#content').fadeIn();
+});

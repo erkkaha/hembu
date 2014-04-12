@@ -1,0 +1,38 @@
+template(name='feed')
+    .container-fluid
+      .row
+        .col-md-4.col-md-offset-3
+          .form-group
+            input#feedContent.form-control(type='text', name='feedContent', value='')
+          .form-group.clearfix
+            button.btn.btn-success.btn-sm.post.pull-right(type='submit') Add
+          hr
+      .row
+        .col-md-4.col-md-offset-3
+          ul#feed-container.media-list
+           each Feeds
+            li.media
+               a.pull-left(href='#')
+                 img.media-object(src='http://placehold.it/48x48', alt='...')
+               .author
+                 a(href="#") #{author} 
+                 br
+                 small.text-muted #{timeago}
+               .clearfix
+               .media-body(style="padding-top: 8px;")
+                 p #{content}
+               .comments
+                each comments
+                 li.media
+                  a.pull-left(href='#')
+                   img.media-object(src='http://placehold.it/32x32', alt='...')
+                  .media-body
+                   a(style="margin-right:5px;") #{author}
+                   span #{content}
+                   br
+                   small.text-muted #{timeago}
+                .media
+                 a.pull-left(href='#')
+                  img.media-object(src='http://placehold.it/34x34', alt='...')
+                 div(style="padding-left:50px;")
+                  input.form-control(id="comment_{{_id}}", data-feedItem="{{_id}}", type='text', placehold="write a comment") 
