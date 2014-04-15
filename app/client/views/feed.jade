@@ -2,11 +2,11 @@ template(name='feed')
     .container-fluid
       .row
         .col-md-4.col-md-offset-3
+         .post-feed
           .form-group
-            input#feedContent.form-control(type='text', name='feedContent', value='')
-          .form-group.clearfix
+            textarea#feedContent.form-control(rows="1", name='feedContent', value='', placeholder="Share something")
+          .clearfix
             button.btn.btn-success.btn-sm.post.pull-right(type='submit') Add
-          hr
       .row
         .col-md-4.col-md-offset-3
           ul#feed-container.media-list
@@ -31,8 +31,8 @@ template(name='feed')
                    span #{content}
                    br
                    small.text-muted #{timeago}
-                .media
+                .media.comment
                  a.pull-left(href='#')
                   img.media-object(src='http://placehold.it/34x34', alt='...')
-                 div(style="padding-left:50px;")
-                  input.form-control(id="comment_{{_id}}", data-feedItem="{{_id}}", type='text', placehold="write a comment") 
+                 .comment-input
+                  textarea.form-control(id="comment_{{_id}}", data-feedItem="{{_id}}", rows="1", placeholder="Write a comment") 

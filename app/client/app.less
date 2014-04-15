@@ -1,13 +1,35 @@
 /* CSS declarations go here */
 body {
 }
+.media-body > span, p {
+    word-wrap: break-word;
+}
 .media-list > li {
     padding: 4px;
     border: 1px solid #d8d8d8;
-    > .comments{
+    >.comments{
         border-top: 1px solid #ccc;
         margin: -4px;
         padding: 8px;
-        background-color:#d8d8d8;
+        background-color:#efe;
+        >.comment{
+            > a {
+                margin-right: 8px;
+            }
+            > .comment-input{
+               padding-left: 42px;  
+               >textarea{
+                   resize:vertical;
+               }
+            }
+        }
+    }
+}
+.post-feed{
+    border: 1px solid #d8d8d8;
+    padding: 8px;
+    margin-bottom: 15px;
+    textarea {
+        resize: vertical;
     }
 }

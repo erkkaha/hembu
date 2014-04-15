@@ -1,0 +1,4 @@
+{
+    "inboundEmailHost" : "foo.bar.com",
+    "outobundEmailFrom" : "no-reply@foo.bar.com"
+}

@@ -13,7 +13,7 @@ Template.feed.events({
     'click .post, keypress' : function(event, template) {
         if (event.which == 13 || event.keyCode == 13 || event.target.type == "submit") {
             //code to execute here
-            if(event.target.type == "text" && event.target.id.indexOf('comment_') === 0){
+            if(event.target.id.indexOf('comment_') === 0){
                 var elem = template.find('#' + event.target.id);
                 console.log($(elem).data('feeditem'))
                 Meteor.call('addComment', {

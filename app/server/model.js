@@ -8,6 +8,11 @@ Meteor.methods({
       throw new Meteor.Error(400, "Required parameter missing");
     //if (! this.userId)
       //throw new Meteor.Error(403, "You must be logged in");
+
+    // Let other method calls from the same client start running,
+    // without waiting for the email sending to complete.
+    this.unblock();
+
     
     return Feeds.insert({
       owner: this.userId,
@@ -15,6 +20,19 @@ Meteor.methods({
       content: options.content,
       postedAt: new Date(),
       comments: []
+    }, function(err, id){
+        if(!err){
+            Email.send({
+              to: Meteor.user().emails[0].address,
+              from: Meteor.settings.outobundEmailFrom,
+              subject: 'New feed item on hembu.',
+              replyTo: id + '@' + Meteor.settings.inboundEmailHost,
+              text: options.content
+            });
+        }
+        else{
+            //TODO
+        }
     });
   },
   addComment: function(options){
