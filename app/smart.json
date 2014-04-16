@@ -3,6 +3,8 @@
     "bootstrap-3": {},
     "accounts-ui-bootstrap-3": {},
     "jade": {},
-    "iron-router": {}
+    "iron-router": {},
+    "moment": {},
+    "livestamp": {}
   }
 }

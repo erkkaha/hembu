@@ -17,7 +17,7 @@ template(name='feed')
                .author
                  a(href="#") #{author} 
                  br
-                 small.text-muted #{timeago}
+                 small.text-muted(data-livestamp="{{postedAt}}")
                .clearfix
                .media-body(style="padding-top: 8px;")
                  p #{content}
@@ -30,7 +30,7 @@ template(name='feed')
                    a(style="margin-right:5px;") #{author}
                    span #{content}
                    br
-                   small.text-muted #{timeago}
+                   small.text-muted(data-livestamp="{{postedAt}}")
                 .media.comment
                  a.pull-left(href='#')
                   img.media-object(src='http://placehold.it/34x34', alt='...')

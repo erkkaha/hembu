@@ -2,13 +2,14 @@
  * Route map for the application
  */ 
 Router.map(function() {
-  this.route('feed', {path:'/'});
-  this.route('login', {path: '/login', layoutTemplate: 'layout'});
-  this.route('signup', {path: '/signup', layoutTemplate: 'layout', action: function(){
-    if (Meteor.user()) {
-        this.redirect('/');
-    }  
-  }});
+    this.route('feed', {path:'/'});
+    this.route('calendar', {path: '/cal', layoutTemplate: 'layout'});
+    this.route('login', {path: '/login', layoutTemplate: 'layout'});
+    this.route('signup', {path: '/signup', layoutTemplate: 'layout', action: function(){
+        if (Meteor.user()) {
+            this.redirect('/');
+        }  
+    }});
 });
 
 /**

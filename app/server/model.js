@@ -1,4 +1,5 @@
-Feeds = new Meteor.Collection("feeds")
+Feeds = new Meteor.Collection("feeds");
+Events = new Meteor.Collection("events");
 
 
 Meteor.methods({
@@ -50,6 +51,15 @@ Meteor.methods({
             postedAt: new Date()
           }
       }});
+  },
+  addEvent: function(options){
+        options = options || {};
+        if(!options.start)
+            throw new Meteor.Error(400, "Required parameter missing");
+        return Events.insert({
+            title: 'Reserved',
+            start: options.start
+        });
   }
 });
 
