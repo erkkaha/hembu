@@ -26,7 +26,6 @@ Template.calendar.rendered = function(){
                     start: moment(event.start)
                 });
             });
-             $('#calendar').fullCalendar( 'addEventSource', events )
             console.log(events);
             callback(events);
         },
