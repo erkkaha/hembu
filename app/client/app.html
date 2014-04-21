@@ -4,7 +4,11 @@
 </head>
 
 <body>
-  <div class="navbar" role="navigation">
+
+</body>
+
+<template name="layout">
+<div class="navbar" role="navigation">
   <div class="navbar-header">
     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -20,14 +24,12 @@
         <li><a href="{{pathFor 'calendar'}}">Calendar</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      {{> loginButtons }}
+      {{#if currentUser}}
+        <li><a href="#" id="logout">logout</a></li>
+      {{/if}}    
     </ul>
   </nav>
 </div>
-
-</body>
-
-<template name="layout">
   <div class="container-fluid" id="content">
     {{> yield}}
   </div>

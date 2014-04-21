@@ -12,9 +12,9 @@ Template.login.events({
                 console.log(err)
             }
             else{
-                Router.go(Router.current())
+                Router.go('feed')
             }
         });
         return false; 
-    }   
+    }
 });
