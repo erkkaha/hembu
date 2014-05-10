@@ -1,4 +1,10 @@
 {
     "inboundEmailHost" : "foo.bar.com",
-    "outobundEmailFrom" : "no-reply@foo.bar.com"
+    "outobundEmailFrom" : "no-reply@foo.bar.com",
+    "loginProviders":{
+        "facebook":{
+            "clientId":"12345678",
+            "secret":"abx123145678"
+        }
+    }
 }

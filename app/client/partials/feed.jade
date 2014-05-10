@@ -2,18 +2,19 @@ template(name='feed')
     .post-feed
       form.uk-form
             textarea#feedContent(rows="1", name='feedContent', value='', placeholder="Share something")
-            button.btn.btn-success.btn-sm.post.pull-right(type='submit') Add
+            button.uk-button.uk-float-right.post(type='submit') Add
     ul#feed-container.uk-comment-list
            each Feeds
             li
              article.uk-comment
               header.uk-comment-header
                a(href='#')
-                 img.uk-comment-avatar(src='http://placehold.it/48x48', alt='...')
+                 img.uk-comment-avatar(src='http://placehold.it/50x50', alt='...')
                h4.uk-comment-title
                  a(href="#") #{author} 
-               .uk-comment-meta
-                 small(data-livestamp="{{postedAt}}")
+               ul.uk-comment-meta.uk-subnav.uk-subnav-line
+                 li 
+                  small(data-livestamp="{{postedAt}}")
               .uk-comment-body
                 p #{content}
              ul
@@ -22,16 +23,19 @@ template(name='feed')
                 article.uk-comment
                  header.uk-comment-header
                   a.pull-left(href='#')
-                   img.uk-comment-avatar(src='http://placehold.it/32x32', alt='...')
+                   img.uk-comment-avatar(src='http://placehold.it/50x50', alt='...')
                   h4.uk-comment-title
                     a(href="#") #{author} 
-                  .uk-comment-meta
+                  ul.uk-comment-meta.uk-subnav.uk-subnav-line
+                   li
                     small(data-livestamp="{{postedAt}}")
                  .uk-comment-body
                    span #{content}
                    
-             .comment
-                a(href='#')
-                  img.uk-comment-avatar(src='http://placehold.it/34x34', alt='...')
-                form.uk-form
+              li 
+               article.uk-comment
+                header.uk-comment-header.comment-feed
+                 a(href='#')
+                  img.uk-comment-avatar(src='http://placehold.it/50x50', alt='...')
+                 form.uk-form
                   textarea(id="comment_{{_id}}", data-feedItem="{{_id}}", rows="1", placeholder="Write a comment") 
