@@ -5,6 +5,10 @@
         "facebook":{
             "clientId":"12345678",
             "secret":"abx123145678"
+        },
+        "google":{
+            "clientId":"12345678",
+            "secret":"abx123145678"
         }
     }
 }
