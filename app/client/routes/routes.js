@@ -2,14 +2,16 @@
  * Route map for the application
  */ 
 Router.map(function() {
-    this.route('feed', {path:'/', layoutTemplate: 'layout'});
+    this.route('home', {path:'/', layoutTemplate: 'layout'});
     this.route('calendar', {path: '/cal', layoutTemplate: 'layout'});
     this.route('login', {path: '/login', layoutTemplate: 'layout'});
-    this.route('signup', {path: '/signup', layoutTemplate: 'layout', action: function(){
-        if (Meteor.user()) {
-            this.go('feed');
-        }  
+    this.route('logout', {path: '/logout', action: function(){
+        Meteor.logout(function(err){
+            if(!err)
+                Router.go('login')
+        })
     }});
+    this.route('signup', {path: '/signup', layoutTemplate: 'layout'});
 });
 
 /**
@@ -22,15 +24,3 @@ Router.onBeforeAction(function(){
           this.pause();
     }
 }, {except: ['login', 'signup']});
-
-/**
- * Content loading animation
- */
-Router.onBeforeAction(function(){
-    // for existing content
-    $('#content').hide();
-});
-Router.onAfterAction(function(){
-    // for new content
-     $('#content').fadeIn();
-});

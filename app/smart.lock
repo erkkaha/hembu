@@ -2,48 +2,42 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "bootstrap-3": {},
-      "accounts-ui-bootstrap-3": {},
       "jade": {},
       "iron-router": {},
       "moment": {},
-      "livestamp": {}
+      "livestamp": {},
+      "uikit-2": {}
     },
     "packages": {
-      "bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.1.1-1",
-        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
-      },
-      "accounts-ui-bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.3.0-1",
-        "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
-      },
       "jade": {
         "git": "https://github.com/mquandalle/meteor-jade.git",
-        "tag": "v0.2.1",
-        "commit": "969fc3dd0adbb15304e3e13c3e27260398d89503"
+        "tag": "v0.2.2",
+        "commit": "0391abab7d592b17ff74d9b9beaa721051970729"
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.7.0",
-        "commit": "05f34bc48c4cad9fdaa366c1ddcabe6980232ece"
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
-        "tag": "v2.5.1",
-        "commit": "8c9bc5d3fc96705057737cb9743d555417f6e551"
+        "tag": "v2.6.0",
+        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
       },
       "livestamp": {
         "git": "https://github.com/colllin/meteor-livestamp.git",
-        "tag": "v1.1.2.1",
-        "commit": "070821be066925e5177daf1d3398c759c45b15b4"
+        "tag": "v1.1.2-3",
+        "commit": "d161b9de53d7032511ecaa13486b6b5cb11f71f3"
+      },
+      "uikit-2": {
+        "git": "https://github.com/pwldp/meteor-uikit-2.git",
+        "tag": "v1.0.1",
+        "commit": "764702f7cba8b85df4dc43b2ffd0ebd36205d410"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
-        "tag": "v0.2.2",
-        "commit": "8bc53798fe5965669ae67c72f91829fcfdceabfd"
+        "tag": "v0.2.4",
+        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
       }
     }
   }

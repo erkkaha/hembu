@@ -1,0 +1,37 @@
+template(name='feed')
+    .post-feed
+      form.uk-form
+            textarea#feedContent(rows="1", name='feedContent', value='', placeholder="Share something")
+            button.btn.btn-success.btn-sm.post.pull-right(type='submit') Add
+    ul#feed-container.uk-comment-list
+           each Feeds
+            li
+             article.uk-comment
+              header.uk-comment-header
+               a(href='#')
+                 img.uk-comment-avatar(src='http://placehold.it/48x48', alt='...')
+               h4.uk-comment-title
+                 a(href="#") #{author} 
+               .uk-comment-meta
+                 small(data-livestamp="{{postedAt}}")
+              .uk-comment-body
+                p #{content}
+             ul
+              each comments
+               li
+                article.uk-comment
+                 header.uk-comment-header
+                  a.pull-left(href='#')
+                   img.uk-comment-avatar(src='http://placehold.it/32x32', alt='...')
+                  h4.uk-comment-title
+                    a(href="#") #{author} 
+                  .uk-comment-meta
+                    small(data-livestamp="{{postedAt}}")
+                 .uk-comment-body
+                   span #{content}
+                   
+             .comment
+                a(href='#')
+                  img.uk-comment-avatar(src='http://placehold.it/34x34', alt='...')
+                form.uk-form
+                  textarea(id="comment_{{_id}}", data-feedItem="{{_id}}", rows="1", placeholder="Write a comment") 

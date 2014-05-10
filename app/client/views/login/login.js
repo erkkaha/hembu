@@ -8,13 +8,11 @@ Template.login.events({
 
         Meteor.loginWithPassword(email, password, function(err){
             if (err){
-                //TODO
-                console.log(err)
+                $.UIkit.notify(err.reason, {pos:'top-right'});
             }
             else{
-                Router.go('feed')
+                Router.go('home')
             }
         });
-        return false; 
     }
 });

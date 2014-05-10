@@ -7,7 +7,6 @@ standard-app-packages
 insecure
 accounts-base
 accounts-password
-bootstrap-3
 jade
 less
 iron-router
@@ -15,3 +14,4 @@ accounts-ui-unstyled
 email
 moment
 livestamp
+uikit-2
