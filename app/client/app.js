@@ -2,3 +2,5 @@
 if (Meteor.isClient) {
     Meteor.absoluteUrl.defaultOptions.rootUrl =  window.location.host
 }
+
+Meteor.subscribe("userData");
