@@ -32,5 +32,5 @@ iron-router
     
 ##Good resources for meteor
 
-www.meteorpedia.com
-docs.meteor.com
+    -www.meteorpedia.com
+    -docs.meteor.com

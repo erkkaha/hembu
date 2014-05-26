@@ -3,7 +3,6 @@
     "jade": {},
     "iron-router": {},
     "moment": {},
-    "livestamp": {},
-    "uikit-2": {}
+    "livestamp": {}
   }
 }

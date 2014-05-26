@@ -5,14 +5,13 @@
       "jade": {},
       "iron-router": {},
       "moment": {},
-      "livestamp": {},
-      "uikit-2": {}
+      "livestamp": {}
     },
     "packages": {
       "jade": {
         "git": "https://github.com/mquandalle/meteor-jade.git",
-        "tag": "v0.2.2",
-        "commit": "0391abab7d592b17ff74d9b9beaa721051970729"
+        "tag": "v0.2.3",
+        "commit": "38220544108cdc30e2e53f40481dce0b594d6f31"
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
@@ -28,11 +27,6 @@
         "git": "https://github.com/colllin/meteor-livestamp.git",
         "tag": "v1.1.2-3",
         "commit": "d161b9de53d7032511ecaa13486b6b5cb11f71f3"
-      },
-      "uikit-2": {
-        "git": "https://github.com/pwldp/meteor-uikit-2.git",
-        "tag": "v1.0.1",
-        "commit": "764702f7cba8b85df4dc43b2ffd0ebd36205d410"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
