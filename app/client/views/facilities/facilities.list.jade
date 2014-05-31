@@ -1,0 +1,6 @@
+template(name="facilitiesList")
+ .uk-container.uk-container-center
+   a(href="{{pathFor 'facilities.create'}}") Create
+   each facilities
+    .uk-panel.uk-panel-box.uk-width-4-6.uk-push-1-6.uk-margin-large-top
+      a(href="{{pathFor 'facilities.calendar'}}") #{name}

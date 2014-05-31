@@ -1,7 +1,7 @@
 Events = new Meteor.Collection("events");
 Meteor.subscribe('events');
 
-Template.calendar.rendered = function(){
+Template.facilitiesCalendar.rendered = function(){
     $('#calendar').fullCalendar({
         defaultView: 'agendaWeek',
         columnFormat: 'dd D',
@@ -29,13 +29,13 @@ Template.calendar.rendered = function(){
             console.log(events);
             callback(events);
         },
-        dayClick: Template.calendar.addItem
+        dayClick: Template.facilitiesCalendar.addItem
     });
 };
-Template.calendar.Items = function(start, end, timezone, callback){
+Template.facilitiesCalendar.Items = function(start, end, timezone, callback){
     return Events.find({}).fetch();
 };
-Template.calendar.addItem = function(date, event, view) { 
+Template.facilitiesCalendar.addItem = function(date, event, view) { 
      Meteor.call('addEvent', {
                     start: date.format()
                 }, function(error, comment){
