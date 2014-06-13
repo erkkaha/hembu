@@ -10,7 +10,7 @@ Router.map(function() {
                 if(Meteor.user().addresses === undefined)
                     Router.go('addresses.create', {_id:'new'})
                 else
-                    Router.go('home', {_address: Hembu.getCurrentAddress()._id});
+                    Router.go('home', {address: Hembu.getCurrentAddress()._id});
             }
     }});
     this.route('home', {path:'/address/:address', layoutTemplate: 'layout', 

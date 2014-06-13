@@ -1,6 +1,5 @@
 // Server startup
 Meteor.startup(function(){
-    
 });
 
 Router.map(function () {

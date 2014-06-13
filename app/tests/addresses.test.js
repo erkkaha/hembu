@@ -1,16 +1,25 @@
-var assert = require('assert');
 
-suite('Addresses', function() {
-  test('in the server', function(done, server) {
+describe('Addresses', function() {
+  it('Client adds a new address', function(done, server, client) {
     server.eval(function() {
-      Addresses.insert({streetAddress: 'Museokatu', streetNumber:'14'});
-      var docs = Addresses.find().fetch();
-      emit('docs', docs);
+    Addresses.find().observe({
+      added: addedNewAddress
     });
 
+    function addedNewAddress(docs) {
+      emit('docs', docs);
+    }
+    });
     server.once('docs', function(docs) {
-      assert.equal(docs.length, 1);
+      docs.length.should.equal(1);
+      var addr = docs[0]
+      addr.displayAddress.should.equal('Museokatu 14')
       done();
     });
+    client.eval(function() {
+        Meteor.call('addAddress', {streetAddress: 'Museokatu', streetNumber:'14'}, function(err, result){
+ 
+        });
+  });
   });
 });
