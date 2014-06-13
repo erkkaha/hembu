@@ -1,11 +1,34 @@
 template(name="menu")
  nav.uk-navbar.uk-margin-large-bottom
-    a.uk-navbar-brand.uk-hidden-small(href="{{pathFor 'home'}}") Hembu
+    a.uk-navbar-brand.uk-hidden-small(href="{{pathFor 'home'}}")
+      img.header-logo(src="/images/hembu-logo.svg")
     ul.uk-navbar-nav.uk-hidden-small
-        li.uk-active
-          a(href="{{pathFor 'home'}}") Home
-        li
-          a(href="{{pathFor 'logout'}}") Logout
+        //li.uk-active
+          //a(href="{{pathFor 'home'}}") Home
+        //li
+          //a(href="{{pathFor 'logout'}}") Logout
+    .uk-navbar-flip
+       //a.uk-navbar-content(href="#") #{profile.name}
+       //a.uk-navbar-content(href="#")
+          //img.header-user-pic(src="#{profile.profilePic}")
+       .header-user-menu
+        ul.user-menu.user-menu-closed
+         li.user-menu-head
+          | #{profile.name}
+          img.header-user-pic(src="#{profile.profilePic}")
+         a(href="#")
+          li.user-menu-item.menu-item-address
+           | Museokatu 33 A 4
+         a(href="#")
+          li.user-menu-item.menu-item-bookings
+           | Bookings
+         a(href="#")
+          li.user-menu-item.menu-item-profile
+           | Profile
+         a(href="{{pathFor 'logout'}}")
+          li.user-menu-item.menu-item-logout
+           | Log out
+
     a.uk-navbar-toggle.uk-visible-small(href='#offcanvas', data-uk-offcanvas)
     a.uk-navbar-brand.uk-navbar-center.uk-visible-small(href="{{pathFor 'home'}}") Hembu
  #offcanvas.uk-offcanvas
