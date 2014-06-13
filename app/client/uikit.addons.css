@@ -48,8 +48,6 @@
   /* 2 */
   overflow: hidden;
   text-indent: -999%;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
 }
 /*
  * Hover
@@ -69,8 +67,6 @@
 /* Active */
 .uk-dotnav > li.uk-active > a {
   background: rgba(50, 50, 50, 0.4);
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
 }
 /* Modifier: 'dotnav-vertical'
  ========================================================================== */
@@ -282,8 +278,6 @@
   color: #ffffff;
   /* 1 */
   outline: none;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 /*
  * Sub-object: `uk-nav-header`
@@ -376,8 +370,6 @@
   text-align: center;
   color: #444444;
   text-decoration: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
 }
 /*
  * Sub-object: `uk-datepicker-table-muted`
@@ -392,16 +384,14 @@ a.uk-datepicker-table-muted {
  */
 .uk-datepicker-table a:hover,
 .uk-datepicker-table a:focus {
-  background-color: #fafafa;
+  background-color: #dddddd;
   color: #444444;
   /* 2 */
   outline: none;
-  border-color: rgba(0, 0, 0, 0.16);
-  text-shadow: 0 1px 0 #ffffff;
 }
 /* OnClick */
 .uk-datepicker-table a:active {
-  background-color: #eeeeee;
+  background-color: #cccccc;
   color: #444444;
 }
 /*
@@ -410,8 +400,6 @@ a.uk-datepicker-table-muted {
 .uk-datepicker-table a.uk-active {
   background: #00a8e6;
   color: #ffffff;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 /* ========================================================================
    Component: Markdownarea
@@ -419,10 +407,7 @@ a.uk-datepicker-table-muted {
 /* Sub-object `uk-markdownarea-navbar`
  ========================================================================== */
 .uk-markdownarea-navbar {
-  background: #f5f5f5;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  background: #eeeeee;
 }
 /*
  * Micro clearfix
@@ -456,18 +441,13 @@ a.uk-datepicker-table-muted {
   box-sizing: border-box;
   text-decoration: none;
   /* 1 */
-  height: 41px;
+  height: 40px;
   padding: 0 15px;
   line-height: 40px;
   /* 2 */
   color: #444444;
   font-size: 11px;
   cursor: pointer;
-  margin-top: -1px;
-  margin-left: -1px;
-  border: 1px solid transparent;
-  border-bottom-width: 0;
-  text-shadow: 0 1px 0 #ffffff;
 }
 /*
  * Hover
@@ -476,31 +456,20 @@ a.uk-datepicker-table-muted {
  */
 .uk-markdownarea-navbar-nav > li:hover > a,
 .uk-markdownarea-navbar-nav > li > a:focus {
-  background-color: #fafafa;
+  background-color: #f5f5f5;
   color: #444444;
   outline: none;
   /* 2 */
-  position: relative;
-  z-index: 1;
-  border-left-color: rgba(0, 0, 0, 0.1);
-  border-right-color: rgba(0, 0, 0, 0.1);
-  border-top-color: rgba(0, 0, 0, 0.1);
 }
 /* OnClick */
 .uk-markdownarea-navbar-nav > li > a:active {
-  background-color: #eeeeee;
+  background-color: #dddddd;
   color: #444444;
-  border-left-color: rgba(0, 0, 0, 0.1);
-  border-right-color: rgba(0, 0, 0, 0.1);
-  border-top-color: rgba(0, 0, 0, 0.2);
 }
 /* Active */
 .uk-markdownarea-navbar-nav > li.uk-active > a {
-  background-color: #fafafa;
+  background-color: #f5f5f5;
   color: #444444;
-  border-left-color: rgba(0, 0, 0, 0.1);
-  border-right-color: rgba(0, 0, 0, 0.1);
-  border-top-color: rgba(0, 0, 0, 0.1);
 }
 /* Sub-object: `uk-markdownarea-navbar-flip`
  ========================================================================== */
@@ -520,8 +489,6 @@ a.uk-datepicker-table-muted {
   border-right: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
   background: #ffffff;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 /*
  * Micro clearfix
@@ -546,7 +513,7 @@ a.uk-datepicker-table-muted {
 }
 .uk-markdownarea-fullscreen .uk-markdownarea-content {
   position: absolute;
-  top: 41px;
+  top: 40px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -589,43 +556,6 @@ a.uk-datepicker-table-muted {
   padding: 10px;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
-/*
-     * Apply same `border-radius` as `uk-markdownarea-navbar`
-     */
-.uk-markdownarea-navbar-nav:first-child > li:first-child > a {
-  border-top-left-radius: 4px;
-}
-/*
-     * Sub-modifier `uk-markdownarea-navbar-flip`
-     */
-/* Collapse border */
-.uk-markdownarea-navbar-flip .uk-markdownarea-navbar-nav > li > a {
-  margin-left: 0;
-  margin-right: -1px;
-}
-/* Apply same `border-radius` as `uk-markdownarea-navbar` */
-.uk-markdownarea-navbar-flip .uk-markdownarea-navbar-nav:first-child > li:first-child > a {
-  border-top-left-radius: 0;
-}
-.uk-markdownarea-navbar-flip .uk-markdownarea-navbar-nav:last-child > li:last-child > a {
-  border-top-right-radius: 4px;
-}
-/*
-     * Sub-modifier `uk-markdownarea-fullscreen`
-     */
-.uk-markdownarea-fullscreen .uk-markdownarea-navbar {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-radius: 0;
-}
-.uk-markdownarea-fullscreen .uk-markdownarea-content {
-  border: none;
-  border-radius: 0;
-}
-.uk-markdownarea-fullscreen .uk-markdownarea-navbar-nav > li > a {
-  border-radius: 0 !important;
 }
 /* ========================================================================
    Component: Notify
@@ -685,8 +615,6 @@ a.uk-datepicker-table-muted {
   font-size: 16px;
   line-height: 22px;
   cursor: pointer;
-  border: 1px solid #444444;
-  border-radius: 4px;
 }
 /* Close in notify
  ========================================================================== */
@@ -702,28 +630,24 @@ a.uk-datepicker-table-muted {
 .uk-notify-message-primary {
   background: #ebf7fd;
   color: #2d7091;
-  border-color: rgba(45, 112, 145, 0.3);
 }
 /* Modifier: `uk-alert-success`
  ========================================================================== */
 .uk-notify-message-success {
   background: #f2fae3;
   color: #659f13;
-  border-color: rgba(101, 159, 19, 0.3);
 }
 /* Modifier: `uk-notify-message-warning`
  ========================================================================== */
 .uk-notify-message-warning {
   background: #fffceb;
   color: #e28327;
-  border-color: rgba(226, 131, 39, 0.3);
 }
 /* Modifier: `uk-notify-message-danger`
  ========================================================================== */
 .uk-notify-message-danger {
   background: #fff1f0;
   color: #d85030;
-  border-color: rgba(216, 80, 48, 0.3);
 }
 /* ========================================================================
    Component: Search
@@ -847,7 +771,7 @@ input.uk-search-field {
 .uk-dropdown-search {
   width: 300px;
   margin-top: 0;
-  background: #ffffff;
+  background: #f5f5f5;
   color: #444444;
 }
 .uk-open > .uk-dropdown-search {
@@ -858,8 +782,8 @@ input.uk-search-field {
  * Dependency `uk-navbar-flip`
  */
 .uk-navbar-flip .uk-dropdown-search {
-  margin-top: 12px;
-  margin-right: -16px;
+  margin-top: 5px;
+  margin-right: -15px;
 }
 /* Nav modifier `uk-nav-search`
  ========================================================================== */
@@ -878,8 +802,6 @@ input.uk-search-field {
   color: #ffffff;
   /* 1 */
   outline: none;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 /*
  * Sub-object: `uk-nav-header`
@@ -954,9 +876,6 @@ input.uk-search-field {
   margin-bottom: 10px;
   padding: 5px;
   background: #f5f5f5;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  text-shadow: 0 1px 0 #ffffff;
 }
 /* Sub-object `uk-sortable-placeholder`
  * The placeholder which marks the drop area
