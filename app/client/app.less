@@ -2,12 +2,17 @@
 ------------------------------------------------------------------------*/
 
 @blue: #00bff0;
-@darkblue: #00b8e5;
+@darkblue: #00b2ed;
+@lightblue: #488dc8;
+@slate: #4b5166;
+@bluegrey: #d3d7e5;
+@kerma: #fcfbf7;
 
 
 /* CSS declarations go here */
 html, body {
     height:100%;
+    background-color:@kerma !important;
 }
 .media-body > span, p {
     word-wrap: break-word;
@@ -49,6 +54,28 @@ html, body {
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600);
 
 
+/* Links
+------------------------------------------------------------------------*/
+
+a.board {
+  color:inherit;
+  font-weight:600;
+
+  &:hover {
+    color:#ef6e7e;
+  }
+}
+
+a.user {
+  color:@lightblue;
+  font-weight:600;
+
+  &:hover {
+    color:#00bff0;
+  }
+}
+
+
 /* Header
 ------------------------------------------------------------------------*/
 
@@ -86,11 +113,11 @@ html, body {
 
 .header-user-pic {
 	width:auto;
-	height:46px;
-	margin-top:-13px;
+	height:42px;
+	margin-top:-11px;
 	border-radius:8px;
 	position:absolute;
-	right:12px
+	right:20px;
 }
 
 .header-user-menu {
@@ -98,8 +125,8 @@ html, body {
 	top:0;
 	right:0;
 	padding:0;
-	border-bottom-right-radius:6px;
-	border-bottom-left-radius:6px;
+	border-bottom-right-radius:8px;
+	border-bottom-left-radius:8px;
 	overflow:hidden;
 	background:@blue;
 	color:#fff;
@@ -110,7 +137,7 @@ html, body {
 
 ul.user-menu {
 	list-style-type:none;
-	margin:0;
+	margin:0 20px;
 	padding:0;
 	-webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -120,10 +147,12 @@ ul.user-menu {
     user-select: none;
 
 	li {
-		padding:25px 100px 25px 20px;
+		padding:25px 86px 25px 6px;
 		border-bottom:1px solid @darkblue;
 
 		&:hover {
+      padding:26px 106px 25px 26px;
+      margin:-1px -20px 0 -20px;
 			background-color:@darkblue;
 		}
 	}
@@ -133,40 +162,42 @@ ul.user-menu {
 	}
 
 	.user-menu-head {
+    padding:25px 0 25px 0;
 		width:100%;
+    text-indent:6px;
 
 		&:hover {
 			border-color:@blue;
 			cursor:pointer;
+      padding:25px 20px 25px 20px;
+      margin:0 -20px;
 		}
 	}
 
+  .user-menu-item {
+    background-position:right 6px center;
+    background-size:auto 20pt;
+    background-repeat:no-repeat;
+
+    &:hover {
+      background-position:right 26px center;
+    }
+  }
+
 	.menu-item-address {
 		background-image:url(/images/icons/address-icon.svg);
-		background-position:right 20px center;
-		background-size:auto 20pt;
-		background-repeat:no-repeat;
 	}
 
 	.menu-item-bookings {
 		background-image:url(/images/icons/bookings-icon.svg);
-		background-position:right 20px center;
-		background-size:auto 20pt;
-		background-repeat:no-repeat;
 	}
 
 	.menu-item-profile {
 		background-image:url(/images/icons/user-icon.svg);
-		background-position:right 20px center;
-		background-size:auto 20pt;
-		background-repeat:no-repeat;
 	}
 
 	.menu-item-logout {
 		background-image:url(/images/icons/logout-icon.svg);
-		background-position:right 20px center;
-		background-size:auto 19pt;
-		background-repeat:no-repeat;
 	}
 }
 
@@ -179,11 +210,111 @@ ul.user-menu {
 }
 
 
+/* Content - Feed
+------------------------------------------------------------------------*/
+
+#feed-container {
+  padding:0 35px 35px 35px;
+  color:@slate !important;
+}
+
+.uk-comment-list {
+  li {
+    border-bottom: 1px solid #eee;
+    padding:2.1em 0 1.9em 0;
+  }
+
+  li.feed-header {
+    font-family:'Titillium Web', Helvetica, Arial, sans-serif;
+    font-size:4.6em;
+    font-weight:300;
+    line-height:1 !important;
+    padding:0 0 0.8em 0;
+    margin-bottom:0.4em;
+  }
+}
+
+.feed-header-settings {
+  font-family:'Titillium Web', Helvetica, Arial, sans-serif;
+  font-size:0.333em;
+  font-weight:300;
+  line-height:3.5 !important;
+  vertical-align:bottom;
+  float:right;
+  color:@bluegrey;
+}
+
+.notice-pin {
+  content:'';
+  width:16px;
+  height:16px;
+  float:right;
+  border-radius:16px;
+  border:2px solid @bluegrey;
+  margin-left:25px;
+  margin-top:0.6em;
+
+  &:hover {
+    cursor:pointer;
+    background:@bluegrey;
+  }
+}
+
+.unpinned {
+  background:none;
+
+  &:hover {
+    cursor:pointer;
+    background:@bluegrey;
+  }
+}
+
+.pinned {
+  background:@bluegrey;
+
+  &:hover {
+    background:none;
+  }
+}
+
+.uk-comment {
+  padding-right:50px;
+}
+
+.notice-title {
+  font-family:'Titillium Web', Helvetica, Arial, sans-serif;
+  font-size:2.2em;
+  font-weight:400;
+  line-height:1.2em !important;
+  margin-bottom:0.4em;
+}
+
+.uk-comment-meta {
+  font-family:'Titillium Web', Helvetica, Arial, sans-serif;
+  font-size:1.0em !important;
+  font-weight:300;
+  line-height:2.4em !important;
+  width:100%;
+  color:@slate !important;
+}
+
+.uk-comment-avatar {
+  float:none !important;
+  display:inline;
+  margin:0 6px !important;
+  border-radius:3px;
+  margin-top:-3px !important;
+}
+
+
 /*!
  * FullCalendar v2.0.0-beta2 Stylesheet
  * Docs & License: http://arshaw.com/fullcalendar/
  * (c) 2013 Adam Shaw
  */
+
+ /* FullCalendar
+ ------------------------------------------------------------------------*/
 
 
 .fc {
