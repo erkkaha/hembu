@@ -2,12 +2,17 @@
 ------------------------------------------------------------------------*/
 
 @blue: #00bff0;
-@darkblue: #00b8e5;
+@darkblue: #00b2ed;
+@lightblue: #488dc8;
+@slate: #4b5166;
+@bluegrey: #d3d7e5;
+@kerma: #fcfbf7;
 
 
 /* CSS declarations go here */
 html, body {
     height:100%;
+    background-color:@kerma !important;
 }
 .media-body > span, p {
     word-wrap: break-word;
@@ -25,7 +30,7 @@ html, body {
                 margin-right: 8px;
             }
             > .comment-input{
-               padding-left: 42px;  
+               padding-left: 42px;
                >textarea{
                    resize:vertical;
                }
@@ -46,76 +51,28 @@ html, body {
 /* Fonts
 ------------------------------------------------------------------------*/
 
-@font-face {
-    font-family: 'TitilliumText25L800wt';
-    src: url('/fonts/TitilliumText/TitilliumText25L001-webfont.eot');
-    src: url('/fonts/TitilliumText/TitilliumText25L001-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/TitilliumText/TitilliumText25L001-webfont.woff') format('woff'),
-         url('/fonts/TitilliumText/TitilliumText25L001-webfont.ttf') format('truetype'),
-         url('/fonts/TitilliumText/TitilliumText25L001-webfont.svg#TitilliumText25L800wt') format('svg');
-    font-weight: normal;
-    font-style: normal;
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600);
 
+
+/* Links
+------------------------------------------------------------------------*/
+
+a.board {
+  color:inherit;
+  font-weight:600;
+
+  &:hover {
+    color:#ef6e7e;
+  }
 }
 
-@font-face {
-    font-family: 'TitilliumText25L600wt';
-    src: url('/fonts/TitilliumText/TitilliumText25L002-webfont.eot');
-    src: url('/fonts/TitilliumText/TitilliumText25L002-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/TitilliumText/TitilliumText25L002-webfont.woff') format('woff'),
-         url('/fonts/TitilliumText/TitilliumText25L002-webfont.ttf') format('truetype'),
-         url('/fonts/TitilliumText/TitilliumText25L002-webfont.svg#TitilliumText25L600wt') format('svg');
-    font-weight: normal;
-    font-style: normal;
+a.user {
+  color:@lightblue;
+  font-weight:600;
 
-}
-
-@font-face {
-    font-family: 'TitilliumText25L400wt';
-    src: url('/fonts/TitilliumText/TitilliumText25L003-webfont.eot');
-    src: url('/fonts/TitilliumText/TitilliumText25L003-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/TitilliumText/TitilliumText25L003-webfont.woff') format('woff'),
-         url('/fonts/TitilliumText/TitilliumText25L003-webfont.ttf') format('truetype'),
-         url('/fonts/TitilliumText/TitilliumText25L003-webfont.svg#TitilliumText25L400wt') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'TitilliumText25L250wt';
-    src: url('/fonts/TitilliumText/TitilliumText25L004-webfont.eot');
-    src: url('/fonts/TitilliumText/TitilliumText25L004-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/TitilliumText/TitilliumText25L004-webfont.woff') format('woff'),
-         url('/fonts/TitilliumText/TitilliumText25L004-webfont.ttf') format('truetype'),
-         url('/fonts/TitilliumText/TitilliumText25L004-webfont.svg#TitilliumText25L250wt') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'TitilliumText25L1wt';
-    src: url('/fonts/TitilliumText/TitilliumText25L005-webfont.eot');
-    src: url('/fonts/TitilliumText/TitilliumText25L005-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/TitilliumText/TitilliumText25L005-webfont.woff') format('woff'),
-         url('/fonts/TitilliumText/TitilliumText25L005-webfont.ttf') format('truetype'),
-         url('/fonts/TitilliumText/TitilliumText25L005-webfont.svg#TitilliumText25L1wt') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'TitilliumText25L999wt';
-    src: url('/fonts/TitilliumText/TitilliumText25L-webfont.eot');
-    src: url('/fonts/TitilliumText/TitilliumText25L-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/fonts/TitilliumText/TitilliumText25L-webfont.woff') format('woff'),
-         url('/fonts/TitilliumText/TitilliumText25L-webfont.ttf') format('truetype'),
-         url('/fonts/TitilliumText/TitilliumText25L-webfont.svg#TitilliumText25L999wt') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
+  &:hover {
+    color:#00bff0;
+  }
 }
 
 
@@ -125,8 +82,9 @@ html, body {
 .uk-navbar {
 	background:@blue !important;
 	height:70px !important;
-	font-family:'TitilliumText25L1wt', Helvetica, Arial, sans-serif;
+	font-family:'Titillium Web', Helvetica, Arial, sans-serif;
 	font-size:1.1em;
+  font-weight:300;
 
 	a {
 		color:#fff;
@@ -144,7 +102,7 @@ html, body {
 }
 
 .uk-navbar-content {
-	height:70px !important;	
+	height:70px !important;
 }
 
 .header-logo {
@@ -155,11 +113,11 @@ html, body {
 
 .header-user-pic {
 	width:auto;
-	height:46px;
-	margin-top:-13px;
+	height:42px;
+	margin-top:-11px;
 	border-radius:8px;
 	position:absolute;
-	right:12px
+	right:20px;
 }
 
 .header-user-menu {
@@ -167,8 +125,8 @@ html, body {
 	top:0;
 	right:0;
 	padding:0;
-	border-bottom-right-radius:6px;
-	border-bottom-left-radius:6px;
+	border-bottom-right-radius:8px;
+	border-bottom-left-radius:8px;
 	overflow:hidden;
 	background:@blue;
 	color:#fff;
@@ -179,7 +137,7 @@ html, body {
 
 ul.user-menu {
 	list-style-type:none;
-	margin:0;
+	margin:0 20px;
 	padding:0;
 	-webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -187,55 +145,59 @@ ul.user-menu {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-	
+
 	li {
-		padding:25px 100px 25px 20px;
+		padding:25px 86px 25px 6px;
 		border-bottom:1px solid @darkblue;
-		
+
 		&:hover {
+      padding:26px 106px 25px 26px;
+      margin:-1px -20px 0 -20px;
 			background-color:@darkblue;
 		}
 	}
-	
+
 	&:last-child {
 		border-bottom:none;
 	}
-	
+
 	.user-menu-head {
+    padding:25px 0 25px 0;
 		width:100%;
-		
+    text-indent:6px;
+
 		&:hover {
 			border-color:@blue;
 			cursor:pointer;
+      padding:25px 20px 25px 20px;
+      margin:0 -20px;
 		}
 	}
-	
+
+  .user-menu-item {
+    background-position:right 6px center;
+    background-size:auto 20pt;
+    background-repeat:no-repeat;
+
+    &:hover {
+      background-position:right 26px center;
+    }
+  }
+
 	.menu-item-address {
 		background-image:url(/images/icons/address-icon.svg);
-		background-position:right 20px center;
-		background-size:auto 20pt;
-		background-repeat:no-repeat;
 	}
-	
+
 	.menu-item-bookings {
 		background-image:url(/images/icons/bookings-icon.svg);
-		background-position:right 20px center;
-		background-size:auto 20pt;
-		background-repeat:no-repeat;
 	}
-	
+
 	.menu-item-profile {
 		background-image:url(/images/icons/user-icon.svg);
-		background-position:right 20px center;
-		background-size:auto 20pt;
-		background-repeat:no-repeat;
 	}
-	
+
 	.menu-item-logout {
 		background-image:url(/images/icons/logout-icon.svg);
-		background-position:right 20px center;
-		background-size:auto 19pt;
-		background-repeat:no-repeat;
 	}
 }
 
@@ -248,28 +210,128 @@ ul.user-menu {
 }
 
 
+/* Content - Feed
+------------------------------------------------------------------------*/
+
+#feed-container {
+  padding:0 35px 35px 35px;
+  color:@slate !important;
+}
+
+.uk-comment-list {
+  li {
+    border-bottom: 1px solid #eee;
+    padding:2.1em 0 1.9em 0;
+  }
+
+  li.feed-header {
+    font-family:'Titillium Web', Helvetica, Arial, sans-serif;
+    font-size:4.6em;
+    font-weight:300;
+    line-height:1 !important;
+    padding:0 0 0.8em 0;
+    margin-bottom:0.4em;
+  }
+}
+
+.feed-header-settings {
+  font-family:'Titillium Web', Helvetica, Arial, sans-serif;
+  font-size:0.333em;
+  font-weight:300;
+  line-height:3.5 !important;
+  vertical-align:bottom;
+  float:right;
+  color:@bluegrey;
+}
+
+.notice-pin {
+  content:'';
+  width:16px;
+  height:16px;
+  float:right;
+  border-radius:16px;
+  border:2px solid @bluegrey;
+  margin-left:25px;
+  margin-top:0.6em;
+
+  &:hover {
+    cursor:pointer;
+    background:@bluegrey;
+  }
+}
+
+.unpinned {
+  background:none;
+
+  &:hover {
+    cursor:pointer;
+    background:@bluegrey;
+  }
+}
+
+.pinned {
+  background:@bluegrey;
+
+  &:hover {
+    background:none;
+  }
+}
+
+.uk-comment {
+  padding-right:50px;
+}
+
+.notice-title {
+  font-family:'Titillium Web', Helvetica, Arial, sans-serif;
+  font-size:2.2em;
+  font-weight:400;
+  line-height:1.2em !important;
+  margin-bottom:0.4em;
+}
+
+.uk-comment-meta {
+  font-family:'Titillium Web', Helvetica, Arial, sans-serif;
+  font-size:1.0em !important;
+  font-weight:300;
+  line-height:2.4em !important;
+  width:100%;
+  color:@slate !important;
+}
+
+.uk-comment-avatar {
+  float:none !important;
+  display:inline;
+  margin:0 6px !important;
+  border-radius:3px;
+  margin-top:-3px !important;
+}
+
+
 /*!
  * FullCalendar v2.0.0-beta2 Stylesheet
  * Docs & License: http://arshaw.com/fullcalendar/
  * (c) 2013 Adam Shaw
  */
 
+ /* FullCalendar
+ ------------------------------------------------------------------------*/
+
 
 .fc {
 	direction: ltr;
 	text-align: left;
 	}
-	
+
 .fc table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	}
-	
+
 html .fc,
 .fc table {
 	font-size: 1em;
 	}
-	
+
 .fc td,
 .fc th {
 	padding: 0;
@@ -289,53 +351,53 @@ html .fc,
 	width: 25%;
 	text-align: left;
 	}
-	
+
 .fc-header-center {
 	text-align: center;
 	}
-	
+
 .fc-header-right {
 	width: 25%;
 	text-align: right;
 	}
-	
+
 .fc-header-title {
 	display: inline-block;
 	vertical-align: top;
 	}
-	
+
 .fc-header-title h2 {
 	margin-top: 0;
 	white-space: nowrap;
 	}
-	
+
 .fc .fc-header-space {
 	padding-left: 10px;
 	}
-	
+
 .fc-header .fc-button {
 	margin-bottom: 1em;
 	vertical-align: top;
 	}
-	
+
 /* buttons edges butting together */
 
 .fc-header .fc-button {
 	margin-right: 10px;
 	}
-	
+
 .fc-header .fc-corner-right,  /* non-theme */
 .fc-header .ui-corner-right { /* theme */
 	margin-right: 0; /* back to normal */
 	}
-	
+
 /* button layering (for border precedence) */
-	
+
 .fc-header .fc-state-hover,
 .fc-header .ui-state-hover {
 	z-index: 2;
 	}
-	
+
 .fc-header .fc-state-down {
 	z-index: 3;
 	}
@@ -344,26 +406,26 @@ html .fc,
 .fc-header .ui-state-active {
 	z-index: 4;
 	}
-	
-	
-	
+
+
+
 /* Content
 ------------------------------------------------------------------------*/
-	
+
 .fc-content {
 	position: relative;
 	z-index: 1; /* scopes all other z-index's to be inside this container */
 	clear: both;
 	zoom: 1; /* for IE7, gives accurate coordinates for [un]freezeContentHeight */
 	}
-	
+
 .fc-view {
 	position: relative;
 	width: 100%;
 	overflow: hidden;
 	}
-	
-	
+
+
 
 /* Cell Styles
 ------------------------------------------------------------------------*/
@@ -372,17 +434,17 @@ html .fc,
 .fc-widget-content {  /* <td>, usually */
 	border: 1px solid #ddd;
 	}
-	
+
 .fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
 	background: #f8f8f8;
 	}
-	
+
 .fc-cell-overlay { /* semi-transparent rectangle while dragging */
 	background: #bce8f1;
 	opacity: .3;
 	filter: alpha(opacity=30); /* for IE */
 	}
-	
+
 
 
 /* Buttons
@@ -398,7 +460,7 @@ html .fc,
 	white-space: nowrap;
 	cursor: pointer;
 	}
-	
+
 .fc-state-default { /* non-theme */
 	border: 1px solid;
 	}
@@ -442,7 +504,7 @@ html .fc,
 .fc-icon-right-double-arrow:after {
 	content: "\000BB";
 	}
-	
+
 /* icon (for jquery ui) */
 
 .fc-button .ui-icon {
@@ -451,7 +513,7 @@ html .fc,
 	float: left;
 	margin-top: -8px; /* we know jqui icons are always 16px tall */
 	}
-	
+
 /*
   button states
   borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
@@ -499,7 +561,7 @@ html .fc,
 	box-shadow: none;
 	}
 
-	
+
 
 /* Global Event Styles
 ------------------------------------------------------------------------*/
@@ -512,7 +574,7 @@ html .fc,
 .fc-event-container > .ui-resizable-resizing {
 	z-index: 9;
 	}
-	 
+
 .fc-event {
 	border: 1px solid #428bca; /* default BORDER color */
 	background-color: #428bca; /* default BACKGROUND color */
@@ -524,12 +586,12 @@ html .fc,
 a.fc-event {
 	text-decoration: none;
 	}
-	
+
 a.fc-event,
 .fc-event-draggable {
 	cursor: pointer;
 	}
-	
+
 .fc-rtl .fc-event {
 	text-align: right;
 	}
@@ -539,12 +601,12 @@ a.fc-event,
 	height: 100%;
 	overflow: hidden;
 	}
-	
+
 .fc-event-time,
 .fc-event-title {
 	padding: 0 1px;
 	}
-	
+
 .fc .ui-resizable-handle {
 	display: block;
 	position: absolute;
@@ -553,9 +615,9 @@ a.fc-event,
 	font-size: 300%;  /* */
 	line-height: 50%; /* */
 	}
-	
-	
-	
+
+
+
 /* Horizontal Events
 ------------------------------------------------------------------------*/
 
@@ -577,9 +639,9 @@ a.fc-event,
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
 	}
-	
+
 /* resizable */
-	
+
 .fc-event-hori .ui-resizable-e {
 	top: 0           !important; /* importants override pre jquery ui 1.7 styles */
 	right: -3px      !important;
@@ -587,7 +649,7 @@ a.fc-event,
 	height: 100%     !important;
 	cursor: e-resize;
 	}
-	
+
 .fc-event-hori .ui-resizable-w {
 	top: 0           !important;
 	left: -3px       !important;
@@ -595,41 +657,41 @@ a.fc-event,
 	height: 100%     !important;
 	cursor: w-resize;
 	}
-	
+
 .fc-event-hori .ui-resizable-handle {
 	_padding-bottom: 14px; /* IE6 had 0 height */
 	}
-	
-	
-	
+
+
+
 /* Reusable Separate-border Table
 ------------------------------------------------------------*/
 
 table.fc-border-separate {
 	border-collapse: separate;
 	}
-	
+
 .fc-border-separate th,
 .fc-border-separate td {
 	border-width: 1px 0 0 1px;
 	}
-	
+
 .fc-border-separate th.fc-last,
 .fc-border-separate td.fc-last {
 	border-right-width: 1px;
 	}
-	
+
 .fc-border-separate tr.fc-last th,
 .fc-border-separate tr.fc-last td {
 	border-bottom-width: 1px;
 	}
-	
+
 .fc-border-separate tbody tr.fc-first td,
 .fc-border-separate tbody tr.fc-first th {
 	border-top-width: 0;
 	}
-	
-	
+
+
 
 /* Month View, Basic Week View, Basic Day View
 ------------------------------------------------------------------------*/
@@ -646,12 +708,12 @@ table.fc-border-separate {
 .fc .fc-week-number div {
 	padding: 0 2px;
 	}
-	
+
 .fc-grid .fc-day-number {
 	float: right;
 	padding: 0 2px;
 	}
-	
+
 .fc-grid .fc-other-month .fc-day-number {
 	opacity: 0.3;
 	filter: alpha(opacity=30); /* for IE */
@@ -659,29 +721,29 @@ table.fc-border-separate {
 	   might want to set the 'color' property instead
 	   making day-numbers bold also fixes the problem */
 	}
-	
+
 .fc-grid .fc-day-content {
 	clear: both;
 	padding: 2px 2px 1px; /* distance between events and day edges */
 	}
-	
+
 /* event styles */
-	
+
 .fc-grid .fc-event-time {
 	font-weight: bold;
 	}
-	
+
 /* right-to-left */
-	
+
 .fc-rtl .fc-grid .fc-day-number {
 	float: left;
 	}
-	
+
 .fc-rtl .fc-grid .fc-event-time {
 	float: right;
 	}
-	
-	
+
+
 
 /* Agenda Week View, Agenda Day View
 ------------------------------------------------------------------------*/
@@ -689,11 +751,11 @@ table.fc-border-separate {
 .fc-agenda table {
 	border-collapse: separate;
 	}
-	
+
 .fc-agenda-days th {
 	text-align: center;
 	}
-	
+
 .fc-agenda .fc-agenda-axis {
 	width: 50px;
 	padding: 0 4px;
@@ -709,58 +771,58 @@ table.fc-border-separate {
 .fc-agenda .fc-week-number {
 	font-weight: bold;
 	}
-	
+
 .fc-agenda .fc-day-content {
 	padding: 2px 2px 1px;
 	}
-	
+
 /* make axis border take precedence */
-	
+
 .fc-agenda-days .fc-agenda-axis {
 	border-right-width: 1px;
 	}
-	
+
 .fc-agenda-days .fc-col0 {
 	border-left-width: 0;
 	}
-	
+
 /* all-day area */
-	
+
 .fc-agenda-allday th {
 	border-width: 0 1px;
 	}
-	
+
 .fc-agenda-allday .fc-day-content {
 	min-height: 34px; /* TODO: doesnt work well in quirksmode */
 	_height: 34px;
 	}
-	
+
 /* divider (between all-day and slots) */
-	
+
 .fc-agenda-divider-inner {
 	height: 2px;
 	overflow: hidden;
 	}
-	
+
 .fc-widget-header .fc-agenda-divider-inner {
 	background: #eee;
 	}
-	
+
 /* slot rows */
-	
+
 .fc-agenda-slots th {
 	border-width: 1px 1px 0;
 	}
-	
+
 .fc-agenda-slots td {
 	border-width: 1px 0 0;
 	background: none;
 	}
-	
+
 .fc-agenda-slots td div {
 	height: 30px;
 	}
-	
+
 .fc-agenda-slots tr.fc-slot0 th,
 .fc-agenda-slots tr.fc-slot0 td {
 	border-top-width: 0;
@@ -770,11 +832,11 @@ table.fc-border-separate {
 .fc-agenda-slots tr.fc-minor td {
 	border-top-style: none;
 	}
-	
+
 .fc-agenda-slots tr.fc-minor th.ui-widget-header {
 	*border-top-style: solid; /* doesn't work with background in IE6/7 */
 	}
-	
+
 
 
 /* Vertical Events
@@ -795,7 +857,7 @@ table.fc-border-separate {
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
 	}
-	
+
 .fc-event-vert .fc-event-time {
 	white-space: nowrap;
 	font-size: 10px;
@@ -805,7 +867,7 @@ table.fc-border-separate {
 	position: relative;
 	z-index: 2;
 	}
-	
+
 .fc-event-vert .fc-event-bg { /* makes the event lighter w/ a semi-transparent overlay  */
 	position: absolute;
 	z-index: 1;
@@ -817,14 +879,14 @@ table.fc-border-separate {
 	opacity: .25;
 	filter: alpha(opacity=25);*/
 	}
-	
+
 .fc .ui-draggable-dragging .fc-event-bg, /* TODO: something nicer like .fc-opacity */
 .fc-select-helper .fc-event-bg {
 	display: none\9; /* for IE6/7/8. nested opacity filters while dragging don't work */
 	}
-	
+
 /* resizable */
-	
+
 .fc-event-vert .ui-resizable-s {
 	bottom: 0        !important; /* importants override pre jquery ui 1.7 styles */
 	width: 100%      !important;
@@ -836,9 +898,7 @@ table.fc-border-separate {
 	text-align: center;
 	cursor: s-resize;
 	}
-	
+
 .fc-agenda .ui-resizable-resizing { /* TODO: better selector */
 	_overflow: hidden;
 	}
-	
-	
