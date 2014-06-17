@@ -1,7 +1,7 @@
 var should = chai.should();
 
 describe("Controllers", function(){
-    describe("Feeds controller", function(){
+    describe("Notices controller", function(){
         it("The First Test", function(){
             chai.assert.equal(true, true);
         });

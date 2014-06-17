@@ -1,9 +1,9 @@
 var should = chai.should();
 
 describe("Model", function(){
-    describe("Feeds Collection", function(){
+    describe("Notices Collection", function(){
         it("should exist", function(){
-            should.exist(Feeds);
+            should.exist(Notices);
         });
     });
 });
