@@ -2,6 +2,10 @@ Template.feed.timeago = function(){
    return this.postedAt.toDateString();
 };
 
+Template.feed.pinnedClass = function(){
+    return this.pinned ? 'pinned' : 'unpinned';
+};
+
 Template.feed.events({
     'click .post, keypress' : function(event, template) {
         if (event.which == 13 || event.keyCode == 13 || event.target.type == "submit") {

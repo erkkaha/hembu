@@ -6,10 +6,10 @@ describe("Client", function(){
             Router.routes.length.should.equal(9);
         });
         it("root path should equal '/'", function(){
-            Router.routes.root.originalPath.should.equal('/')
-        })
-        it("home path should equal '/home/:address'", function(){
-            Router.routes.home.originalPath.should.equal('/home/:address')
-        })
+            Router.routes.root.originalPath.should.equal('/');
+        });
+        it("home path should equal '/home/:address/:board'", function(){
+            Router.routes.home.originalPath.should.equal('/home/:address/:board');
+        });
     });
 });

@@ -7,13 +7,13 @@ Router.map(function() {
         },
         action:function(){
             if(this.ready()){
-                if(Meteor.user().addresses === undefined)
-                    Router.go('addressesCreate', {_id:'new'})
+                if(!Hembu.userHasAddress)
+                    Router.go('addressesCreate', {address:'new'})
                 else
-                    Router.go('home', {address: Hembu.getCurrentAddress()._id});
+                    Router.go('home', {address: Hembu.getCurrentAddress().address});
             }
     }});
-    this.route('home', {path:'/home/:address/:board', layoutTemplate: 'layout', 
+    this.route('home', {path:'/home/:address/:board?', layoutTemplate: 'layout', 
         waitOn: function() {
             return Meteor.subscribe('userData');
         },

@@ -10,8 +10,7 @@ template(name='feed')
              | settings
            each notices
             li
-             //TODO check if notice is pinned/unpinned and add correct secondary class
-             .notice-pin.unpinned
+             .notice-pin(class="{{pinnedClass}}")
              article.uk-comment
               .uk-comment-body
                 p.notice-headline #{content}
