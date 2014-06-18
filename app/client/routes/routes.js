@@ -21,7 +21,7 @@ Router.map(function() {
             if(this.ready()){
                 return {
                     address:Hembu.getCurrentAddress(),
-                    notices:Notices.find({board:this.params.board},{sort:{postedAt:-1}}).fetch()
+                    notices:Notices.find({boardId:this.params.board},{sort:{postedAt:-1}}).fetch()
                 }
             }
         },

@@ -2,7 +2,7 @@ var should = chai.should();
 
 describe("Templates", function(){
     describe("Menu", function(){
-        it("should return profile", function(){
+        it("should return profile", function(done){
             should.exist(Template.menu.profile);
             this.timeout(5000);
             //Wait for userData to load
@@ -11,16 +11,16 @@ describe("Templates", function(){
                     Template.menu.profile.call().should.be.an('object');
                 else
                     should.not.exist(Template.menu.profile.call());
-            done();
+                done();
             }, 3000);
         });
-        it("should return currentAddress", function(){
+        it("should return currentAddress", function(done){
             should.exist(Template.menu.address);
             this.timeout(5000);
             //Wait for address collection to load
             Meteor.setTimeout(function(){
                 Template.menu.address.call().should.be.an('object');
-            done();
+                done();
             }, 3000);
         });
         it("should return url for board links", function(done){
