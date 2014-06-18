@@ -8,7 +8,12 @@ Addresses = new Meteor.Collection('addresses');
 Meteor.subscribe("addresses");
 Facilities = new Meteor.Collection('facilities');
 Meteor.subscribe('facilities');
-Notices = new Meteor.Collection("notices");
+Notices = new Meteor.Collection("notices", {
+    transform:function(doc){
+        doc.pinned = doc.pinnedTo > new Date();
+        return doc;
+    }
+});
 Meteor.subscribe('notices');
 
 Hembu={
