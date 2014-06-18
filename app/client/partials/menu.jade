@@ -1,6 +1,7 @@
 template(name="menu")
  nav.uk-navbar.uk-margin-large-bottom
-    a.uk-navbar-brand.uk-hidden-small(href="{{pathFor 'home'}}")
+    a.uk-navbar-toggle(href='#offcanvas', data-uk-offcanvas)
+    a.uk-navbar-brand(href="{{pathFor 'home'}}")
       img.header-logo(src="/images/hembu-logo.svg")
     ul.uk-navbar-nav.uk-hidden-small
         //li.uk-active
@@ -18,7 +19,7 @@ template(name="menu")
           img.header-user-pic(src="#{profile.profilePic}")
          a(href="#")
           li.user-menu-item.menu-item-address
-           | #{address}
+           | #{address.displayAddress}
          a(href="#")
           li.user-menu-item.menu-item-bookings
            | Bookings
@@ -28,13 +29,11 @@ template(name="menu")
          a(href="{{pathFor 'logout'}}")
           li.user-menu-item.menu-item-logout
            | Log out
-
-    a.uk-navbar-toggle.uk-visible-small(href='#offcanvas', data-uk-offcanvas)
-    a.uk-navbar-brand.uk-navbar-center.uk-visible-small(href="{{pathFor 'home'}}") Hembu
  #offcanvas.uk-offcanvas
   .uk-offcanvas-bar
    ul.uk-nav.uk-nav-offcanvas
-    li.uk-active
-      a(href="{{pathFor 'home'}}") Home
+    each address.boards
+     li.uk-active
+      a(href="{{boardUrl}}") #{this}
     li
       a(href="{{pathFor 'logout'}}") Logout

@@ -4,14 +4,18 @@ Template.menu.profile = function() {
 	} else {
 		return null;
 	}
-}
+};
 Template.menu.address = function() {
 	if(Meteor.user() && Hembu.userHasAddress()) {
-		return Hembu.getCurrentAddress().displayAddress;
+		return Hembu.getCurrentAddress();
 	} else {
 		return '';
 	}
-}
+};
+
+Template.menu.boardUrl = function() {
+    return Router.url('home', {address:Hembu.getCurrentAddress().address, board:this})
+};
 
 var userMenuToggle = false;
 
