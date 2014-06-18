@@ -1,10 +1,3 @@
-Feeds = new Meteor.Collection("feeds");
-Meteor.subscribe('feeds');
-
-Template.feed.Feeds = function () {
-    return Feeds.find({},{sort:{postedAt:-1}});
-};
-
 Template.feed.timeago = function(){
    return this.postedAt.toDateString();
 };

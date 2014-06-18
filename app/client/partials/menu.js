@@ -5,6 +5,13 @@ Template.menu.profile = function() {
 		return null;
 	}
 }
+Template.menu.address = function() {
+	if(Meteor.user() && Hembu.userHasAddress()) {
+		return Hembu.getCurrentAddress().displayAddress;
+	} else {
+		return '';
+	}
+}
 
 var userMenuToggle = false;
 

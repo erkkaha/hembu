@@ -3,6 +3,7 @@
     "jade": {},
     "iron-router": {},
     "moment": {},
-    "livestamp": {}
+    "livestamp": {},
+    "mocha-web": {}
   }
 }

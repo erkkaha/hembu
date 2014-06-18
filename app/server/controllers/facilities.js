@@ -13,5 +13,14 @@ Meteor.methods({
         else 
             return _id;
     });
+  },
+  addEvent: function(options){
+        options = options || {};
+        if(!options.start)
+            throw new Meteor.Error(400, "Required parameter missing");
+        return Events.insert({
+            title: 'Reserved',
+            start: options.start
+        });
   }
 });
