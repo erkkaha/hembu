@@ -10,6 +10,14 @@ Template.feed.board = function(){
     return Boards.findOne({_id: this.boardId});
 };
 
+Template.feed.title = function(){
+	if(this.board) {
+		return this.board.name;
+	} else {
+		return "Feed"
+	}
+};
+
 Template.feed.events({
     'click .post, keypress' : function(event, template) {
         if (event.which == 13 || event.keyCode == 13 || event.target.type == "submit") {

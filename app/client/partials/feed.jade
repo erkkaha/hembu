@@ -4,8 +4,7 @@ template(name='feed')
             //textarea#feedContent(rows="1", name='feedContent', value='', placeholder="Share something")
             //button.uk-button.uk-float-right.post(type='submit') Add
     ul#feed-container.uk-comment-list
-           li.feed-header
-            | Feed
+           li.feed-header #{title}
             .feed-header-settings
              | settings
            each notices
