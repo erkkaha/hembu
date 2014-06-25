@@ -1453,8 +1453,9 @@
 
             element.addClass("uk-active");
 
-            doc.css({"width": window.innerWidth, "height": window.innerHeight}).addClass("uk-offcanvas-page");
-            doc.css((rtl ? "margin-right" : "margin-left"), (rtl ? -1 : 1) * ((bar.outerWidth() - scrollbar) * dir)).width(); // .width() - force redraw
+            //Stop messing with html margin
+            //doc.css({"width": window.innerWidth, "height": window.innerHeight}).addClass("uk-offcanvas-page");
+            //doc.css((rtl ? "margin-right" : "margin-left"), (rtl ? -1 : 1) * ((bar.outerWidth() - scrollbar) * dir)).width(); // .width() - force redraw
 
             bar.addClass("uk-offcanvas-bar-show").width();
 

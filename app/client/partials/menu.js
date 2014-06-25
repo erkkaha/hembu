@@ -13,8 +13,12 @@ Template.menu.address = function() {
 	}
 };
 
+Template.menu.boards = function() {
+	return Boards.find();
+};
+
 Template.menu.boardUrl = function() {
-    return Router.url('home', {address:Hembu.getCurrentAddress().address, board:this})
+    return Router.url('home', {address:Hembu.getCurrentAddress().address, board:this.name});
 };
 
 var userMenuToggle = false;

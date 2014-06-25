@@ -5,6 +5,10 @@ Meteor.methods({
           throw new Meteor.Error(400, "Notice Headline is missing");
         if (!(typeof options.content === "string" && options.content.length ))
           throw new Meteor.Error(400, "Notice content is missing");
+        if (!(typeof options.boardId === "string" && options.boardId.length ))
+          throw new Meteor.Error(400, "Notice board is missing");
+        if (!(typeof options.commentsAllowed === "boolean"))
+          throw new Meteor.Error(400, "Notice comments allowed is missing");
         if (!this.userId)
           throw new Meteor.Error(403, "You must be logged in");
     
@@ -23,7 +27,6 @@ Meteor.methods({
                 //TODO
             }
             else{
-                console.log(err)
                 //TODO
             }
         });

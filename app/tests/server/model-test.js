@@ -6,4 +6,9 @@ describe("Model", function(){
             should.exist(Notices);
         });
     });
+    describe("Boards Collection", function(){
+        it("should exist", function(){
+            should.exist(Boards);
+        });
+    });
 });

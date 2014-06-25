@@ -29,12 +29,12 @@ template(name="menu")
          a(href="{{pathFor 'logout'}}")
           li.user-menu-item.menu-item-logout
            | Log out
- #offcanvas.uk-offcanvas
+ #offcanvas.uk-offcanvas(style="background: transparent;")
   .uk-offcanvas-bar
    ul.uk-nav.uk-nav-offcanvas
-    each address.boards
+    each boards
      li.uk-active
-      a(href="{{boardUrl}}") #{this}
+      a(href="{{boardUrl}}") #{name}
     li
       a(href="{{pathFor 'writeNotice'}}") Create New Notice
     li
