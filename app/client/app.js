@@ -18,7 +18,6 @@ Meteor.subscribe('notices');
 Boards = new Meteor.Collection('boards');
 Deps.autorun(function (c) {
     if(Session.get('currentAddress')){
-        console.log('foobaring', Session.get('currentAddress'))
         Meteor.subscribe("boards", {address : Session.get('currentAddress')._id});
     }
 });
@@ -37,5 +36,18 @@ Hembu={
     },
     setCurrentAddress: function(address){
         Session.set('currentAddress', Addresses.findOne({address:address}));
+    },
+    notices:{
+        create:function(notice, callback){
+           Meteor.call('addNotice', {streetAddress:address}, function(err, result){
+            if(err)
+            {
+                callback(err);
+            } 
+            else{
+                callback(null, result);
+            }
+        });
+        }
     }
 };

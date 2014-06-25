@@ -26,7 +26,32 @@ describe("Client", function(){
     });
     describe("Hembu", function(){
         it("userHasAddress should return Boolean", function(){
-            Hembu.userHasAddress().should.be.a('boolean')
-        })
-    })
+            Hembu.userHasAddress().should.be.a('boolean');
+        });
+        describe("Notices", function(){
+            it("create should exist", function(){
+                should.exist(Hembu.notices.create);
+            });
+            it("create should throw error", function(){
+                (function () {Hembu.notices.create()}).should.Throw(Error);
+            });
+            it("should pass error object to callback", function(){
+                (function () {Hembu.notices.create({}, function(err, result){
+                    should.exist(err);
+                })});
+            });
+            it("should pass result object to callback", function(){
+                (function () {Hembu.notices.create({
+                    headline: 'headline',
+                    content: 'content',
+                    pinnedUntil: new Date(),
+                    boardId: 'board',
+                    commentsAllowed: true
+                }, function(err, result){
+                    should.exist(result);
+                })});
+            });
+            
+        });
+    });
 });

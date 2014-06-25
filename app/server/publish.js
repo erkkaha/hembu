@@ -4,7 +4,6 @@ Meteor.publish('notices', function () {
 
 Meteor.publish('boards', function (args) {
   //TODO publish only boards user has access to
-  console.log(args)
   return Boards.find({addressId: args.address});
 });
 

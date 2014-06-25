@@ -58,6 +58,7 @@ Router.map(function() {
  * ones with a login dialog.
 */
 Router.onBeforeAction(function(pause){
+    
     if (!(Meteor.loggingIn() || Meteor.user())) {
           Router.go('login');
           pause();
@@ -68,4 +69,24 @@ Router.onBeforeAction(function(pause){
     }
 }, {except: ['login', 'signup']});
 
-Router.onBeforeAction('loading');
+Router.onStop(function(){
+    Router._previous = Router.current();
+});
+Router.previous = function(){
+    return Router._previous;
+};
+Router.back = function(callback){
+    var previous = Router.previous();
+    if(previous){
+        Router.go(previous.route.name, previous.params);
+        if(callback)
+            callback(null);
+    }
+    else{
+        var err = new Error("No previous route available");
+        if(callback)
+            callback();
+        else
+            throw err;
+    }
+};

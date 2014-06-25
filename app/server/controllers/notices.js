@@ -27,7 +27,6 @@ Meteor.methods({
                 //TODO
             }
             else{
-                console.log(err)
                 //TODO
             }
         });
