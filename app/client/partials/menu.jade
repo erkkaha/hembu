@@ -1,7 +1,7 @@
 template(name="menu")
  nav.uk-navbar.uk-margin-large-bottom
     a.uk-navbar-toggle(href='#offcanvas', data-uk-offcanvas)
-    a.uk-navbar-brand(href="{{pathFor 'root'}}")
+    a.uk-navbar-brand(href="/home/{{address.address}}")
       img.header-logo(src="/images/hembu-logo.svg")
     ul.uk-navbar-nav.uk-hidden-small
         //li.uk-active
