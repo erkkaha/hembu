@@ -8,7 +8,7 @@ Template.writeNotice.events({
                     headline: template.find("#noticeHeadline").value,
                     content: template.find("#noticeContent").value,
                     pinnedUntil: new Date(),
-                    boardId: '98tLKCu6yfzutouXj',
+                    boardId: 'yihvGAThSgJ7qYtdj',
                     commentsAllowed: true
                 }
 		
