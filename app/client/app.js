@@ -39,7 +39,7 @@ Hembu={
     },
     notices:{
         create:function(notice, callback){
-           Meteor.call('addNotice', {streetAddress:address}, function(err, result){
+           Meteor.call('addNotice', notice, function(err, result){
             if(err)
             {
                 callback(err);

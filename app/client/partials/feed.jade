@@ -13,15 +13,13 @@ template(name='feed')
              .notice-pin(class="{{pinnedClass}}")
              article.uk-comment
               .uk-comment-body
-                p.notice-headline #{content}
+                p.notice-headline #{headline}
               header.uk-comment-header
                .uk-comment-meta
                  | Posted
                  span(data-livestamp="{{postedAt}}")
                  | to
-                 a(href='#' class='board')
-                  //TODO get board from notice data
-                  | Noticeboard
+                 a(href='#' class='board') #{boardId}
                  | by
                  a(href='#')
                   //TODO get author avatar from notice data
