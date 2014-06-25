@@ -1,7 +1,7 @@
 template(name="menu")
  nav.uk-navbar.uk-margin-large-bottom
     a.uk-navbar-toggle(href='#offcanvas', data-uk-offcanvas)
-    a.uk-navbar-brand(href="{{pathFor 'home'}}")
+    a.uk-navbar-brand(href="{{pathFor 'root'}}")
       img.header-logo(src="/images/hembu-logo.svg")
     ul.uk-navbar-nav.uk-hidden-small
         //li.uk-active
@@ -35,5 +35,7 @@ template(name="menu")
     each boards
      li.uk-active
       a(href="{{boardUrl}}") #{name}
+    li
+      a(href="{{pathFor 'writeNotice'}}") Create New Notice
     li
       a(href="{{pathFor 'logout'}}") Logout
