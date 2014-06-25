@@ -2,15 +2,18 @@ Template.writeNotice.events({
     'click #back-button': function(event, template){
         Router.back();
     },
-    'click #foobar': function(event, template){
+    'click #pin-button': function(event, template){
+		event.preventDefault();
         var notice = {
-                    headline: 'headline',
-                    content: 'content',
+                    headline: template.find("#noticeHeadline").value,
+                    content: template.find("#noticeContent").value,
                     pinnedUntil: new Date(),
-                    boardId: 'board',
+                    boardId: 'yihvGAThSgJ7qYtdj',
                     commentsAllowed: true
                 }
-        Hembu.notice.create(notice, function(err, result){
+		
+		console.log(notice);
+        Hembu.notices.create(notice, function(err, result){
             if(err){
                 //TODO
             }
