@@ -21,10 +21,11 @@ Router.map(function() {
         data:function(){
             if(this.ready()){
                 var board = Boards.findOne({name:this.params.board})
+                var notices = this.params.board == undefined ? Notices.find({},{sort:{postedAt:-1}}).fetch() : Notices.find({boardId:board._id},{sort:{postedAt:-1}}).fetch();
                 return {
                     address:Hembu.getCurrentAddress(),
                     board: board,
-                    notices:Notices.find({boardId:board._id},{sort:{postedAt:-1}}).fetch()
+                    notices:notices
                 };
             }
         },
