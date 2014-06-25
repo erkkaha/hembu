@@ -20,10 +20,11 @@ Router.map(function() {
         },
         data:function(){
             if(this.ready()){
-                var boardId = Boards.findOne({name:this.params.board})
+                var board = Boards.findOne({name:this.params.board})
                 return {
                     address:Hembu.getCurrentAddress(),
-                    notices:Notices.find({boardId:boardId},{sort:{postedAt:-1}}).fetch()
+                    board: board,
+                    notices:Notices.find({boardId:board._id},{sort:{postedAt:-1}}).fetch()
                 };
             }
         },

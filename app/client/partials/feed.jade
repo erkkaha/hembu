@@ -19,9 +19,10 @@ template(name='feed')
                  | Posted
                  span(data-livestamp="{{postedAt}}")
                  | to
-                 a(href='#' class='board')
-                  //TODO get board from notice data
-                  | Noticeboard
+                 with board
+                  a(href='#' class='board')
+                   #{name}
+                   
                  | by
                  a(href='#')
                   //TODO get author avatar from notice data
