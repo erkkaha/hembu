@@ -20,8 +20,6 @@ Meteor.methods({
         else{
             Meteor.users.update({_id:Meteor.userId()}, {$addToSet:{'addresses':{
                 _id : _id,
-                displayAddress: address.displayAddress,
-                address: address.address,
                 verified: true
             }}}, function(err){
                 address._id = _id;

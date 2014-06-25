@@ -10,7 +10,7 @@ Facilities = new Meteor.Collection('facilities');
 Meteor.subscribe('facilities');
 Notices = new Meteor.Collection("notices", {
     transform:function(doc){
-        doc.pinned = doc.pinnedTo > new Date();
+        doc.pinned = doc.pinnedUntil > new Date();
         return doc;
     }
 });
