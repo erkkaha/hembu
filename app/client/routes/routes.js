@@ -29,6 +29,7 @@ Router.map(function() {
             this.render();
         }
     });
+	this.route('writeNotice', {path: '/write', layoutTemplate: 'blank'});
     this.route('facilitiesCreate', {path: '/facilities/:address/new/create', template:'facilitiesCreate', layoutTemplate: 'layout'})
     this.route('facilitiesList', {path: '/facilities/:address/', template:'facilitiesList', layoutTemplate: 'layout', 
         data:function(){
