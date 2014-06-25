@@ -2,6 +2,12 @@ Meteor.publish('notices', function () {
   return Notices.find({},{sort:{postedAt:-1}});
 });
 
+Meteor.publish('boards', function (args) {
+  //TODO publish only boards user has access to
+  console.log(args)
+  return Boards.find({addressId: args.address});
+});
+
 Meteor.publish('events', function () {
   return Events.find({});
 });

@@ -8,28 +8,30 @@ Router.map(function() {
         action:function(){
             if(this.ready()){
                 if(!Hembu.userHasAddress)
-                    Router.go('addressesCreate', {address:'new'})
+                    Router.go('addressesCreate', {address:'new'});
                 else
                     Router.go('home', {address: Hembu.getCurrentAddress().address});
             }
     }});
     this.route('home', {path:'/home/:address/:board?', layoutTemplate: 'layout', 
         waitOn: function() {
+            Hembu.setCurrentAddress(this.params.address); 
             return Meteor.subscribe('userData');
         },
         data:function(){
             if(this.ready()){
+                var boardId = Boards.findOne({name:this.params.board})
                 return {
                     address:Hembu.getCurrentAddress(),
-                    notices:Notices.find({boardId:this.params.board},{sort:{postedAt:-1}}).fetch()
-                }
+                    notices:Notices.find({boardId:boardId},{sort:{postedAt:-1}}).fetch()
+                };
             }
         },
         action: function(){
             this.render();
         }
     });
-    this.route('facilitiesCreate', {path: '/facilities/:address/new/create', template:'facilitiesCreate', layoutTemplate: 'layout'})
+    this.route('facilitiesCreate', {path: '/facilities/:address/new/create', template:'facilitiesCreate', layoutTemplate: 'layout'});
     this.route('facilitiesList', {path: '/facilities/:address/', template:'facilitiesList', layoutTemplate: 'layout', 
         data:function(){
             return {address: this.params.address, facilities : Facilities.find({address:this.params.address}).fetch()};

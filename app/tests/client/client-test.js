@@ -18,6 +18,11 @@ describe("Client", function(){
                 Notices._transform({_id:'foo'}).pinned.should.be.a('boolean');
             });
         });
+        describe("Boards", function(){
+            it("should have boards collection", function(){
+                should.exist(Boards);
+            });
+        });
     });
     describe("Hembu", function(){
         it("userHasAddress should return Boolean", function(){

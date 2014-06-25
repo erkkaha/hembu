@@ -28,8 +28,8 @@ describe("Templates", function(){
             should.exist(Template.menu.boardUrl);
             //Wait for address collection to load
             Meteor.setTimeout(function(){
-                Template.menu.boardUrl.call(new String("noticeboard")).should.be.a('string');
-                Template.menu.boardUrl.call(new String("noticeboard")).should.equal(Router.url('home', {address:Hembu.getCurrentAddress().address, board:"noticeboard"}))
+                Template.menu.boardUrl.call({name:new String("noticeboard")}).should.be.a('string');
+                Template.menu.boardUrl.call({name:new String("noticeboard")}).should.equal(Router.url('home', {address:Hembu.getCurrentAddress().address, board:"noticeboard"}))
                 done();
             }, 3000);
         });
