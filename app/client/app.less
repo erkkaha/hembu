@@ -317,11 +317,97 @@ ul.user-menu {
 ------------------------------------------------------------------------*/
 
 #new-notice-wrapper {
-  padding:20px;
+  padding:0 30px 20px 30px;
+
+  input,
+  textarea {
+    width:100%;
+    height:auto;
+    font-family:'Titillium Web', Helvetica, Arial, sans-serif;
+    border:none;
+    background:none;
+    resize:none;
+  }
+
+  ::-webkit-input-placeholder {
+     color: inherit;
+     opacity:0.8;
+  }
+  :-moz-placeholder {
+     color: inherit;
+     opacity:0.8;
+  }
+  ::-moz-placeholder {
+     color: inherit;
+     opacity:0.8;
+  }
+  :-ms-input-placeholder {
+     color: inherit;
+     opacity:0.8;
+  }
+
+  input:focus::-webkit-input-placeholder,
+  textarea:focus::-webkit-input-placeholder {
+     opacity:0.1;
+  }
+  input:focus:-moz-placeholder,
+  textarea:focus:-moz-placeholder {
+     opacity:0.1;
+  }
+  input:focus::-moz-placeholder,
+  textarea:focus::-moz-placeholder {
+     opacity:0.1;
+  }
+  input:focus:-ms-input-placeholder,
+  textarea:focus:-ms-input-placeholder {
+     opacity:0.1;
+  }
 }
 
 #noticeHeadline {
+  font-size:2.6em;
+  font-weight:400;
+  margin-bottom:1.2em;
+  padding-bottom:1.2em;
+  border-bottom:1px solid #eee !important;
+}
 
+#noticeContent {
+  font-size:1.4em;
+  font-weight:200;
+}
+
+#new-notice-options {
+  width:100%;
+  background:@kerma;
+  position:fixed;
+  bottom:0;
+  left:0;
+  margin:2.4em 0;
+}
+
+#new-notice-options-wrapper {
+  position:static;
+  clear:left;
+  margin:0 30px;
+  padding:2.4em 0;
+  border-top:1px solid #eee !important;
+}
+
+#pin-button {
+  &:hover {
+    background-color:@blue;
+    color:#fff;
+  }
+}
+
+#board-button {
+  background-color:#ef6e7e;
+  color:#fff;
+  &:hover {
+    background-color:#ff7585;
+    cursor:pointer;
+  }
 }
 
 
