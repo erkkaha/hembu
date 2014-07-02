@@ -32,7 +32,7 @@ describe("Client", function(){
             it("create should exist", function(){
                 should.exist(Hembu.notices.create);
             });
-            it("create should throw error", function(){
+            it("create should throw error without callback", function(){
                 (function () {Hembu.notices.create()}).should.Throw(Error);
             });
             it("should pass error object to callback", function(){

@@ -39,6 +39,8 @@ Hembu={
     },
     notices:{
         create:function(notice, callback){
+           if(!callback)
+                throw new Meteor.Error(400, "callback is required");
            Meteor.call('addNotice', notice, function(err, result){
             if(err)
             {
