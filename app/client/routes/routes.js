@@ -37,6 +37,16 @@ Router.map(function() {
             this.render();
         }
     });
+    //write route has to be before view route due id param stuff!
+    this.route('writeNotice', {path: '/home/:addressParam/:boardParam?/write', layoutTemplate: 'blank', 
+        waitOn: function() {
+             Hembu.setCurrentAddress(this.params.addressParam); 
+             return Meteor.subscribe('userData');
+         },
+ 		action: function(){
+             this.render();
+         }
+ 	});
     this.route('notice', {path:'/home/:addressParam/:boardParam/:_id', layoutTemplate: 'blank', 
         waitOn: function() {
             Hembu.setCurrentAddress(this.params.addressParam); 
@@ -58,15 +68,6 @@ Router.map(function() {
         }
     });
     this.route('facilitiesCreate', {path: '/facilities/:address/new/create', template:'facilitiesCreate', layoutTemplate: 'layout'});
-	this.route('writeNotice', {path: '/home/:addressParam/:boardParam?/write', layoutTemplate: 'blank', 
-        waitOn: function() {
-            Hembu.setCurrentAddress(this.params.addressParam); 
-            return Meteor.subscribe('userData');
-        },
-		action: function(){
-            this.render();
-        }
-	});
     this.route('facilitiesList', {path: '/facilities/:address/', template:'facilitiesList', layoutTemplate: 'layout', 
         data:function(){
             return {address: this.params.address, facilities : Facilities.find({address:this.params.address}).fetch()};
