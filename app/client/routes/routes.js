@@ -22,10 +22,13 @@ Router.map(function() {
             if(this.ready()){
                 var board = Boards.findOne({name:this.params.board})
                 var notices = this.params.board == undefined ? Notices.find({},{sort:{postedAt:-1}}).fetch() : Notices.find({boardId:board._id},{sort:{postedAt:-1}}).fetch();
-                return {
-                    address:Hembu.getCurrentAddress(),
-                    board: board,
-                    notices:notices
+                var address = Hembu.getCurrentAddress();
+				return {
+                    address:address,
+                    board:board,
+                    notices:notices,
+					addressParam:address.address,
+                    boardParam:board === undefined ? "notice" : board.name
                 };
             }
         },
@@ -34,7 +37,15 @@ Router.map(function() {
         }
     });
     this.route('facilitiesCreate', {path: '/facilities/:address/new/create', template:'facilitiesCreate', layoutTemplate: 'layout'});
-	this.route('writeNotice', {path: '/write', layoutTemplate: 'blank'});
+	this.route('writeNotice', {path: '/home/:addressParam/:boardParam?/write', layoutTemplate: 'blank', 
+        waitOn: function() {
+            Hembu.setCurrentAddress(this.params.addressParam); 
+            return Meteor.subscribe('userData');
+        },
+		action: function(){
+            this.render();
+        }
+	});
     this.route('facilitiesList', {path: '/facilities/:address/', template:'facilitiesList', layoutTemplate: 'layout', 
         data:function(){
             return {address: this.params.address, facilities : Facilities.find({address:this.params.address}).fetch()};

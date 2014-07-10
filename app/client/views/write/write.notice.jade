@@ -15,5 +15,8 @@ template(name='writeNotice')
         textarea#noticeContent(rows="1", name='noticeContent', value='', placeholder="type some text or add an image...")
         #new-notice-options
           #new-notice-options-wrapper
-            #board-button.uk-button.uk-float-left(type='button') Noticeboard
+            //#board-button.uk-button.uk-float-left(type='button') Noticeboard
+            ul#board-buttons.board-buttons-closed
+              each boards
+                li.board-button.uk-button #{name}
             button#pin-button.uk-button.uk-float-right.post(type='submit') Pin me up Buttercup

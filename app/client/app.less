@@ -131,8 +131,8 @@ a.user {
 	top:0;
 	right:0;
 	padding:0;
-	border-bottom-right-radius:8px;
-	border-bottom-left-radius:8px;
+	/*border-bottom-right-radius:8px;
+	border-bottom-left-radius:8px;*/
 	overflow:hidden;
 	background:@blue;
 	color:#fff;
@@ -395,19 +395,44 @@ ul.user-menu {
 }
 
 #pin-button {
+  background-color:@blue;
+  color:#fff;
   &:hover {
-    background-color:@blue;
-    color:#fff;
+    background-color:@darkblue;
   }
 }
 
-#board-button {
-  background-color:#ef6e7e;
-  color:#fff;
-  &:hover {
-    background-color:#ff7585;
-    cursor:pointer;
+#board-buttons {
+  position:absolute;
+  overflow:auto;
+  overflow-y:hidden;
+  bottom:0;
+  padding:0;
+  margin:0;
+  .board-button {
+    display:block;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    -o-user-select: none;
+    user-select: none;
+    text-align:left;
+    padding:0 14px 0 12px;
+    background-color:rgba(255,117,133,1) !important;
+    color:#fff !important;
+    &:hover {
+      background-color:rgba(255,117,133,0.85) !important;
+      cursor:pointer !important;
+    }
   }
+}
+
+.board-buttons-closed {
+  height:30px;
+}
+
+.board-buttons-open {
+  height:auto;
 }
 
 
