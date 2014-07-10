@@ -18,7 +18,7 @@ Template.menu.boards = function() {
 };
 
 Template.menu.boardUrl = function() {
-    return Router.url('home', {address:Hembu.getCurrentAddress().address, board:this.name});
+    return Router.url('home', {addressParam:Hembu.getCurrentAddress().address, boardParam:this.name});
 };
 
 var userMenuToggle = false;
@@ -26,7 +26,7 @@ var userMenuToggle = false;
 Template.menu.rendered=function() {
 	$('.user-menu-head').on('click', function() {
 		userMenuToggle = !userMenuToggle;
-		if(userMenuToggle == true) {
+		if(userMenuToggle === true) {
 			$('ul.user-menu')
 				.removeClass('user-menu-closed')
 				.addClass('user-menu-open');

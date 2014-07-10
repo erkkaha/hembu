@@ -1,8 +1,4 @@
 template(name='feed')
-    //.post-feed
-      //form.uk-form
-            //textarea#feedContent(rows="1", name='feedContent', value='', placeholder="Share something")
-            //button.uk-button.uk-float-right.post(type='submit') Add
     ul#feed-container.uk-comment-list
            li.feed-header #{title}
             .feed-header-settings
@@ -25,25 +21,4 @@ template(name='feed')
                   //TODO get author avatar from notice data
                   img.uk-comment-avatar(src='http://placehold.it/16x16', alt='...')
                  a(href="#" class='user') #{author}
-             //ul
-              //each comments
-               //li
-                //article.uk-comment
-                 //header.uk-comment-header
-                  //a.pull-left(href='#')
-                   //img.uk-comment-avatar(src='http://placehold.it/50x50', alt='...')
-                  //h4.uk-comment-title
-                    //a(href="#") #{author}
-                  //ul.uk-comment-meta.uk-subnav.uk-subnav-line
-                   //li
-                    //small(data-livestamp="{{postedAt}}")
-                 //.uk-comment-body
-                  //span #{content}
-
-              //li
-               //article.uk-comment
-                //header.uk-comment-header.comment-feed
-                 //a(href='#')
-                  //img.uk-comment-avatar(src='http://placehold.it/50x50', alt='...')
-                 //form.uk-form
-                  //textarea(id="comment_{{_id}}", data-feedItem="{{_id}}", rows="1", placeholder="Write a comment")
+         

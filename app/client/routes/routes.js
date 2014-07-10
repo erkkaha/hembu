@@ -2,33 +2,54 @@
  * Route map for the application
  */ 
 Router.map(function() {
+    this.route('test_report', {path:'/test_report'})
     this.route('root', {path:'/', waitOn:function(){
             return Meteor.subscribe('userData');
         },
         action:function(){
             if(this.ready()){
                 if(!Hembu.userHasAddress)
-                    Router.go('addressesCreate', {address:'new'});
+                    Router.go('addressesCreate', {addressParam:'new'});
                 else
-                    Router.go('home', {address: Hembu.getCurrentAddress().address});
+                    Router.go('home', {addressParam: Hembu.getCurrentAddress().address});
             }
     }});
-    this.route('home', {path:'/home/:address/:board?', layoutTemplate: 'layout', 
+    this.route('home', {path:'/home/:addressParam/:boardParam?', layoutTemplate: 'layout', 
         waitOn: function() {
-            Hembu.setCurrentAddress(this.params.address); 
+            Hembu.setCurrentAddress(this.params.addressParam); 
             return Meteor.subscribe('userData');
         },
         data:function(){
             if(this.ready()){
-                var board = Boards.findOne({name:this.params.board})
-                var notices = this.params.board == undefined ? Notices.find({},{sort:{postedAt:-1}}).fetch() : Notices.find({boardId:board._id},{sort:{postedAt:-1}}).fetch();
+                var board = Boards.findOne({name:this.params.boardParam})
+                var notices = this.params.boardParam === undefined ? Notices.find({},{sort:{postedAt:-1}}).fetch() : Notices.find({boardId:board._id},{sort:{postedAt:-1}}).fetch();
                 var address = Hembu.getCurrentAddress();
-				return {
+                return {
                     address:address,
-                    board:board,
+                    board: board,
                     notices:notices,
-					addressParam:address.address,
-                    boardParam:board === undefined ? "notice" : board.name
+                    addressParam: address.address,
+                    boardParam: board === undefined ? 'notice' : board.name
+                };
+            }
+        },
+        action: function(){
+            this.render();
+        }
+    });
+    this.route('notice', {path:'/home/:addressParam/:boardParam/:_id', layoutTemplate: 'blank', 
+        waitOn: function() {
+            Hembu.setCurrentAddress(this.params.addressParam); 
+            return Meteor.subscribe('userData');
+        },
+        data:function(){
+            if(this.ready()){
+                var board = Boards.findOne({name:this.params.boardParam})
+                var notice = Notices.findOne({_id:this.params._id})
+                return {
+                    address:Hembu.getCurrentAddress(),
+                    board: board,
+                    notice:notice
                 };
             }
         },
