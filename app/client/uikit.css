@@ -1,4 +1,4 @@
-/*! UIkit 2.6.0 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
+/*! UIkit 2.8.0 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
 
 /* ========================================================================
    Component: Normalize
@@ -357,19 +357,6 @@ body {
   line-height: 20px;
   color: #444444;
 }
-/* Phone landscape and smaller */
-@media (max-width: 767px) {
-  /*
-     * Break strings if their length exceeds the width of their container
-     */
-  body {
-    word-wrap: break-word;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    hyphens: auto;
-  }
-}
 /* Text-level semantics
  ========================================================================== */
 /*
@@ -611,20 +598,29 @@ code {
   color: #dd0055;
   font-size: 12px;
   white-space: nowrap;
+  padding: 0 4px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  background: #fafafa;
 }
 /* Reset code elements if parent of pre elements */
 pre code {
   color: inherit;
   white-space: pre-wrap;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 pre {
   padding: 10px;
-  background: #f5f5f5;
+  background: #fafafa;
   color: #444444;
   font-size: 12px;
   line-height: 18px;
   -moz-tab-size: 4;
   tab-size: 4;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
 }
 /* Forms
  ========================================================================== */
@@ -1397,8 +1393,10 @@ iframe {
  ========================================================================== */
 .uk-panel-box {
   padding: 15px;
-  background: #f5f5f5;
+  background: #fafafa;
   color: #444444;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
 }
 .uk-panel-box .uk-panel-title {
   color: #444444;
@@ -1408,7 +1406,7 @@ iframe {
   right: 10px;
 }
 .uk-panel-box .uk-panel-teaser {
-  margin: -15px -15px 15px -15px;
+  margin: -16px -16px 15px -16px;
 }
 /*
  * Nav in panel
@@ -1422,6 +1420,7 @@ iframe {
 .uk-panel-box-primary {
   background-color: #ebf7fd;
   color: #2d7091;
+  border-color: rgba(45, 112, 145, 0.3);
 }
 .uk-panel-box-primary .uk-panel-title {
   color: #2d7091;
@@ -1430,7 +1429,7 @@ iframe {
  * Sub-modifier: `uk-panel-box-secondary`
  */
 .uk-panel-box-secondary {
-  background-color: #eeeeee;
+  background-color: #ffffff;
   color: #444444;
 }
 .uk-panel-box-secondary .uk-panel-title {
@@ -1474,6 +1473,10 @@ iframe {
   .uk-panel + .uk-panel-divider:before {
     top: -35px;
   }
+}
+.uk-panel-box .uk-panel-teaser > * {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 /* ========================================================================
    Component: Article
@@ -1537,6 +1540,10 @@ iframe {
 * + .uk-article-divider {
   margin-top: 25px;
 }
+.uk-article + .uk-article {
+  padding-top: 25px;
+  border-top: 1px solid #dddddd;
+}
 /* ========================================================================
    Component: Comment
  ========================================================================== */
@@ -1544,6 +1551,10 @@ iframe {
  ========================================================================== */
 .uk-comment-header {
   margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  background: #fafafa;
 }
 /*
  * Micro clearfix
@@ -1579,6 +1590,10 @@ iframe {
 }
 /* Sub-object `uk-comment-body`
  ========================================================================== */
+.uk-comment-body {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 /*
  * Remove margin from the last-child
  */
@@ -1592,12 +1607,12 @@ iframe {
   list-style: none;
 }
 .uk-comment-list .uk-comment + ul {
-  margin: 15px 0 0 0;
+  margin: 25px 0 0 0;
   list-style: none;
 }
 .uk-comment-list > li:nth-child(n+2),
 .uk-comment-list .uk-comment + ul > li:nth-child(n+2) {
-  margin-top: 15px;
+  margin-top: 25px;
 }
 /* Tablet and bigger */
 @media (min-width: 768px) {
@@ -1607,6 +1622,12 @@ iframe {
 }
 /* Modifier `uk-comment-primary`
  ========================================================================== */
+.uk-comment-primary .uk-comment-header {
+  border-color: rgba(45, 112, 145, 0.3);
+  background-color: #ebf7fd;
+  color: #2d7091;
+  text-shadow: 0 1px 0 #ffffff;
+}
 /* ========================================================================
    Component: Nav
  ========================================================================== */
@@ -1694,15 +1715,19 @@ ul.uk-nav-sub {
  */
 .uk-nav-side > li > a:hover,
 .uk-nav-side > li > a:focus {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.03);
   color: #444444;
   /* 2 */
   outline: none;
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.06);
+  text-shadow: 0 -1px 0 #ffffff;
 }
 /* Active */
 .uk-nav-side > li.uk-active > a {
   background: #00a8e6;
   color: #ffffff;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 /*
  * Sub-object: `uk-nav-header`
@@ -1715,6 +1740,7 @@ ul.uk-nav-sub {
  */
 .uk-nav-side .uk-nav-divider {
   border-top: 1px solid #dddddd;
+  box-shadow: 0 1px 0 #ffffff;
 }
 /*
  * Nested items
@@ -1744,6 +1770,8 @@ ul.uk-nav-sub {
   color: #ffffff;
   /* 2 */
   outline: none;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 /*
  * Sub-object: `uk-nav-header`
@@ -1785,6 +1813,8 @@ ul.uk-nav-sub {
   color: #ffffff;
   /* 2 */
   outline: none;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 /*
  * Sub-object: `uk-nav-header`
@@ -1815,6 +1845,9 @@ ul.uk-nav-sub {
 .uk-nav-offcanvas > li > a {
   color: #cccccc;
   padding: 10px 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 /*
  * Hover
@@ -1837,18 +1870,28 @@ html:not(.uk-touch) .uk-nav-offcanvas > li > a:focus {
 html .uk-nav.uk-nav-offcanvas > li.uk-active > a {
   background: #1a1a1a;
   color: #ffffff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 /*
  * Sub-object: `uk-nav-header`
  */
 .uk-nav-offcanvas .uk-nav-header {
   color: #777777;
+  margin-top: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  background: #404040;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 /*
  * Sub-object: `uk-nav-divider`
  */
 .uk-nav-offcanvas .uk-nav-divider {
-  border-top: 1px solid #1a1a1a;
+  border-top: 1px solid rgba(255, 255, 255, 0.01);
+  margin: 0;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 /*
  * Nested items
@@ -1860,12 +1903,28 @@ html .uk-nav.uk-nav-offcanvas > li.uk-active > a {
 html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   color: #ffffff;
 }
+/*
+     * Modifier `uk-nav-offcanvas`
+     */
+.uk-nav-offcanvas {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+/*
+     * Sub-object: `uk-nav-sub`
+     */
+.uk-nav-offcanvas .uk-nav-sub {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
 /* ========================================================================
    Component: Navbar
  ========================================================================== */
 .uk-navbar {
-  background: #eeeeee;
+  background: #f5f5f5;
   color: #444444;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
 }
 /*
  * Micro clearfix
@@ -1904,7 +1963,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   box-sizing: border-box;
   text-decoration: none;
   /* 1 */
-  height: 40px;
+  height: 41px;
   padding: 0 15px;
   line-height: 40px;
   /* 2 */
@@ -1912,6 +1971,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   font-size: 14px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
+  margin-top: -1px;
+  margin-left: -1px;
+  border: 1px solid transparent;
+  border-bottom-width: 0;
+  text-shadow: 0 1px 0 #ffffff;
 }
 /* Appear not as link */
 .uk-navbar-nav > li > a[href='#'] {
@@ -1926,20 +1990,31 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-navbar-nav > li:hover > a,
 .uk-navbar-nav > li > a:focus,
 .uk-navbar-nav > li.uk-open > a {
-  background-color: #f5f5f5;
+  background-color: #fafafa;
   color: #444444;
   /* 3 */
   outline: none;
+  position: relative;
+  z-index: 1;
+  border-left-color: rgba(0, 0, 0, 0.1);
+  border-right-color: rgba(0, 0, 0, 0.1);
+  border-top-color: rgba(0, 0, 0, 0.1);
 }
 /* OnClick */
 .uk-navbar-nav > li > a:active {
-  background-color: #dddddd;
+  background-color: #eeeeee;
   color: #444444;
+  border-left-color: rgba(0, 0, 0, 0.1);
+  border-right-color: rgba(0, 0, 0, 0.1);
+  border-top-color: rgba(0, 0, 0, 0.2);
 }
 /* Active */
 .uk-navbar-nav > li.uk-active > a {
-  background-color: #f5f5f5;
+  background-color: #fafafa;
   color: #444444;
+  border-left-color: rgba(0, 0, 0, 0.1);
+  border-right-color: rgba(0, 0, 0, 0.1);
+  border-top-color: rgba(0, 0, 0, 0.1);
 }
 /* Sub-objects: `uk-navbar-nav-subtitle`
  ========================================================================== */
@@ -1962,9 +2037,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: block;
-  height: 40px;
+  height: 41px;
   padding: 0 15px;
   float: left;
+  margin-top: -1px;
+  text-shadow: 0 1px 0 #ffffff;
 }
 /*
  * Helper to center all child elements vertically
@@ -1999,6 +2076,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-navbar-brand {
   font-size: 18px;
   color: #444444;
+  text-decoration: none;
 }
 /*
  * 1. Apply hover style also to focus state
@@ -2016,6 +2094,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-navbar-toggle {
   font-size: 18px;
   color: #444444;
+  text-decoration: none;
 }
 /*
  * 1. Apply hover style also to focus state
@@ -2058,6 +2137,42 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  ========================================================================== */
 .uk-navbar-flip {
   float: right;
+}
+/*
+     * Apply same `border-radius` as `uk-navbar`
+     */
+.uk-navbar-nav:first-child > li:first-child > a {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+/*
+     * Sub-modifier `uk-navbar-flip`
+     */
+/* Collapse border */
+.uk-navbar-flip .uk-navbar-nav > li > a {
+  margin-left: 0;
+  margin-right: -1px;
+}
+/* Apply same `border-radius` as `uk-navbar` */
+.uk-navbar-flip .uk-navbar-nav:first-child > li:first-child > a {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.uk-navbar-flip .uk-navbar-nav:last-child > li:last-child > a {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+/*
+     * Sub-modifier `uk-navbar-attached`
+     */
+.uk-navbar-attached {
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 0;
+}
+.uk-navbar-attached .uk-navbar-nav > li > a {
+  border-radius: 0 !important;
 }
 /* ========================================================================
    Component: Subnav
@@ -2127,6 +2242,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-subnav-pill > li > span {
   padding: 3px 9px;
   text-decoration: none;
+  border-radius: 4px;
 }
 /*
  * Hover
@@ -2135,10 +2251,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  */
 .uk-subnav-pill > li > a:hover,
 .uk-subnav-pill > li > a:focus {
-  background: #eeeeee;
+  background: #fafafa;
   color: #444444;
   /* 2 */
   outline: none;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 /*
  * Active
@@ -2147,6 +2264,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-subnav-pill > li.uk-active > a {
   background: #00a8e6;
   color: #ffffff;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
 }
 /* ========================================================================
    Component: Breadcrumb
@@ -2248,13 +2366,16 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   box-sizing: content-box;
   /* 2 */
   text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
 }
 /*
  * Links
  */
 .uk-pagination > li > a {
-  background: #eeeeee;
+  background: #f5f5f5;
   color: #444444;
+  text-shadow: 0 1px 0 #ffffff;
 }
 /*
  * Hover
@@ -2263,14 +2384,15 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  */
 .uk-pagination > li > a:hover,
 .uk-pagination > li > a:focus {
-  background-color: #f5f5f5;
+  background-color: #fafafa;
   color: #444444;
   /* 2 */
   outline: none;
+  border-color: rgba(0, 0, 0, 0.16);
 }
 /* OnClick */
 .uk-pagination > li > a:active {
-  background-color: #dddddd;
+  background-color: #eeeeee;
   color: #444444;
 }
 /*
@@ -2279,13 +2401,18 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-pagination > .uk-active > span {
   background: #00a8e6;
   color: #ffffff;
+  border-color: transparent;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 /*
  * Disabled
  */
 .uk-pagination > .uk-disabled > span {
-  background-color: #f5f5f5;
+  background-color: #fafafa;
   color: #999999;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  text-shadow: 0 1px 0 #ffffff;
 }
 /* Previous and next navigation
  ========================================================================== */
@@ -2340,6 +2467,8 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   border-bottom-width: 0;
   color: #0077dd;
   text-decoration: none;
+  border-radius: 4px 4px 0 0;
+  text-shadow: 0 1px 0 #ffffff;
 }
 .uk-tab > li:nth-child(n+2) > a {
   margin-left: 5px;
@@ -2353,7 +2482,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-tab > li > a:hover,
 .uk-tab > li > a:focus,
 .uk-tab > li.uk-open > a {
-  border-color: #f5f5f5;
+  border-color: rgba(0, 0, 0, 0.06);
   background: #f5f5f5;
   color: #005599;
   /* 2 */
@@ -2590,6 +2719,28 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
     border-left-color: transparent;
   }
 }
+/* Modifier: `uk-tab-bottom'
+     ========================================================================== */
+.uk-tab-bottom > li > a {
+  border-radius: 0 0 4px 4px;
+}
+/* Modifier: `uk-tab-left', `uk-tab-right'
+    ========================================================================== */
+/* Tablet and bigger */
+@media (min-width: 768px) {
+  /*
+         * Modifier: `uk-tab-left'
+         */
+  .uk-tab-left > li > a {
+    border-radius: 4px 0 0 4px;
+  }
+  /*
+         * Modifier: `uk-tab-right'
+         */
+  .uk-tab-right > li > a {
+    border-radius: 0 4px 4px 0;
+  }
+}
 /* ========================================================================
    Component: List
  ========================================================================== */
@@ -2633,14 +2784,18 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  ========================================================================== */
 .uk-list-striped > li {
   padding: 5px 5px;
+  border-bottom: 1px solid #dddddd;
 }
 .uk-list-striped > li:nth-of-type(odd) {
-  background: #f5f5f5;
+  background: #fafafa;
 }
 /* Modifier: `uk-list-space`
  ========================================================================== */
 .uk-list-space > li:nth-child(n+2) {
   margin-top: 10px;
+}
+.uk-list-striped > li:first-child {
+  border-top: 1px solid #dddddd;
 }
 /* ========================================================================
    Component: Description list
@@ -2696,6 +2851,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-table th,
 .uk-table td {
   padding: 8px 8px;
+  border-bottom: 1px solid #dddddd;
 }
 /*
  * Set alignment
@@ -2730,7 +2886,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 /* Modifier: `uk-table-striped`
  ========================================================================== */
 .uk-table-striped tbody tr:nth-of-type(odd) {
-  background: #f5f5f5;
+  background: #fafafa;
 }
 /* Modifier: `uk-table-condensed`
  ========================================================================== */
@@ -2740,7 +2896,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 /* Modifier: `uk-table-hover`
  ========================================================================== */
 .uk-table-hover tbody tr:hover {
-  background: #eeeeee;
+  background: #f0f0f0;
 }
 /* ========================================================================
    Component: Form
@@ -2788,6 +2944,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   color: #444444;
   -webkit-transition: all linear 0.2s;
   transition: all linear 0.2s;
+  border-radius: 4px;
   /* Focus state */
   /* Disabled state */
 }
@@ -2831,7 +2988,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-form input[type="tel"]:disabled,
 .uk-form input[type="color"]:disabled {
   border-color: #dddddd;
-  background-color: #f5f5f5;
+  background-color: #fafafa;
   color: #999999;
 }
 /*
@@ -3067,6 +3224,9 @@ select.uk-form-width-mini {
   display: inline-block;
   max-width: 100%;
 }
+/*
+ * 1. Make form element clickable through icon
+ */
 .uk-form-icon > [class*='uk-icon-'] {
   position: absolute;
   top: 50%;
@@ -3075,6 +3235,8 @@ select.uk-form-width-mini {
   font-size: 14px;
   color: #999999;
   text-align: center;
+  /* 1 */
+  pointer-events: none;
 }
 .uk-form-icon:not(.uk-form-icon-flip) > input {
   padding-left: 30px !important;
@@ -3110,15 +3272,18 @@ select.uk-form-width-mini {
   /* 2 */
   border: none;
   /* 3 */
-  line-height: 30px;
+  line-height: 28px;
   /* 4 */
   min-height: 30px;
   /* 5 */
   font-size: 1rem;
   /* 6 */
   padding: 0 12px;
-  background: #eeeeee;
+  background: #f5f5f5;
   color: #444444;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  text-shadow: 0 1px 0 #ffffff;
 }
 /*
  * Hover
@@ -3128,17 +3293,18 @@ select.uk-form-width-mini {
  */
 .uk-button:hover,
 .uk-button:focus {
-  background-color: #f5f5f5;
+  background-color: #fafafa;
   color: #444444;
   /* 2 */
   outline: none;
   /* 3 */
   text-decoration: none;
+  border-color: rgba(0, 0, 0, 0.16);
 }
 /* Active */
 .uk-button:active,
 .uk-button.uk-active {
-  background-color: #dddddd;
+  background-color: #eeeeee;
   color: #444444;
 }
 /* Color modifiers
@@ -3205,8 +3371,11 @@ select.uk-form-width-mini {
  ========================================================================== */
 /* Equal for all button types */
 .uk-button:disabled {
-  background-color: #f5f5f5;
+  background-color: #fafafa;
   color: #999999;
+  border-color: rgba(0, 0, 0, 0.06);
+  box-shadow: none;
+  text-shadow: 0 1px 0 #ffffff;
 }
 /* Modifier: `uk-button-link`
  ========================================================================== */
@@ -3219,6 +3388,8 @@ select.uk-form-width-mini {
 .uk-button-link:disabled {
   border-color: transparent;
   background: none;
+  box-shadow: none;
+  text-shadow: none;
 }
 /* Color */
 .uk-button-link {
@@ -3243,20 +3414,21 @@ select.uk-form-width-mini {
 .uk-button-mini {
   min-height: 20px;
   padding: 0 6px;
-  line-height: 20px;
+  line-height: 18px;
   font-size: 11px;
 }
 .uk-button-small {
   min-height: 25px;
   padding: 0 10px;
-  line-height: 25px;
+  line-height: 23px;
   font-size: 12px;
 }
 .uk-button-large {
   min-height: 40px;
   padding: 0 15px;
-  line-height: 40px;
+  line-height: 38px;
   font-size: 16px;
+  border-radius: 5px;
 }
 /* Sub-object `uk-button-group`
  ========================================================================== */
@@ -3296,6 +3468,62 @@ select.uk-form-width-mini {
   display: inline-block;
   vertical-align: middle;
   /* 2 */
+  position: relative;
+}
+/* Color modifiers
+     ========================================================================== */
+.uk-button-primary,
+.uk-button-success,
+.uk-button-danger {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+.uk-button-primary:hover,
+.uk-button-primary:focus,
+.uk-button-success:hover,
+.uk-button-success:focus,
+.uk-button-danger:hover,
+.uk-button-danger:focus {
+  border-color: rgba(0, 0, 0, 0.21);
+}
+/* Sub-object `uk-button-group`
+     ========================================================================== */
+/*
+     * Reset border-radius
+     */
+.uk-button-group > .uk-button:not(:first-child):not(:last-child),
+.uk-button-group > div:not(:first-child):not(:last-child) .uk-button {
+  border-left-color: rgba(0, 0, 0, 0.1);
+  border-right-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+}
+.uk-button-group > .uk-button:first-child,
+.uk-button-group > div:first-child .uk-button {
+  border-right-color: rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.uk-button-group > .uk-button:last-child,
+.uk-button-group > div:last-child .uk-button {
+  border-left-color: rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+/*
+     * Collapse border
+     */
+.uk-button-group > .uk-button:nth-child(n+2),
+.uk-button-group > div:nth-child(n+2) .uk-button {
+  margin-left: -1px;
+}
+/*
+     * Create position context to superimpose the successor elements border
+     * Known issue: If you use an `a` element as button and an icon inside,
+     * the active state will not work if you click the icon inside the button
+     * Workaround: Just use a `button` or `input` element as button
+     */
+.uk-button-group .uk-button:hover,
+.uk-button-group .uk-button:active {
   position: relative;
 }
 /* ========================================================================
@@ -3357,11 +3585,13 @@ select.uk-form-width-mini {
   width: 35px;
   height: 35px;
   border-radius: 100%;
-  background: #eeeeee;
+  background: #f5f5f5;
   line-height: 35px;
   color: #444444;
   font-size: 18px;
   text-align: center;
+  border: 1px solid #e7e7e7;
+  text-shadow: 0 1px 0 #ffffff;
 }
 /*
  * Hover
@@ -3370,15 +3600,16 @@ select.uk-form-width-mini {
  */
 .uk-icon-button:hover,
 .uk-icon-button:focus {
-  background-color: #f5f5f5;
+  background-color: #fafafa;
   color: #444444;
   text-decoration: none;
   /* 2 */
   outline: none;
+  border-color: #d3d3d3;
 }
 /* Active */
 .uk-icon-button:active {
-  background-color: #dddddd;
+  background-color: #eeeeee;
   color: #444444;
 }
 /* Icon mapping
@@ -3563,6 +3794,8 @@ select.uk-form-width-mini {
 .uk-icon-video-camera:before {
   content: "\f03d";
 }
+.uk-icon-photo:before,
+.uk-icon-image:before,
 .uk-icon-picture-o:before {
   content: "\f03e";
 }
@@ -3926,6 +4159,8 @@ select.uk-form-width-mini {
 .uk-icon-square:before {
   content: "\f0c8";
 }
+.uk-icon-navicon:before,
+.uk-icon-reorder:before,
 .uk-icon-bars:before {
   content: "\f0c9";
 }
@@ -3985,11 +4220,11 @@ select.uk-form-width-mini {
   content: "\f0dc";
 }
 .uk-icon-sort-down:before,
-.uk-icon-sort-asc:before {
+.uk-icon-sort-desc:before {
   content: "\f0dd";
 }
 .uk-icon-sort-up:before,
-.uk-icon-sort-desc:before {
+.uk-icon-sort-asc:before {
   content: "\f0de";
 }
 .uk-icon-envelope:before {
@@ -4179,10 +4414,8 @@ select.uk-form-width-mini {
 .uk-icon-code:before {
   content: "\f121";
 }
+.uk-icon-mail-reply-all:before,
 .uk-icon-reply-all:before {
-  content: "\f122";
-}
-.uk-icon-mail-reply-all:before {
   content: "\f122";
 }
 .uk-icon-star-half-empty:before,
@@ -4530,6 +4763,238 @@ select.uk-form-width-mini {
 .uk-icon-plus-square-o:before {
   content: "\f196";
 }
+.uk-icon-space-shuttle:before {
+  content: "\f197";
+}
+.uk-icon-slack:before {
+  content: "\f198";
+}
+.uk-icon-envelope-square:before {
+  content: "\f199";
+}
+.uk-icon-wordpress:before {
+  content: "\f19a";
+}
+.uk-icon-openid:before {
+  content: "\f19b";
+}
+.uk-icon-institution:before,
+.uk-icon-bank:before,
+.uk-icon-university:before {
+  content: "\f19c";
+}
+.uk-icon-mortar-board:before,
+.uk-icon-graduation-cap:before {
+  content: "\f19d";
+}
+.uk-icon-yahoo:before {
+  content: "\f19e";
+}
+.uk-icon-google:before {
+  content: "\f1a0";
+}
+.uk-icon-reddit:before {
+  content: "\f1a1";
+}
+.uk-icon-reddit-square:before {
+  content: "\f1a2";
+}
+.uk-icon-stumbleupon-circle:before {
+  content: "\f1a3";
+}
+.uk-icon-stumbleupon:before {
+  content: "\f1a4";
+}
+.uk-icon-delicious:before {
+  content: "\f1a5";
+}
+.uk-icon-digg:before {
+  content: "\f1a6";
+}
+.uk-icon-pied-piper-square:before,
+.uk-icon-pied-piper:before {
+  content: "\f1a7";
+}
+.uk-icon-pied-piper-alt:before {
+  content: "\f1a8";
+}
+.uk-icon-drupal:before {
+  content: "\f1a9";
+}
+.uk-icon-joomla:before {
+  content: "\f1aa";
+}
+.uk-icon-language:before {
+  content: "\f1ab";
+}
+.uk-icon-fax:before {
+  content: "\f1ac";
+}
+.uk-icon-building:before {
+  content: "\f1ad";
+}
+.uk-icon-child:before {
+  content: "\f1ae";
+}
+.uk-icon-paw:before {
+  content: "\f1b0";
+}
+.uk-icon-spoon:before {
+  content: "\f1b1";
+}
+.uk-icon-cube:before {
+  content: "\f1b2";
+}
+.uk-icon-cubes:before {
+  content: "\f1b3";
+}
+.uk-icon-behance:before {
+  content: "\f1b4";
+}
+.uk-icon-behance-square:before {
+  content: "\f1b5";
+}
+.uk-icon-steam:before {
+  content: "\f1b6";
+}
+.uk-icon-steam-square:before {
+  content: "\f1b7";
+}
+.uk-icon-recycle:before {
+  content: "\f1b8";
+}
+.uk-icon-automobile:before,
+.uk-icon-car:before {
+  content: "\f1b9";
+}
+.uk-icon-cab:before,
+.uk-icon-taxi:before {
+  content: "\f1ba";
+}
+.uk-icon-tree:before {
+  content: "\f1bb";
+}
+.uk-icon-spotify:before {
+  content: "\f1bc";
+}
+.uk-icon-deviantart:before {
+  content: "\f1bd";
+}
+.uk-icon-soundcloud:before {
+  content: "\f1be";
+}
+.uk-icon-database:before {
+  content: "\f1c0";
+}
+.uk-icon-file-pdf-o:before {
+  content: "\f1c1";
+}
+.uk-icon-file-word-o:before {
+  content: "\f1c2";
+}
+.uk-icon-file-excel-o:before {
+  content: "\f1c3";
+}
+.uk-icon-file-powerpoint-o:before {
+  content: "\f1c4";
+}
+.uk-icon-file-photo-o:before,
+.uk-icon-file-picture-o:before,
+.uk-icon-file-image-o:before {
+  content: "\f1c5";
+}
+.uk-icon-file-zip-o:before,
+.uk-icon-file-archive-o:before {
+  content: "\f1c6";
+}
+.uk-icon-file-sound-o:before,
+.uk-icon-file-audio-o:before {
+  content: "\f1c7";
+}
+.uk-icon-file-movie-o:before,
+.uk-icon-file-video-o:before {
+  content: "\f1c8";
+}
+.uk-icon-file-code-o:before {
+  content: "\f1c9";
+}
+.uk-icon-vine:before {
+  content: "\f1ca";
+}
+.uk-icon-codepen:before {
+  content: "\f1cb";
+}
+.uk-icon-jsfiddle:before {
+  content: "\f1cc";
+}
+.uk-icon-life-bouy:before,
+.uk-icon-life-saver:before,
+.uk-icon-support:before,
+.uk-icon-life-ring:before {
+  content: "\f1cd";
+}
+.uk-icon-circle-o-notch:before {
+  content: "\f1ce";
+}
+.uk-icon-ra:before,
+.uk-icon-rebel:before {
+  content: "\f1d0";
+}
+.uk-icon-ge:before,
+.uk-icon-empire:before {
+  content: "\f1d1";
+}
+.uk-icon-git-square:before {
+  content: "\f1d2";
+}
+.uk-icon-git:before {
+  content: "\f1d3";
+}
+.uk-icon-hacker-news:before {
+  content: "\f1d4";
+}
+.uk-icon-tencent-weibo:before {
+  content: "\f1d5";
+}
+.uk-icon-qq:before {
+  content: "\f1d6";
+}
+.uk-icon-wechat:before,
+.uk-icon-weixin:before {
+  content: "\f1d7";
+}
+.uk-icon-send:before,
+.uk-icon-paper-plane:before {
+  content: "\f1d8";
+}
+.uk-icon-send-o:before,
+.uk-icon-paper-plane-o:before {
+  content: "\f1d9";
+}
+.uk-icon-history:before {
+  content: "\f1da";
+}
+.uk-icon-circle-thin:before {
+  content: "\f1db";
+}
+.uk-icon-header:before {
+  content: "\f1dc";
+}
+.uk-icon-paragraph:before {
+  content: "\f1dd";
+}
+.uk-icon-sliders:before {
+  content: "\f1de";
+}
+.uk-icon-share-alt:before {
+  content: "\f1e0";
+}
+.uk-icon-share-alt-square:before {
+  content: "\f1e1";
+}
+.uk-icon-bomb:before {
+  content: "\f1e2";
+}
 /* ========================================================================
    Component: Close
  ========================================================================== */
@@ -4585,8 +5050,9 @@ select.uk-form-width-mini {
 .uk-close-alt {
   padding: 2px;
   border-radius: 50%;
-  background: #eeeeee;
+  background: #ffffff;
   opacity: 1;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 6px rgba(0, 0, 0, 0.3);
 }
 /* Hover */
 .uk-close-alt:hover,
@@ -4615,6 +5081,9 @@ select.uk-form-width-mini {
   text-align: center;
   vertical-align: middle;
   text-transform: none;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 2px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
 /* Modifier: `uk-badge-notification`;
  ========================================================================== */
@@ -4654,6 +5123,9 @@ select.uk-form-width-mini {
   padding: 10px;
   background: #ebf7fd;
   color: #2d7091;
+  border: 1px solid rgba(45, 112, 145, 0.3);
+  border-radius: 4px;
+  text-shadow: 0 1px 0 #ffffff;
 }
 /*
  * Add margin if adjacent element
@@ -4694,18 +5166,21 @@ select.uk-form-width-mini {
 .uk-alert-success {
   background: #f2fae3;
   color: #659f13;
+  border-color: rgba(101, 159, 19, 0.3);
 }
 /* Modifier: `uk-alert-warning`
  ========================================================================== */
 .uk-alert-warning {
   background: #fffceb;
   color: #e28327;
+  border-color: rgba(226, 131, 39, 0.3);
 }
 /* Modifier: `uk-alert-danger`
  ========================================================================== */
 .uk-alert-danger {
   background: #fff1f0;
   color: #d85030;
+  border-color: rgba(216, 80, 48, 0.3);
 }
 /* Modifier: `uk-alert-large`
  ========================================================================== */
@@ -4737,6 +5212,7 @@ select.uk-form-width-mini {
   padding: 4px;
   border: 1px solid #dddddd;
   background: #ffffff;
+  border-radius: 4px;
 }
 /*
  * Hover state for `a` elements
@@ -4786,6 +5262,7 @@ a.uk-thumbnail:focus {
  * 2. Create position context
  * 3. Set max-width for responsive images to prevent `inline-block` consequences
  * 4. Remove the gap between the container and its child element
+ * 5. Fixed wrong scaling calculation for images in Chrome
  */
 .uk-overlay {
   /* 1 */
@@ -4796,12 +5273,14 @@ a.uk-thumbnail:focus {
   max-width: 100%;
   /* 4 */
   vertical-align: middle;
+  /* 5 */
+  overflow: hidden;
 }
 /*
- * Fixed wrong scaling calculation for images in Chrome
+ * Remove margin from content
  */
-.uk-overlay > img:first-child {
-  display: block;
+.uk-overlay > :first-child {
+  margin-bottom: 0;
 }
 /* Sub-object `uk-overlay-area`
  ========================================================================== */
@@ -4827,10 +5306,13 @@ a.uk-thumbnail:focus {
 }
 /*
  * Hover
- * 1. Use optional `uk-overlay-toggle` to trigger the overlay earlier
+ * 1. `uk-hover` to support touch devices
+ * 2. Use optional `uk-overlay-toggle` to trigger the overlay earlier
  */
 .uk-overlay:hover .uk-overlay-area,
-.uk-overlay-toggle:hover .uk-overlay-area {
+.uk-overlay.uk-hover .uk-overlay-area,
+.uk-overlay-toggle:hover .uk-overlay-area,
+.uk-overlay-toggle.uk-hover .uk-overlay-area {
   opacity: 1;
 }
 /*
@@ -4928,10 +5410,13 @@ a.uk-thumbnail:focus {
 }
 /*
  * Hover
- * 1. Use optional `uk-overlay-toggle` to trigger the overlay earlier
+ * 1. `uk-hover` to support touch devices
+ * 2. Use optional `uk-overlay-toggle` to trigger the overlay earlier
  */
 .uk-overlay:hover .uk-overlay-caption,
-.uk-overlay-toggle:hover .uk-overlay-caption {
+.uk-overlay.uk-hover .uk-overlay-caption,
+.uk-overlay-toggle:hover .uk-overlay-caption,
+.uk-overlay-toggle.uk-hover .uk-overlay-caption {
   opacity: 1;
 }
 /* ========================================================================
@@ -4946,11 +5431,13 @@ a.uk-thumbnail:focus {
   box-sizing: border-box;
   height: 20px;
   margin-bottom: 15px;
-  background: #eeeeee;
+  background: #f5f5f5;
   /* 1 */
   overflow: hidden;
   /* 2 */
   line-height: 20px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
 }
 /*
  * Add margin if adjacent element
@@ -4976,6 +5463,8 @@ a.uk-thumbnail:focus {
   font-size: 12px;
   color: #ffffff;
   text-align: center;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 /* Size modifiers
  ========================================================================== */
@@ -5028,6 +5517,12 @@ a.uk-thumbnail:focus {
     background-position: 30px 0;
   }
 }
+/* Size modifiers
+     ========================================================================== */
+.uk-progress-mini,
+.uk-progress-small {
+  border-radius: 500px;
+}
 /* ========================================================================
    Component: Animation
  ========================================================================== */
@@ -5040,8 +5535,10 @@ a.uk-thumbnail:focus {
   animation-fill-mode: both;
 }
 /* Hide animated element if scrollspy is used */
-[data-uk-scrollspy*='uk-animation-'] {
-  opacity: 0;
+@media screen {
+  [data-uk-scrollspy*='uk-animation-'] {
+    opacity: 0;
+  }
 }
 /*
  * Fade
@@ -5415,11 +5912,13 @@ a.uk-thumbnail:focus {
   width: 200px;
   margin-top: 5px;
   padding: 15px;
-  background: #f5f5f5;
+  background: #ffffff;
   color: #444444;
   /* 5 */
   font-size: 1rem;
   vertical-align: top;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
 }
 /*
  * 1. Show dropdown
@@ -5464,12 +5963,15 @@ a.uk-thumbnail:focus {
 /*
 * Vertical gutter
 */
-/* Grid */
-.uk-dropdown > .uk-grid + .uk-grid {
+/*
+ * Grid
+ * Higher specificity to override large gutter
+ */
+.uk-grid .uk-dropdown-grid + .uk-dropdown-grid {
   margin-top: 15px;
 }
 /* Panels */
-.uk-dropdown > .uk-grid > [class*='uk-width-'] > .uk-panel + .uk-panel {
+.uk-dropdown-grid > [class*='uk-width-'] > .uk-panel + .uk-panel {
   margin-top: 15px;
 }
 /* Tablet and bigger */
@@ -5477,18 +5979,18 @@ a.uk-thumbnail:focus {
   /*
      * Horizontal gutter
      */
-  .uk-dropdown:not(.uk-dropdown-stack) > .uk-grid {
+  .uk-dropdown:not(.uk-dropdown-stack) > .uk-dropdown-grid {
     margin-left: -15px;
     margin-right: -15px;
   }
-  .uk-dropdown:not(.uk-dropdown-stack) > .uk-grid > [class*='uk-width-'] {
+  .uk-dropdown:not(.uk-dropdown-stack) > .uk-dropdown-grid > [class*='uk-width-'] {
     padding-left: 15px;
     padding-right: 15px;
   }
   /*
      * Column divider
      */
-  .uk-dropdown:not(.uk-dropdown-stack) > .uk-grid > [class*='uk-width-']:nth-child(n+2) {
+  .uk-dropdown:not(.uk-dropdown-stack) > .uk-dropdown-grid > [class*='uk-width-']:nth-child(n+2) {
     border-left: 1px solid #dddddd;
   }
   /*
@@ -5512,23 +6014,23 @@ a.uk-thumbnail:focus {
   /*
      * Stack columns and take full width
      */
-  .uk-dropdown > .uk-grid > [class*='uk-width-'] {
+  .uk-dropdown-grid > [class*='uk-width-'] {
     width: 100%;
   }
   /*
      * Vertical gutter
      */
-  .uk-dropdown > .uk-grid > [class*='uk-width-']:nth-child(n+2) {
+  .uk-dropdown-grid > [class*='uk-width-']:nth-child(n+2) {
     margin-top: 15px;
   }
 }
 /*
 * Stack grid columns
 */
-.uk-dropdown-stack > .uk-grid > [class*='uk-width-'] {
+.uk-dropdown-stack > .uk-dropdown-grid > [class*='uk-width-'] {
   width: 100%;
 }
-.uk-dropdown-stack > .uk-grid > [class*='uk-width-']:nth-child(n+2) {
+.uk-dropdown-stack > .uk-dropdown-grid > [class*='uk-width-']:nth-child(n+2) {
   margin-top: 15px;
 }
 /* Modifier `uk-dropdown-small`
@@ -5551,13 +6053,28 @@ a.uk-thumbnail:focus {
 /* Modifier: `uk-dropdown-navbar`
  ========================================================================== */
 .uk-dropdown-navbar {
-  margin-top: 0;
-  background: #f5f5f5;
+  margin-top: 6px;
+  background: #ffffff;
   color: #444444;
+  left: -1px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
 }
 .uk-open > .uk-dropdown-navbar {
   -webkit-animation: uk-slide-top-fixed 0.2s ease-in-out;
   animation: uk-slide-top-fixed 0.2s ease-in-out;
+}
+/* Modifier `uk-dropdown-scrollable`
+ ========================================================================== */
+/*
+ * Usefull for long lists
+ */
+.uk-dropdown-scrollable {
+  overflow-y: auto;
+  height: 200px;
+}
+.uk-dropdown-navbar.uk-dropdown-flip {
+  left: auto;
 }
 /* ========================================================================
    Component: Modal
@@ -5633,6 +6150,8 @@ a.uk-thumbnail:focus {
   transform: translateY(-100px);
   -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease-out;
   transition: opacity 0.3s linear, transform 0.3s ease-out;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 /* Phone landscape and smaller */
 @media (max-width: 767px) {
@@ -5743,8 +6262,8 @@ a.uk-thumbnail:focus {
   /* 1 */
   position: fixed;
   /* 2 */
-  -webkit-transition: margin-left 0.3s ease-in-out 50ms;
-  transition: margin-left 0.3s ease-in-out 50ms;
+  -webkit-transition: margin-left 0.3s ease-in-out;
+  transition: margin-left 0.3s ease-in-out;
 }
 /* Sub-object `uk-offcanvas-bar`
  ========================================================================== */
@@ -5792,6 +6311,7 @@ a.uk-thumbnail:focus {
 .uk-offcanvas .uk-panel {
   margin: 20px 15px;
   color: #777777;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 .uk-offcanvas .uk-panel-title {
   color: #cccccc;
@@ -5801,6 +6321,24 @@ a.uk-thumbnail:focus {
 }
 .uk-offcanvas .uk-panel a:not([class]):hover {
   color: #ffffff;
+}
+.uk-offcanvas-bar:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.6);
+}
+.uk-offcanvas-bar-flip:after {
+  right: auto;
+  left: 0;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.6);
 }
 /* ========================================================================
    Component: Switcher
@@ -5842,6 +6380,8 @@ a.uk-thumbnail:focus {
   font-size: 12px;
   line-height: 18px;
   text-align: center;
+  border-radius: 3px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 /* Triangle
  ========================================================================== */
@@ -5945,6 +6485,7 @@ a.uk-thumbnail:focus {
 .uk-text-large {
   font-size: 18px;
   line-height: 24px;
+  font-weight: normal;
 }
 /* Weight modifiers
  ========================================================================== */
@@ -6345,6 +6886,7 @@ a.uk-thumbnail:focus {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   resize: both;
+  border-radius: 3px;
 }
 .uk-scrollable-box > :last-child {
   margin-bottom: 0;
@@ -6377,7 +6919,7 @@ a.uk-thumbnail:focus {
 }
 /*
  * Visibility
- * Avoids setting display to `block`
+ * Avoids setting display to `block` so it works also with `inline-block` and `table`
  */
 /* Desktop and bigger */
 @media (min-width: 960px) {
@@ -6391,7 +6933,7 @@ a.uk-thumbnail:focus {
     display: none !important;
   }
 }
-/* Only tablets portrait */
+/* Tablets portrait */
 @media (min-width: 768px) and (max-width: 959px) {
   .uk-visible-small {
     display: none !important;
@@ -6403,7 +6945,7 @@ a.uk-thumbnail:focus {
     display: none !important;
   }
 }
-/* Phone landscape and smaller */
+/* Phone landscape and smaller*/
 @media (max-width: 767px) {
   .uk-visible-medium {
     display: none !important;

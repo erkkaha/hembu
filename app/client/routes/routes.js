@@ -22,7 +22,7 @@ Router.map(function() {
         data:function(){
             if(this.ready()){
                 var board = Boards.findOne({name:this.params.boardParam})
-                var notices = this.params.boardParam === undefined ? Notices.find({},{sort:{postedAt:-1}}).fetch() : Notices.find({boardId:board._id},{sort:{postedAt:-1}}).fetch();
+                var notices = board === undefined ? Notices.find({},{sort:{pinnedUntil: -1, postedAt:-1}}).fetch() : Notices.find({boardId:board._id},{sort:{pinnedUntil: -1, postedAt:-1}}).fetch();
                 var address = Hembu.getCurrentAddress();
                 return {
                     address:address,
@@ -56,10 +56,13 @@ Router.map(function() {
             if(this.ready()){
                 var board = Boards.findOne({name:this.params.boardParam})
                 var notice = Notices.findOne({_id:this.params._id})
+                var address = Hembu.getCurrentAddress();
                 return {
-                    address:Hembu.getCurrentAddress(),
+                    address:address,
                     board: board,
-                    notice:notice
+                    notice:notice,
+                    addressParam: address.address,
+                    boardParam: board === undefined ? 'notice' : board.name
                 };
             }
         },
@@ -118,9 +121,10 @@ Router.back = function(callback){
             callback(null);
     }
     else{
+        Router.go('root');
         var err = new Error("No previous route available");
         if(callback)
-            callback();
+            callback(err);
         else
             throw err;
     }

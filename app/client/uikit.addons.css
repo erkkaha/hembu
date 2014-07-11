@@ -1,4 +1,4 @@
-/*! UIkit 2.6.0 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
+/*! UIkit 2.8.0 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
 
 /* ========================================================================
    Component: Dotnav
@@ -48,6 +48,8 @@
   /* 2 */
   overflow: hidden;
   text-indent: -999%;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 /*
  * Hover
@@ -67,6 +69,8 @@
 /* Active */
 .uk-dotnav > li.uk-active > a {
   background: rgba(50, 50, 50, 0.4);
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
 }
 /* Modifier: 'dotnav-vertical'
  ========================================================================== */
@@ -169,22 +173,101 @@
   right: 20px;
 }
 /* ========================================================================
+   Component: Form advanced
+   Note: Only works in Webkit at the moment
+ ========================================================================== */
+/*
+ * 1. Style
+ * 2. Makes box more robust so it clips the child element
+ * 3. Vertical alignment
+ * 4. Remove default style
+ * 5. Fix black background on iOS
+ */
+.uk-form input[type="radio"],
+.uk-form input[type="checkbox"] {
+  /* 1 */
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  border: 1px solid #aaaaaa;
+  /* 2 */
+  overflow: hidden;
+  /* 3 */
+  margin-top: -4px;
+  vertical-align: middle;
+  /* 4 */
+  -webkit-appearance: none;
+  outline: 0;
+  /* 5 */
+  background: transparent;
+}
+/* Radio */
+.uk-form input[type="radio"] {
+  border-radius: 50%;
+}
+/*
+ * Checked
+ */
+.uk-form input[type=checkbox]:checked:before,
+.uk-form input[type=radio]:checked:before {
+  display: block;
+}
+/* Radio */
+.uk-form input[type=radio]:checked:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin: 2px auto 0;
+  border-radius: 50%;
+  background: #00a8e6;
+}
+/* Checkbox */
+.uk-form input[type=checkbox]:checked:before {
+  content: "\f00c";
+  font-family: FontAwesome;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  line-height: 12px;
+  color: #00a8e6;
+}
+/*
+ * Disabled
+ */
+.uk-form input[type=radio]:disabled,
+.uk-form input[type=checkbox]:disabled {
+  border-color: #dddddd;
+}
+.uk-form input[type=radio]:disabled:checked:before {
+  background-color: #aaaaaa;
+}
+.uk-form input[type=checkbox]:disabled:checked:before {
+  color: #aaaaaa;
+}
+/* ========================================================================
    Component: Form file
  ========================================================================== */
+/*
+ * 1. Behave like form elements
+ * 2. Create position context for dropdowns
+ * 3. Clip content
+ */
 .uk-form-file {
-  position: relative;
+  /* 1 */
   display: inline-block;
   vertical-align: middle;
+  /* 2 */
+  position: relative;
+  /* 3 */
   overflow: hidden;
 }
 /*
  * 1. Required for Firefox
- * 2. Required for the cursor
+ * 2. Expand height and required for the cursor
  */
 .uk-form-file input[type="file"] {
   position: absolute;
   top: 0;
-  bottom: 0;
   z-index: 1;
   width: 100%;
   opacity: 0;
@@ -218,6 +301,40 @@
 }
 .uk-form-password > input {
   padding-right: 50px !important;
+}
+/* ========================================================================
+   Component: Form select
+ ========================================================================== */
+/*
+ * 1. Behave like form elements
+ * 2. Create position context for dropdowns
+ * 3. Clip content
+ */
+.uk-form-select {
+  /* 1 */
+  display: inline-block;
+  vertical-align: middle;
+  /* 2 */
+  position: relative;
+  /* 3 */
+  overflow: hidden;
+}
+/*
+ * 1. Required for Firefox
+ * 1. Required for Webkit to make `height` work
+ */
+.uk-form-select select {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  /* 1 */
+  left: 0;
+  /* 2 */
+  -webkit-appearance: none;
 }
 /* ========================================================================
    Component: Placeholder
@@ -278,6 +395,8 @@
   color: #ffffff;
   /* 1 */
   outline: none;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 /*
  * Sub-object: `uk-nav-header`
@@ -370,6 +489,8 @@
   text-align: center;
   color: #444444;
   text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 /*
  * Sub-object: `uk-datepicker-table-muted`
@@ -384,14 +505,16 @@ a.uk-datepicker-table-muted {
  */
 .uk-datepicker-table a:hover,
 .uk-datepicker-table a:focus {
-  background-color: #dddddd;
+  background-color: #fafafa;
   color: #444444;
   /* 2 */
   outline: none;
+  border-color: rgba(0, 0, 0, 0.16);
+  text-shadow: 0 1px 0 #ffffff;
 }
 /* OnClick */
 .uk-datepicker-table a:active {
-  background-color: #cccccc;
+  background-color: #eeeeee;
   color: #444444;
 }
 /*
@@ -400,110 +523,133 @@ a.uk-datepicker-table-muted {
 .uk-datepicker-table a.uk-active {
   background: #00a8e6;
   color: #ffffff;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 /* ========================================================================
-   Component: Markdownarea
+   Component: HTML editor
  ========================================================================== */
-/* Sub-object `uk-markdownarea-navbar`
+/* Sub-object `uk-htmleditor-navbar`
  ========================================================================== */
-.uk-markdownarea-navbar {
-  background: #eeeeee;
+.uk-htmleditor-navbar {
+  background: #f5f5f5;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 /*
  * Micro clearfix
  */
-.uk-markdownarea-navbar:before,
-.uk-markdownarea-navbar:after {
+.uk-htmleditor-navbar:before,
+.uk-htmleditor-navbar:after {
   content: " ";
   display: table;
 }
-.uk-markdownarea-navbar:after {
+.uk-htmleditor-navbar:after {
   clear: both;
 }
-/* Sub-object `uk-markdownarea-navbar-nav`
+/* Sub-object `uk-htmleditor-navbar-nav`
  ========================================================================== */
-.uk-markdownarea-navbar-nav {
+.uk-htmleditor-navbar-nav {
   margin: 0;
   padding: 0;
   list-style: none;
   float: left;
 }
-.uk-markdownarea-navbar-nav > li {
+.uk-htmleditor-navbar-nav > li {
   float: left;
 }
 /*
  * 1. Dimensions
  * 2. Style
  */
-.uk-markdownarea-navbar-nav > li > a {
+.uk-htmleditor-navbar-nav > li > a {
   display: block;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   text-decoration: none;
   /* 1 */
-  height: 40px;
+  height: 41px;
   padding: 0 15px;
   line-height: 40px;
   /* 2 */
   color: #444444;
   font-size: 11px;
   cursor: pointer;
+  margin-top: -1px;
+  margin-left: -1px;
+  border: 1px solid transparent;
+  border-bottom-width: 0;
+  text-shadow: 0 1px 0 #ffffff;
 }
 /*
  * Hover
  * 1. Apply hover style also to focus state
  * 2. Remove default focus style
  */
-.uk-markdownarea-navbar-nav > li:hover > a,
-.uk-markdownarea-navbar-nav > li > a:focus {
-  background-color: #f5f5f5;
+.uk-htmleditor-navbar-nav > li:hover > a,
+.uk-htmleditor-navbar-nav > li > a:focus {
+  background-color: #fafafa;
   color: #444444;
   outline: none;
   /* 2 */
+  position: relative;
+  z-index: 1;
+  border-left-color: rgba(0, 0, 0, 0.1);
+  border-right-color: rgba(0, 0, 0, 0.1);
+  border-top-color: rgba(0, 0, 0, 0.1);
 }
 /* OnClick */
-.uk-markdownarea-navbar-nav > li > a:active {
-  background-color: #dddddd;
+.uk-htmleditor-navbar-nav > li > a:active {
+  background-color: #eeeeee;
   color: #444444;
+  border-left-color: rgba(0, 0, 0, 0.1);
+  border-right-color: rgba(0, 0, 0, 0.1);
+  border-top-color: rgba(0, 0, 0, 0.2);
 }
 /* Active */
-.uk-markdownarea-navbar-nav > li.uk-active > a {
-  background-color: #f5f5f5;
+.uk-htmleditor-navbar-nav > li.uk-active > a {
+  background-color: #fafafa;
   color: #444444;
+  border-left-color: rgba(0, 0, 0, 0.1);
+  border-right-color: rgba(0, 0, 0, 0.1);
+  border-top-color: rgba(0, 0, 0, 0.1);
 }
-/* Sub-object: `uk-markdownarea-navbar-flip`
+/* Sub-object: `uk-htmleditor-navbar-flip`
  ========================================================================== */
-.uk-markdownarea-navbar-flip {
+.uk-htmleditor-navbar-flip {
   float: right;
 }
 /* Sub-object for special buttons
  ========================================================================== */
-[data-mode='split'] .uk-markdown-button-markdown,
-[data-mode='split'] .uk-markdown-button-preview {
+[data-mode='split'] .uk-htmleditor-button-code,
+[data-mode='split'] .uk-htmleditor-button-preview {
   display: none;
 }
-/* Sub-object `uk-markdownarea-content`
+/* Sub-object `uk-htmleditor-content`
  ========================================================================== */
-.uk-markdownarea-content {
+.uk-htmleditor-content {
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
   background: #ffffff;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 /*
  * Micro clearfix
  */
-.uk-markdownarea-content:before,
-.uk-markdownarea-content:after {
+.uk-htmleditor-content:before,
+.uk-htmleditor-content:after {
   content: " ";
   display: table;
 }
-.uk-markdownarea-content:after {
+.uk-htmleditor-content:after {
   clear: both;
 }
-/* Modifier `uk-markdownarea-fullscreen`
+/* Modifier `uk-htmleditor-fullscreen`
  ========================================================================== */
-.uk-markdownarea-fullscreen {
+.uk-htmleditor-fullscreen {
   position: fixed;
   top: 0;
   left: 0;
@@ -511,51 +657,190 @@ a.uk-datepicker-table-muted {
   bottom: 0;
   z-index: 990;
 }
-.uk-markdownarea-fullscreen .uk-markdownarea-content {
+.uk-htmleditor-fullscreen .uk-htmleditor-content {
   position: absolute;
-  top: 40px;
+  top: 41px;
   left: 0;
   right: 0;
   bottom: 0;
 }
-.uk-markdownarea-fullscreen .uk-icon-expand:before {
+.uk-htmleditor-fullscreen .uk-icon-expand:before {
   content: "\f066";
 }
-/* Sub-objects `uk-markdownarea-code` and `uk-markdownarea-preview`
+/* Sub-objects `uk-htmleditor-code` and `uk-htmleditor-preview`
  ========================================================================== */
-.uk-markdownarea-code,
-.uk-markdownarea-preview {
+.uk-htmleditor-code,
+.uk-htmleditor-preview {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.uk-markdownarea-preview {
+.uk-htmleditor-preview {
   padding: 20px;
   overflow-y: scroll;
 }
 /*
  * Tab view
  */
-[data-mode='tab'][data-active-tab='code'] .uk-markdownarea-preview,
-[data-mode='tab'][data-active-tab='preview'] .uk-markdownarea-code {
+[data-mode='tab'][data-active-tab='code'] .uk-htmleditor-preview,
+[data-mode='tab'][data-active-tab='preview'] .uk-htmleditor-code {
   display: none;
 }
 /*
  * Split view
  */
-[data-mode='split'] .uk-markdownarea-code,
-[data-mode='split'] .uk-markdownarea-preview {
+[data-mode='split'] .uk-htmleditor-code,
+[data-mode='split'] .uk-htmleditor-preview {
   float: left;
   width: 50%;
 }
-[data-mode='split'] .uk-markdownarea-code {
+[data-mode='split'] .uk-htmleditor-code {
   border-right: 1px solid #eeeeee;
 }
 /* CodeMirror modifications
  ========================================================================== */
-.uk-markdownarea .CodeMirror {
+.uk-htmleditor .CodeMirror {
   padding: 10px;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+/*
+     * Apply same `border-radius` as `uk-htmleditor-navbar`
+     */
+.uk-htmleditor-navbar-nav:first-child > li:first-child > a {
+  border-top-left-radius: 4px;
+}
+/*
+     * Sub-modifier `uk-htmleditor-navbar-flip`
+     */
+/* Collapse border */
+.uk-htmleditor-navbar-flip .uk-htmleditor-navbar-nav > li > a {
+  margin-left: 0;
+  margin-right: -1px;
+}
+/* Apply same `border-radius` as `uk-htmleditor-navbar` */
+.uk-htmleditor-navbar-flip .uk-htmleditor-navbar-nav:first-child > li:first-child > a {
+  border-top-left-radius: 0;
+}
+.uk-htmleditor-navbar-flip .uk-htmleditor-navbar-nav:last-child > li:last-child > a {
+  border-top-right-radius: 4px;
+}
+/*
+     * Sub-modifier `uk-htmleditor-fullscreen`
+     */
+.uk-htmleditor-fullscreen .uk-htmleditor-navbar {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+.uk-htmleditor-fullscreen .uk-htmleditor-content {
+  border: none;
+  border-radius: 0;
+}
+.uk-htmleditor-fullscreen .uk-htmleditor-navbar-nav > li > a {
+  border-radius: 0 !important;
+}
+/* ========================================================================
+   Component: Nestable
+ ========================================================================== */
+.uk-nestable {
+  padding: 0;
+  list-style: none;
+}
+/* Sub-object `uk-nestable-list`
+ ========================================================================== */
+.uk-nestable-list {
+  margin: 0;
+  padding-left: 40px;
+  list-style: none;
+}
+/* Sub-modifier `uk-nestable-list-dragged`
+ ========================================================================== */
+.uk-nestable-list-dragged {
+  position: absolute;
+  z-index: 1050;
+  padding-left: 0;
+  pointer-events: none;
+}
+/* Sub-object `uk-nestable-item`
+ ========================================================================== */
+.uk-nestable-item {
+  margin-bottom: 10px;
+  padding: 5px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  text-shadow: 0 1px 0 #ffffff;
+}
+/* Sub-object `uk-nestable-placeholder`
+ * The placeholder which marks the drop area
+ ========================================================================== */
+.uk-nestable-placeholder {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px dashed #dddddd;
+}
+/* Sub-object `uk-nestable-empty`
+ * The style of an empty list
+ ========================================================================== */
+.uk-nestable-empty {
+  min-height: 40px;
+}
+/* Sub-object `uk-nestable-handle`
+ ========================================================================== */
+.uk-nestable-handle {
+  display: inline-block;
+  font-size: 18px;
+  color: #dddddd;
+}
+/* Hover */
+.uk-nestable-handle:hover {
+  cursor: move;
+}
+/* Icon */
+.uk-nestable-handle:after {
+  content: "\f0c9";
+  font-family: FontAwesome;
+}
+/* Sub-object `uk-nestable-moving`
+ ========================================================================== */
+.uk-nestable-moving,
+.uk-nestable-moving * {
+  cursor: move;
+}
+/* Sub-object `[data-action='toggle']`
+ ========================================================================== */
+/* Hidden by default */
+[data-nestable-action='toggle'] {
+  display: inline-block;
+  color: #999999;
+  visibility: hidden;
+}
+/* Hover */
+[data-nestable-action='toggle']:hover {
+  color: #444444;
+  cursor: pointer;
+}
+/* Icon */
+[data-nestable-action='toggle']:after {
+  content: "\f147";
+  font-family: FontAwesome;
+}
+/*
+ * Show if nested
+ */
+.uk-parent > .uk-nestable-item [data-nestable-action='toggle'] {
+  visibility: visible;
+}
+/*
+ * Collapsed
+ */
+.uk-collapsed > .uk-nestable-item [data-nestable-action='toggle']:after {
+  content: "\f196";
+}
+.uk-collapsed .uk-nestable-list {
+  display: none;
 }
 /* ========================================================================
    Component: Notify
@@ -567,7 +852,7 @@ a.uk-datepicker-table-muted {
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 980;
+  z-index: 1040;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 350px;
@@ -615,6 +900,8 @@ a.uk-datepicker-table-muted {
   font-size: 16px;
   line-height: 22px;
   cursor: pointer;
+  border: 1px solid #444444;
+  border-radius: 4px;
 }
 /* Close in notify
  ========================================================================== */
@@ -630,24 +917,28 @@ a.uk-datepicker-table-muted {
 .uk-notify-message-primary {
   background: #ebf7fd;
   color: #2d7091;
+  border-color: rgba(45, 112, 145, 0.3);
 }
 /* Modifier: `uk-alert-success`
  ========================================================================== */
 .uk-notify-message-success {
   background: #f2fae3;
   color: #659f13;
+  border-color: rgba(101, 159, 19, 0.3);
 }
 /* Modifier: `uk-notify-message-warning`
  ========================================================================== */
 .uk-notify-message-warning {
   background: #fffceb;
   color: #e28327;
+  border-color: rgba(226, 131, 39, 0.3);
 }
 /* Modifier: `uk-notify-message-danger`
  ========================================================================== */
 .uk-notify-message-danger {
   background: #fff1f0;
   color: #d85030;
+  border-color: rgba(216, 80, 48, 0.3);
 }
 /* ========================================================================
    Component: Search
@@ -722,7 +1013,7 @@ input.uk-search-field {
 }
 /* Focus + active */
 .uk-search-field:focus,
-.uk-active .uk-search-field {
+.uk-search.uk-active .uk-search-field {
   width: 180px;
 }
 /* Sub-object `uk-search-close`
@@ -771,7 +1062,7 @@ input.uk-search-field {
 .uk-dropdown-search {
   width: 300px;
   margin-top: 0;
-  background: #f5f5f5;
+  background: #ffffff;
   color: #444444;
 }
 .uk-open > .uk-dropdown-search {
@@ -782,8 +1073,8 @@ input.uk-search-field {
  * Dependency `uk-navbar-flip`
  */
 .uk-navbar-flip .uk-dropdown-search {
-  margin-top: 5px;
-  margin-right: -15px;
+  margin-top: 12px;
+  margin-right: -16px;
 }
 /* Nav modifier `uk-nav-search`
  ========================================================================== */
@@ -802,6 +1093,8 @@ input.uk-search-field {
   color: #ffffff;
   /* 1 */
   outline: none;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 /*
  * Sub-object: `uk-nav-header`
@@ -852,100 +1145,48 @@ input.uk-search-field {
    Component: Sortable
  ========================================================================== */
 .uk-sortable {
-  padding: 0;
-  list-style: none;
+  position: relative;
 }
-/* Sub-object `uk-sortable-list`
- ========================================================================== */
-.uk-sortable-list {
-  margin: 0;
-  padding-left: 40px;
-  list-style: none;
+/*
+ * Makes text unselectable
+ */
+.uk-sortable > * {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-/* Sub-modifier `uk-sortable-list-dragged`
+/*
+ * Prevents images and links from being dragged (default browser behavior)
+ * Currently only works in Webkit
+ */
+.uk-sortable > * * {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+/* Sub-modifier `uk-sortable-dragged`
  ========================================================================== */
-.uk-sortable-list-dragged {
+.uk-sortable-dragged {
   position: absolute;
   z-index: 1050;
-  padding-left: 0;
   pointer-events: none;
 }
-/* Sub-object `uk-sortable-item`
- ========================================================================== */
-.uk-sortable-item {
-  margin-bottom: 10px;
-  padding: 5px;
-  background: #f5f5f5;
-}
-/* Sub-object `uk-sortable-placeholder`
- * The placeholder which marks the drop area
+/* Sub-modifier `uk-sortable-placeholder`
  ========================================================================== */
 .uk-sortable-placeholder {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  border: 1px dashed #dddddd;
+  opacity: 0;
 }
-/* Sub-object `uk-sortable-empty`
- * The style of an empty list
+/* Sub-modifier `uk-sortable-over`
+ * Only if `warp:true`
  ========================================================================== */
-.uk-sortable-empty {
-  min-height: 40px;
+.uk-sortable-over {
+  opacity: 0.3;
 }
-/* Sub-object `uk-sortable-handle`
- ========================================================================== */
-.uk-sortable-handle {
-  display: inline-block;
-  font-size: 18px;
-  color: #dddddd;
-}
-/* Hover */
-.uk-sortable-handle:hover {
-  cursor: move;
-}
-/* Icon */
-.uk-sortable-handle:after {
-  content: "\f0c9";
-  font-family: FontAwesome;
-}
-/* Sub-object `uk-sortable-moving`
+/* Sub-object `uk-nestable-moving`
  ========================================================================== */
 .uk-sortable-moving,
 .uk-sortable-moving * {
   cursor: move;
-}
-/* Sub-object `[data-action='toggle']`
- ========================================================================== */
-/* Hidden by default */
-[data-sortable-action='toggle'] {
-  display: inline-block;
-  color: #999999;
-  visibility: hidden;
-}
-/* Hover */
-[data-sortable-action='toggle']:hover {
-  color: #444444;
-  cursor: pointer;
-}
-/* Icon */
-[data-sortable-action='toggle']:after {
-  content: "\f147";
-  font-family: FontAwesome;
-}
-/*
- * Show if nested
- */
-.uk-parent > .uk-sortable-item [data-sortable-action='toggle'] {
-  visibility: visible;
-}
-/*
- * Collapsed
- */
-.uk-collapsed > .uk-sortable-item [data-sortable-action='toggle']:after {
-  content: "\f196";
-}
-.uk-collapsed .uk-sortable-list {
-  display: none;
 }
 /* ========================================================================
    Component: Sticky

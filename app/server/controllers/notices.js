@@ -13,8 +13,9 @@ Meteor.methods({
           throw new Meteor.Error(403, "You must be logged in");
     
         return Notices.insert({
-          owner: this.userId,
-          author: displayName(Meteor.user()),
+          author: {_id: this.userId,
+                name: displayName(Meteor.user())
+          },
           headline: options.headline,
           content: options.content,
           pinnedUntil: options.pinnedUntil,
@@ -31,17 +32,32 @@ Meteor.methods({
             }
         });
     },
+    pinNotice: function(options){
+        options = options || {};
+        if (! this.userId)
+            throw new Meteor.Error(403, "You must be logged in");
+            
+        if (!(typeof options.pinnedUntil === "string" && options.pinnedUntil.length) || !options.noticeId)
+            throw new Meteor.Error(400, "Required parameter missing");
+        var notice = Notices.findOne(options.noticeId);
+        if(!notice)
+            throw new Meteor.Error(404, "No such notice found");
+        var until = moment(options.pinnedUntil).toDate()// 'YYYY-MM-DD'
+        Notices.update(notice._id, { $set: { 
+            pinnedUntil: until
+        }});
+    },
     addComment: function(options){
         options = options || {};
         if (! this.userId)
             throw new Meteor.Error(403, "You must be logged in");
             
-        if (!(typeof options.content === "string" && options.content.length) || !options.feedItem)
+        if (!(typeof options.content === "string" && options.content.length) || !options.noticeId)
             throw new Meteor.Error(400, "Required parameter missing");
-        var feed = Feeds.findOne(options.feedItem);
-        if(!feed)
-            throw new Meteor.Error(404, "No such feed item");
-        Notices.update(options.feedItem, { $addToSet: { 
+        var notice = Notices.findOne(options.noticeId);
+        if(!notice)
+            throw new Meteor.Error(404, "No such notice found");
+        Notices.update(notice._id, { $addToSet: { 
             comments: {
                 owner: this.userId,
                 author: displayName(Meteor.user()),

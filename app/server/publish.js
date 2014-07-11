@@ -1,5 +1,5 @@
 Meteor.publish('notices', function () {
-  return Notices.find({},{sort:{postedAt:-1}});
+  return Notices.find({},{sort:{pinnedUntil: -1, postedAt:-1}});
 });
 
 Meteor.publish('boards', function (args) {

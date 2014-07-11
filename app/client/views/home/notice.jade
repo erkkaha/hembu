@@ -11,15 +11,15 @@ template(name='notice')
             i.uk-icon-times(style="color:white;")
     h2 #{notice.headline}
     p #{notice.content}
-    span #{notice.postedAt}
+    span(data-livestamp="{{notice.postedAt}}")
     span #{notice.author}
     ul
-      each comments
+      each notice.comments
        li
         article.uk-comment
          header.uk-comment-header
           a.pull-left(href='#')
-           img.uk-comment-avatar(src='http://placehold.it/50x50', alt='...')
+           img.uk-comment-avatar
           h4.uk-comment-title
             a(href="#") #{author}
           ul.uk-comment-meta.uk-subnav.uk-subnav-line
@@ -32,7 +32,7 @@ template(name='notice')
        article.uk-comment
         header.uk-comment-header.comment-feed
          a(href='#')
-          img.uk-comment-avatar(src='http://placehold.it/50x50', alt='...')
+          img.uk-comment-avatar
          form.uk-form
-          textarea(id="comment_{{_id}}", data-feedItem="{{_id}}", rows="1", placeholder="Write a comment")
+          textarea(id="comment_{{notice._id}}", rows="1", placeholder="Write a comment")
           button.post POST

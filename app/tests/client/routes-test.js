@@ -8,8 +8,8 @@ describe("Client", function(){
         it("root path should equal '/'", function(){
             Router.routes.root.originalPath.should.equal('/');
         });
-        it("home path should equal '/home/:address/:board?'", function(){
-            Router.routes.home.originalPath.should.equal('/home/:address/:board?');
+        it("home path should equal '/home/:addressParam/:boardParam?'", function(){
+            Router.routes.home.originalPath.should.equal('/home/:addressParam/:boardParam?');
         });
     });
 });
