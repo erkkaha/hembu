@@ -50,16 +50,14 @@ Router.map(function () {
             if(!user){
                 res.writeHead(404);
                 res.end();
-                fut.return();
             }
             else{
                 res.writeHead(301, {'Location': user.profile.profilePic});
                 res.end();
-                res.on('end', function () { 
-                    fut.return();
-                });
             }
-            
+            res.on('end', function () { 
+                fut.return();
+            });
             return fut.wait();
       }
       catch(err){
