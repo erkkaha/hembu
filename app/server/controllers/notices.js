@@ -60,8 +60,10 @@ Meteor.methods({
             throw new Meteor.Error(404, "No such notice found");
         Notices.update(notice._id, { $addToSet: { 
             comments: {
-                owner: this.userId,
-                author: displayName(Meteor.user()),
+                author: {
+                    _id: this.userId,
+                    name: displayName(Meteor.user())
+                },
                 content: options.content,
                 postedAt: new Date()
             }

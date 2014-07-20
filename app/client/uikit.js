@@ -2759,7 +2759,7 @@
 
             if (this.options.rtl) {
                 css.right = window.innerWidth - (css.left + this.element.outerWidth());
-                css.left  = "";
+                css.left  = "auto";
             }
 
             dropdown.css(css).show();

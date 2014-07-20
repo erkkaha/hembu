@@ -12,16 +12,16 @@ template(name='notice')
     h2 #{notice.headline}
     p #{notice.content}
     span(data-livestamp="{{notice.postedAt}}")
-    span #{notice.author}
+    span #{notice.author.name}
     ul
       each notice.comments
        li
         article.uk-comment
          header.uk-comment-header
           a.pull-left(href='#')
-           img.uk-comment-avatar
+           img.uk-comment-avatar(src='/api/avatar/{{author._id}}', alt='...')
           h4.uk-comment-title
-            a(href="#") #{author}
+            a(href="#") #{author.name}
           ul.uk-comment-meta.uk-subnav.uk-subnav-line
            li
             small(data-livestamp="{{postedAt}}")
@@ -32,7 +32,7 @@ template(name='notice')
        article.uk-comment
         header.uk-comment-header.comment-feed
          a(href='#')
-          img.uk-comment-avatar
+          img.uk-comment-avatar(src='/api/avatar/{{currentUser._id}}', alt='...')
          form.uk-form
           textarea(id="comment_{{notice._id}}", rows="1", placeholder="Write a comment")
           button.post POST
