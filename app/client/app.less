@@ -84,8 +84,9 @@ a.user {
 	height:70px !important;
 	font-family:'Titillium Web', Helvetica, Arial, sans-serif;
 	font-size:1.1em;
-  font-weight:300;
-
+    font-weight:300;
+    border-radius:0px !important;
+    
 	a {
 		color:#fff;
 		&:hover {
@@ -215,6 +216,30 @@ ul.user-menu {
 	height:auto;
 }
 
+/* Drawer Menu
+------------------------------------------------------------------------*/
+.uk-offcanvas-bar{
+    margin-top:72px;
+    background:@blue !important;
+    &:after{
+        background:@darkblue !important;
+        box-shadow:none !important;
+    }
+    .uk-nav-offcanvas{
+        border:none !important;
+        li{
+            a{
+                padding: 25px 15px;
+                color:#fff;
+                text-shadow:none;
+                border-color:@darkblue !important;
+                &:hover{
+                    background:@darkblue !important;
+                }
+            }
+        }
+    }
+}
 
 /* Content - Feed
 ------------------------------------------------------------------------*/

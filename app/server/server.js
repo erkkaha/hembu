@@ -52,7 +52,7 @@ Router.map(function () {
                 res.end();
             }
             else{
-                res.writeHead(301, {'Location': user.profile.profilePic});
+                res.writeHead(301, {'Location': user.profile.avatar.url});
                 res.end();
             }
             res.on('end', function () { 

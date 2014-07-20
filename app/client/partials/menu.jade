@@ -3,20 +3,12 @@ template(name="menu")
     a.uk-navbar-toggle(href='#offcanvas', data-uk-offcanvas)
     a.uk-navbar-brand(href="/home/{{address.address}}")
       img.header-logo(src="/images/hembu-logo.svg")
-    ul.uk-navbar-nav.uk-hidden-small
-        //li.uk-active
-          //a(href="{{pathFor 'home'}}") Home
-        //li
-          //a(href="{{pathFor 'logout'}}") Logout
     .uk-navbar-flip
-       //a.uk-navbar-content(href="#") #{profile.name}
-       //a.uk-navbar-content(href="#")
-          //img.header-user-pic(src="#{profile.profilePic}")
        .header-user-menu
         ul.user-menu.user-menu-closed
          li.user-menu-head
           | #{profile.name}
-          img.header-user-pic(src="#{profile.profilePic}")
+          img.header-user-pic(src="/api/avatar/{{currentUser._id}}")
          a(href="#")
           li.user-menu-item.menu-item-address
            | #{address.displayAddress}
@@ -33,9 +25,7 @@ template(name="menu")
   .uk-offcanvas-bar
    ul.uk-nav.uk-nav-offcanvas
     each boards
-     li.uk-active
+     li
       a(href="{{boardUrl}}") #{name}
     li
       a(href="{{pathFor 'writeNotice'}}") Create New Notice
-    li
-      a(href="{{pathFor 'logout'}}") Logout

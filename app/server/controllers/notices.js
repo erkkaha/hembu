@@ -13,7 +13,8 @@ Meteor.methods({
           throw new Meteor.Error(403, "You must be logged in");
     
         return Notices.insert({
-          author: {_id: this.userId,
+          author: {
+                _id: this.userId,
                 name: displayName(Meteor.user())
           },
           headline: options.headline,

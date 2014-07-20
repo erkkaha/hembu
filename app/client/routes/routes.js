@@ -70,8 +70,8 @@ Router.map(function() {
             this.render();
         }
     });
-    this.route('facilitiesCreate', {path: '/facilities/:address/new/create', template:'facilitiesCreate', layoutTemplate: 'layout'});
-    this.route('facilitiesList', {path: '/facilities/:address/', template:'facilitiesList', layoutTemplate: 'layout', 
+    this.route('facilitiesCreate', {path: '/facilities/:addressParam/new/create', template:'facilitiesCreate', layoutTemplate: 'layout'});
+    this.route('facilitiesList', {path: '/facilities/:addressParam/', template:'facilitiesList', layoutTemplate: 'layout', 
         data:function(){
             return {address: this.params.address, facilities : Facilities.find({address:this.params.address}).fetch()};
         },
@@ -79,8 +79,8 @@ Router.map(function() {
             this.render();
         }
     });
-    this.route('facilitiesCalendar', {path: '/facilities/:address/:_id/calendar', template:'facilitiesCalendar', layoutTemplate: 'layout'});
-    this.route('addressesCreate',{path:'/home/:address/create', template:'addressesCreate', layoutTemplate: 'layout'})
+    this.route('facilitiesCalendar', {path: '/facilities/:addressParam/:_id/calendar', template:'facilitiesCalendar', layoutTemplate: 'layout'});
+    this.route('addressesCreate',{path:'/home/:addressParam/create', template:'addressesCreate', layoutTemplate: 'layout'})
     this.route('login', {path: '/login', layoutTemplate: 'layout'});
     this.route('logout', {path: '/logout', action: function(){
         Meteor.logout(function(err){

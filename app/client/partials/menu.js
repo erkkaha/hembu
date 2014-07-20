@@ -21,6 +21,12 @@ Template.menu.boardUrl = function() {
     return Router.url('home', {addressParam:Hembu.getCurrentAddress().address, boardParam:this.name});
 };
 
+Template.menu.events({
+   'click .uk-nav-offcanvas > li > a': function(event, template){
+       $.UIkit.offcanvas.hide();
+   } 
+});
+
 var userMenuToggle = false;
 
 Template.menu.rendered=function() {
