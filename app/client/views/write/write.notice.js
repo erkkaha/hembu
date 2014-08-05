@@ -1,3 +1,7 @@
+var showBoardButtons = false,
+	defaultBoardId = '',
+	selectedBoardId = '';
+
 Template.writeNotice.events({
     'click #back-button': function(event, template){
         Router.back();
@@ -8,7 +12,7 @@ Template.writeNotice.events({
                     headline: template.find("#noticeHeadline").value,
                     content: template.find("#noticeContent").value,
                     pinnedUntil: new Date(),
-                    boardId: 'yihvGAThSgJ7qYtdj',
+                    boardId: selectedBoardId,
                     commentsAllowed: true
                 }
 		
@@ -28,6 +32,7 @@ Template.writeNotice.events({
 		if(showBoardButtons == true) {
 			$('li.board-button.uk-button').css('display', 'none');
 			$(event.target).css('display', 'block');
+			selectedBoardId = $(event.target).attr('data-board-id');
 			$('ul#board-buttons')
 				.removeClass('board-buttons-open')
 				.addClass('board-buttons-closed');
@@ -49,9 +54,12 @@ Template.writeNotice.boards = function() {
 	return Boards.find();
 };
 
-var showBoardButtons = false;
-
 Template.writeNotice.rendered = function() {
+	
+	//set defaultBoardId to Id of first item in board buttons list
+	defaultBoardId = $('.board-button').attr('data-board-id');
+	
+	// close the board buttons list when clicking away
 	$(document).mouseup(function (e)
 	{
 		var container = $('#board-buttons');

@@ -7,7 +7,6 @@ standard-app-packages
 insecure
 accounts-base
 accounts-password
-jade
 less
 iron-router
 email
@@ -17,3 +16,4 @@ accounts-facebook
 service-configuration
 accounts-google
 mocha-web
+jade

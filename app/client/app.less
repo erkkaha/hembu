@@ -8,6 +8,11 @@
 @bluegrey: #d3d7e5;
 @kerma: #fcfbf7;
 
+@accent1: 255 117 133;
+@accent2: 164 210 158;
+@accent3: 0 191 240;
+@accent4: 251 223 67;
+
 
 /* CSS declarations go here */
 html, body {
@@ -61,8 +66,20 @@ a.board {
   color:inherit;
   font-weight:600;
 
-  &:hover {
-    color:#ef6e7e;
+  &.accent-colour-1:hover {
+    color:rgb(extract(@accent1,1),extract(@accent1,2),extract(@accent1,3));
+  }
+
+  &.accent-colour-2:hover {
+    color:rgb(extract(@accent2,1),extract(@accent2,2),extract(@accent2,3));
+  }
+
+  &.accent-colour-3:hover {
+    color:rgb(extract(@accent3,1),extract(@accent3,2),extract(@accent3,3));
+  }
+
+  &.accent-colour-4:hover {
+    color:rgb(extract(@accent4,1),extract(@accent4,2),extract(@accent4,3));
   }
 }
 
@@ -418,11 +435,37 @@ ul.user-menu {
     user-select: none;
     text-align:left;
     padding:0 14px 0 12px;
-    background-color:rgba(255,117,133,1) !important;
     color:#fff !important;
     &:hover {
-      background-color:rgba(255,117,133,0.85) !important;
       cursor:pointer !important;
+    }
+
+    &.accent-colour-1 {
+      background-color:rgba(extract(@accent1,1),extract(@accent1,2),extract(@accent1,3),1) !important;
+      &:hover {
+        background-color:rgba(extract(@accent1,1),extract(@accent1,2),extract(@accent1,3),0.85) !important;
+      }
+    }
+
+    &.accent-colour-2 {
+      background-color:rgba(extract(@accent2,1),extract(@accent2,2),extract(@accent2,3),1) !important;
+      &:hover {
+        background-color:rgba(extract(@accent2,1),extract(@accent2,2),extract(@accent2,3),0.85) !important;
+      }
+    }
+
+    &.accent-colour-3 {
+      background-color:rgba(extract(@accent3,1),extract(@accent3,2),extract(@accent3,3),1) !important;
+      &:hover {
+        background-color:rgba(extract(@accent3,1),extract(@accent3,2),extract(@accent3,3),0.85) !important;
+      }
+    }
+
+    &.accent-colour-4 {
+      background-color:rgba(extract(@accent4,1),extract(@accent4,2),extract(@accent4,3),1) !important;
+      &:hover {
+        background-color:rgba(extract(@accent4,1),extract(@accent4,2),extract(@accent4,3),0.85) !important;
+      }
     }
   }
 }

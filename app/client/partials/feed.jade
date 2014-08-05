@@ -15,10 +15,9 @@ template(name='feed')
                  span(data-livestamp="{{postedAt}}")
                  | to
                  with board
-                  a(href='#' class='board') #{name}
+                  a(href="{{boardUrl}}" class="#{ui.accentColour}").board #{name}
                  | by
                  a(href='#')
                   //TODO get author avatar from notice data
                   img.uk-comment-avatar(src='http://placehold.it/16x16', alt='...')
                  a(href="#" class='user') #{author}
-         
