@@ -1,10 +1,13 @@
-Template.feed.events({
+Template.notice.events({
+    'click #back-button': function(event, template){
+        Router.back();
+    },
     'click .post' : function(event, template) {
-        var elem = template.find('#' + event.target.id);
-        console.log($(elem).data('feeditem'))
+        event.preventDefault();
+        var elem = template.find('#comment_' + this.notice._id);
         Meteor.call('addComment', {
             content: elem.value,
-            feedItem: $(elem).data('feeditem')
+            noticeId: this.notice._id
         }, function(err, comment){
             if(!err){
                 elem.value = '';

@@ -1,3 +1,5 @@
+ var Future = Npm.require('fibers/future');
+
 // Server startup
 Meteor.startup(function(){
 });
@@ -27,6 +29,36 @@ Router.map(function () {
             }});
             this.response.writeHead(200, {'Content-Type': 'text/html'});
             this.response.end('OK');
+      }
+      catch(err){
+          console.log('error:', err, 'request.body', this.request.body);
+          this.response.writeHead(500, {'Content-Type': 'text/html'});
+          this.response.end('Internal server error');
+      }
+    }
+  });
+  this.route('avatar', {
+    where: 'server',
+    path: '/api/avatar/:id',
+
+    action: function () {
+      // Mail is coming from mandrill inbound POST
+      try{
+          var res = this.response;
+            var fut = new Future();
+            var user = Meteor.users.findOne({_id:this.params.id});
+            if(!user){
+                res.writeHead(404);
+                res.end();
+            }
+            else{
+                res.writeHead(301, {'Location': user.profile.avatar.url});
+                res.end();
+            }
+            res.on('end', function () { 
+                fut.return();
+            });
+            return fut.wait();
       }
       catch(err){
           console.log('error:', err, 'request.body', this.request.body);

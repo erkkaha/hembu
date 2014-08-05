@@ -1,5 +1,5 @@
 Meteor.publish('notices', function () {
-  return Notices.find({},{sort:{postedAt:-1}});
+  return Notices.find({},{sort:{pinnedUntil: -1, postedAt:-1}});
 });
 
 Meteor.publish('boards', function (args) {
@@ -16,8 +16,12 @@ Meteor.publish('facilities', function(){
 });
 
 Meteor.publish('addresses', function(){
-    var user = Meteor.users.findOne({_id: this.userId},{fields: {'addresses': 1}});
-    return Addresses.find({_id:{$in:_.pluck(user.addresses, '_id')}});
+    if (this.userId) {
+        var user = Meteor.users.findOne({_id: this.userId},{fields: {'addresses': 1}});
+        return Addresses.find({_id:{$in:_.pluck(user.addresses, '_id')}});
+    } else {
+        this.ready();
+    }
 });
 
 Meteor.publish("userData", function () {

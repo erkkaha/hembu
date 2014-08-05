@@ -5,7 +5,8 @@ template(name='feed')
              | settings
            each notices
             li
-             .notice-pin(class="{{pinnedClass}}")
+
+             input.notice-pin(class="{{pinnedClass}}", data-notice="{{_id}}", data-uk-datepicker="{format:'YYYY-MM-DD', rtl:true}")
              article.uk-comment
               .uk-comment-body
                 p.notice-headline #{headline}
@@ -18,6 +19,5 @@ template(name='feed')
                   a(href="{{boardUrl}}" class="#{ui.accentColour}").board #{name}
                  | by
                  a(href='#')
-                  //TODO get author avatar from notice data
-                  img.uk-comment-avatar(src='http://placehold.it/16x16', alt='...')
-                 a(href="#" class='user') #{author}
+                  img.uk-comment-avatar(src='/api/avatar/{{author._id}}', alt='...')
+                 a(href="#" class='user') #{author.name}
