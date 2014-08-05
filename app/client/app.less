@@ -1,8 +1,8 @@
 /* Constants
 ------------------------------------------------------------------------*/
 
-@blue: #00bff0;
-@darkblue: #00b2ed;
+@blue: #00c6f7;
+@darkblue: #00b8e5;
 @lightblue: #488dc8;
 @slate: #4b5166;
 @bluegrey: #d3d7e5;
@@ -92,6 +92,16 @@ a.user {
   }
 }
 
+/* UI Kit Overrides
+------------------------------------------------------------------------*/
+
+.uk-button {
+  font-family:'Titillium Web', Helvetica, Arial, sans-serif !important;
+  text-shadow:none !important;
+  border-radius:0 !important;
+  border:none !important;
+}
+
 
 /* Header
 ------------------------------------------------------------------------*/
@@ -101,9 +111,10 @@ a.user {
 	height:70px !important;
 	font-family:'Titillium Web', Helvetica, Arial, sans-serif;
 	font-size:1.1em;
-    font-weight:300;
-    border-radius:0px !important;
-    
+  font-weight:300;
+  border-radius:0px !important;
+  border:none !important;
+
 	a {
 		color:#fff;
 		&:hover {
@@ -121,6 +132,11 @@ a.user {
 
 .uk-navbar-content, .uk-navbar-toggle{
 	height:70px !important;
+}
+
+.uk-navbar-brand {
+  height:auto !important;
+  padding:0 !important;
 }
 
 .header-logo {
@@ -236,8 +252,8 @@ ul.user-menu {
 /* Drawer Menu
 ------------------------------------------------------------------------*/
 .uk-offcanvas-bar{
-    margin-top:72px;
-    background:@blue !important;
+    margin-top:70px;
+    background:@darkblue !important;
     &:after{
         background:@darkblue !important;
         box-shadow:none !important;
@@ -251,7 +267,7 @@ ul.user-menu {
                 text-shadow:none;
                 border-color:@darkblue !important;
                 &:hover{
-                    background:@darkblue !important;
+                    background:@blue !important;
                 }
             }
         }
@@ -274,6 +290,7 @@ ul.user-menu {
   li {
     border-bottom: 1px solid #eee;
     padding:2.1em 0 1.9em 0;
+    margin-top:10px !important;
   }
 
   li.feed-header {
@@ -282,7 +299,7 @@ ul.user-menu {
     font-weight:300;
     line-height:1 !important;
     padding:0 0 0.8em 0;
-    margin-bottom:0.4em;
+    /*margin-bottom:0.4em;*/
   }
 }
 
@@ -336,6 +353,18 @@ ul.user-menu {
   padding-right:50px;
 }
 
+.uk-comment-body {
+  padding:0 !important;
+}
+
+.uk-comment-header {
+  margin-bottom: 15px !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: none !important;
+  background: none !important;
+}
+
 .notice-headline {
   font-family:'Titillium Web', Helvetica, Arial, sans-serif;
   font-size:2.2em;
@@ -359,6 +388,8 @@ ul.user-menu {
   margin:0 6px !important;
   border-radius:3px;
   margin-top:-3px !important;
+  width:16px;
+  height:auto;
 }
 
 
@@ -509,4 +540,3 @@ ul.user-menu {
 .board-buttons-open {
   height:auto;
 }
-
