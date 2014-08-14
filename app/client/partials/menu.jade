@@ -15,7 +15,7 @@ template(name="menu")
          a(href="#")
           li.user-menu-item.menu-item-bookings
            | Bookings
-         a(href="#")
+         a(href="{{pathFor 'profile'}}")
           li.user-menu-item.menu-item-profile
            | Profile
          a(href="{{pathFor 'logout'}}")

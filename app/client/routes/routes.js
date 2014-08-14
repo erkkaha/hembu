@@ -81,6 +81,7 @@ Router.map(function() {
     });
     this.route('facilitiesCalendar', {path: '/facilities/:addressParam/:_id/calendar', template:'facilitiesCalendar', layoutTemplate: 'layout'});
     this.route('addressesCreate',{path:'/home/:addressParam/create', template:'addressesCreate', layoutTemplate: 'layout'})
+    this.route('profile', {path: '/profile', layoutTemplate: 'layout'});
     this.route('landing', {path: '/landing', layoutTemplate: 'layout'});
     this.route('login', {path: '/login', layoutTemplate: 'layout'});
     this.route('logout', {path: '/logout', action: function(){
