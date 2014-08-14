@@ -81,6 +81,8 @@ Router.map(function() {
     });
     this.route('facilitiesCalendar', {path: '/facilities/:addressParam/:_id/calendar', template:'facilitiesCalendar', layoutTemplate: 'layout'});
     this.route('addressesCreate',{path:'/home/:addressParam/create', template:'addressesCreate', layoutTemplate: 'layout'})
+    this.route('profile', {path: '/profile', layoutTemplate: 'layout'});
+    this.route('landing', {path: '/landing', layoutTemplate: 'layout'});
     this.route('login', {path: '/login', layoutTemplate: 'layout'});
     this.route('logout', {path: '/logout', action: function(){
         Meteor.logout(function(err){
@@ -98,14 +100,14 @@ Router.map(function() {
 Router.onBeforeAction(function(pause){
     
     if (!(Meteor.loggingIn() || Meteor.user())) {
-          Router.go('login');
+          Router.go('landing');
           pause();
     }
     else{
         if(!Meteor.user())
             pause();
     }
-}, {except: ['login', 'signup']});
+}, {except: ['landing', 'login', 'signup']});
 
 Router.onStop(function(){
     Router._previous = Router.current();

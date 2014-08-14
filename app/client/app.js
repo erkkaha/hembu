@@ -22,6 +22,12 @@ Deps.autorun(function (c) {
     }
 });
 Hembu={
+    error: function(err, howl){
+        if(howl){
+            $.UIkit.notify(err.reason, {pos:'top-right'});
+        }
+        console.log(err);
+    },
     userHasAddress:function(){
         return Addresses.find().count() > 0;
     },

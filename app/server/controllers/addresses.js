@@ -16,7 +16,7 @@ Meteor.methods({
     var fut = new Future();
     Addresses.insert(address, function(err, _id){
         if(err)
-            throw new Meteor.Error(500, "Adding of new facility failed");
+            throw new Meteor.Error(500, "Adding of new address failed");
         else{
             Meteor.users.update({_id:Meteor.userId()}, {$addToSet:{'addresses':{
                 _id : _id,
