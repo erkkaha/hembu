@@ -8,10 +8,10 @@
 @bluegrey: #d3d7e5;
 @kerma: #fcfbf7;
 
-@accent1: 255 117 133;
-@accent2: 164 210 158;
-@accent3: 0 191 240;
-@accent4: 251 223 67;
+@accent1: rgb(255,117,133);
+@accent2: rgb(164,210,158);
+@accent3: rgb(0,191,240);
+@accent4: rgb(251,223,67);
 
 
 /* CSS declarations go here */
@@ -67,19 +67,19 @@ a.board {
   font-weight:600;
 
   &.accent-colour-1:hover {
-    color:rgb(extract(@accent1,1),extract(@accent1,2),extract(@accent1,3));
+    color:@accent1;
   }
 
   &.accent-colour-2:hover {
-    color:rgb(extract(@accent2,1),extract(@accent2,2),extract(@accent2,3));
+    color:@accent2;
   }
 
   &.accent-colour-3:hover {
-    color:rgb(extract(@accent3,1),extract(@accent3,2),extract(@accent3,3));
+    color:@accent3;
   }
 
   &.accent-colour-4:hover {
-    color:rgb(extract(@accent4,1),extract(@accent4,2),extract(@accent4,3));
+    color:@accent4;
   }
 }
 
@@ -396,14 +396,16 @@ ul.user-menu {
 /* Content - New Notice
 ------------------------------------------------------------------------*/
 
-#new-notice-wrapper {
+#notice-wrapper {
   padding:0 30px 20px 30px;
+  font-family:'Titillium Web', Helvetica, Arial, sans-serif;
+  float:left;
+  padding-bottom:140px;
 
   input,
   textarea {
     width:100%;
     height:auto;
-    font-family:'Titillium Web', Helvetica, Arial, sans-serif;
     border:none;
     background:none;
     resize:none;
@@ -446,15 +448,119 @@ ul.user-menu {
 
 #noticeHeadline {
   font-size:2.6em;
-  font-weight:400;
-  margin-bottom:1.2em;
+  line-height:1.4em;
+  font-weight:100;
+  margin-bottom:1.4em;
   padding-bottom:1.2em;
+  padding-right:180px;
   border-bottom:1px solid #eee !important;
+  clear:left;
+}
+
+.headline-avatar {
+  border-radius:6px;
+  width:60px;
+  height:auto;
+  float:right;
+  margin-top:12px;
+}
+
+#noticeMeta {
+  font-size:0.35em !important;
+  font-weight:100;
+  clear:left;
+  margin-top:1.2em;
 }
 
 #noticeContent {
-  font-size:1.4em;
+  font-size:1.3em;
+  line-height:1.6em;
   font-weight:200;
+  clear:left;
+  padding-bottom:1.6em;
+}
+
+#noticeComments {
+  font-size:1.1em;
+  line-height:1.6em;
+  font-weight:200;
+  float:left;
+  width:100%;
+  border-top:1px solid #eee !important;
+  padding-top:3.6em;
+  margin-top:1.2em;
+
+  ul {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+  }
+
+  li.uk-comment {
+    float:left;
+    width:100%;
+    padding-right:none;
+    padding-bottom:1.6em;
+  }
+
+  a {
+    float:left;
+  }
+
+  .uk-comment-avatar {
+    float:left;
+    display:inline;
+    img {
+      border-radius:6px;
+      width:48px;
+      height:auto;
+    }
+  }
+
+  .uk-comment-body {
+    padding-left:72px !important;
+    margin-left:-60px;
+    float:left;
+    width:60%;
+  }
+
+  .comment-meta {
+    float:right;
+  }
+}
+
+#addComment {
+  line-height:1.6em;
+  font-weight:200;
+  position:fixed;
+  width:100%;
+  left:0;
+  bottom:0;
+  z-index:99;
+  background-color:@kerma;
+
+  #addComment-wrapper {
+    border-top:1px solid #eee !important;
+    margin:0 30px;
+    padding:3em 0 3em 0;
+    clear:left;
+  }
+
+  textarea {
+    padding:0;
+    float:none;
+    font-size:18px;
+    width:80%;
+  }
+}
+
+#comment-button {
+  background-color:@accent1;
+  color:#fff;
+  margin-left:-120px;
+  &:hover {
+    background-color:lighten(@accent1, 5%);
+  }
 }
 
 #new-notice-options {
@@ -504,30 +610,30 @@ ul.user-menu {
     }
 
     &.accent-colour-1 {
-      background-color:rgba(extract(@accent1,1),extract(@accent1,2),extract(@accent1,3),1) !important;
+      background-color:@accent1 !important;
       &:hover {
-        background-color:rgba(extract(@accent1,1),extract(@accent1,2),extract(@accent1,3),0.85) !important;
+        background-color:lighten(@accent1, 5%) !important;
       }
     }
 
     &.accent-colour-2 {
-      background-color:rgba(extract(@accent2,1),extract(@accent2,2),extract(@accent2,3),1) !important;
+      background-color:@accent2 !important;
       &:hover {
-        background-color:rgba(extract(@accent2,1),extract(@accent2,2),extract(@accent2,3),0.85) !important;
+        background-color:lighten(@accent2, 5%) !important;
       }
     }
 
     &.accent-colour-3 {
-      background-color:rgba(extract(@accent3,1),extract(@accent3,2),extract(@accent3,3),1) !important;
+      background-color:@accent3 !important;
       &:hover {
-        background-color:rgba(extract(@accent3,1),extract(@accent3,2),extract(@accent3,3),0.85) !important;
+        background-color:lighten(@accent3, 5%) !important;
       }
     }
 
     &.accent-colour-4 {
-      background-color:rgba(extract(@accent4,1),extract(@accent4,2),extract(@accent4,3),1) !important;
+      background-color:@accent4 !important;
       &:hover {
-        background-color:rgba(extract(@accent4,1),extract(@accent4,2),extract(@accent4,3),0.85) !important;
+        background-color:lighten(@accent4, 5%) !important;
       }
     }
   }

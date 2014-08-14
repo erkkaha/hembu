@@ -2,37 +2,36 @@ template(name='notice')
   .uk-width-1-1.uk-container-center
     nav.uk-navbar.uk-margin-large-bottom
       .uk-navbar-brand
-        img.header-icon(src="/images/icons/write-icon.svg")
+        img.header-icon(src="/images/icons/article-icon.svg")
       ul.uk-navbar-nav.uk-hidden-small
       .uk-navbar-flip
         .header-user-menu
          ul.user-menu.user-menu-closed
           li#back-button.user-menu-head
             i.uk-icon-times(style="color:white;")
-    h2 #{notice.headline}
-    p #{notice.content}
-    span(data-livestamp="{{notice.postedAt}}")
-    span #{notice.author.name}
-    ul
-      each notice.comments
-       li
-        article.uk-comment
-         header.uk-comment-header
-          a.pull-left(href='#')
-           img.uk-comment-avatar(src='/api/avatar/{{author._id}}', alt='...')
-          h4.uk-comment-title
-            a(href="#") #{author.name}
-          ul.uk-comment-meta.uk-subnav.uk-subnav-line
-           li
-            small(data-livestamp="{{postedAt}}")
-         .uk-comment-body
-          span #{content}
+    #notice-wrapper
+      img.headline-avatar(src='/api/avatar/{{notice.author._id}}', alt='...')
+      #noticeHeadline #{notice.headline}
+        #noticeMeta
+          | Posted
+          span(data-livestamp="{{notice.postedAt}}")
+          | to
+          with board
+           a(href="{{boardUrl}}" class="#{ui.accentColour}").board #{name}
+          | by
+          a(href="#" class='user') #{notice.author.name}
+      p#noticeContent #{notice.content}
+      #noticeComments
+        ul
+          each notice.comments
+           li.uk-comment
+            a(href='#')
+              .uk-comment-avatar
+                img(src='/api/avatar/{{author._id}}', alt='...')
+            .uk-comment-body #{content}
+            .comment-meta(data-livestamp="{{postedAt}}")
 
-      li
-       article.uk-comment
-        header.uk-comment-header.comment-feed
-         a(href='#')
-          img.uk-comment-avatar(src='/api/avatar/{{currentUser._id}}', alt='...')
-         form.uk-form
-          textarea(id="comment_{{notice._id}}", rows="1", placeholder="Write a comment")
-          button.post POST
+          form#addComment.uk-form
+            #addComment-wrapper
+              textarea(id="comment_{{notice._id}}" rows="1", value='', placeholder="Add a comment...")
+              button#comment-button.uk-button.uk-float-right.post(type='submit') Post
