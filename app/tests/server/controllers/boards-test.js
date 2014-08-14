@@ -4,12 +4,7 @@ var board = function(){
                     name: 'Notice Board',
                     addressId: 'addressId',
                     ui:{
-                        accentColour: {
-                            r: 100,
-                            g: 100,
-                            b: 100,
-                            a: .5
-                        }
+                        accentColour: 'accent-colour-3'
                     }
                 };
             };

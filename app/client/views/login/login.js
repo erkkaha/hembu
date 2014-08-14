@@ -8,7 +8,7 @@ Template.login.events({
 
         Meteor.loginWithPassword(email, password, function(err){
             if (err){
-                $.UIkit.notify(err.reason, {pos:'top-right'});
+                Hembu.error(err, true);
             }
             else{
                 if(Hembu.userHasAddress())
@@ -22,7 +22,7 @@ Template.login.events({
         Meteor.loginWithFacebook({requestPermissions:['email', 'public_profile']},function(err){
             if(err)
             {
-                $.UIkit.notify(err.reason, {pos:'top-right'});
+                Hembu.error(err, true);
             }
             else{
                 var url = 'http://graph.facebook.com/' + Meteor.user().services.facebook.id +'/picture?height=100&type=normal&width=100'
@@ -38,7 +38,7 @@ Template.login.events({
         Meteor.loginWithGoogle({requestPermissions:['email', 'profile']},function(err){
             if(err)
             {
-                $.UIkit.notify(err.reason, {pos:'top-right'});
+                Hembu.error(err, true);
             }
             else{
                 Meteor.users.update({_id: Meteor.userId()}, {$set:{'profile.avatar': {url:Meteor.user().services.google.picture, origin:'google'}}});
