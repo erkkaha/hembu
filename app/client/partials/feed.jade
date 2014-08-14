@@ -5,7 +5,7 @@ template(name='feed')
              | settings
            each notices
             li
-             
+
              input.notice-pin(class="{{pinnedClass}}", data-notice="{{_id}}", data-uk-datepicker="{format:'YYYY-MM-DD', rtl:true}")
              article.uk-comment
               .uk-comment-body
@@ -16,9 +16,8 @@ template(name='feed')
                  span(data-livestamp="{{postedAt}}")
                  | to
                  with board
-                  a(href='#' class='board') #{name}
+                  a(href="{{boardUrl}}" class="#{ui.accentColour}").board #{name}
                  | by
                  a(href='#')
                   img.uk-comment-avatar(src='/api/avatar/{{author._id}}', alt='...')
                  a(href="#" class='user') #{author.name}
-         

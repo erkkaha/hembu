@@ -1,9 +1,9 @@
 {
   "packages": {
-    "jade": {},
     "iron-router": {},
     "moment": {},
     "livestamp": {},
-    "mocha-web": {}
+    "mocha-web": {},
+    "jade": {}
   }
 }

@@ -12,11 +12,12 @@ template(name='writeNotice')
     #new-notice-wrapper
       form.uk-form
         input#noticeHeadline(rows="1", name='noticeHeadline', value='', placeholder="Write a catchy headline...")
-        textarea#noticeContent(rows="1", name='noticeContent', value='', placeholder="type some text or add an image...")
+        textarea#noticeContent(rows="1", name='noticeContent', value='', placeholder="type some text or drop an image here...")
         #new-notice-options
           #new-notice-options-wrapper
             //#board-button.uk-button.uk-float-left(type='button') Noticeboard
             ul#board-buttons.board-buttons-closed
+              //li.board-button.uk-button Pin to...
               each boards
-                li.board-button.uk-button #{name}
+                li(data-board-id= "#{_id}" class="board-button #{ui.accentColour}").uk-button #{name}
             button#pin-button.uk-button.uk-float-right.post(type='submit') Pin me up Buttercup

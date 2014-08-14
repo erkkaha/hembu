@@ -10,6 +10,10 @@ Template.feed.board = function(){
     return Boards.findOne({_id: this.boardId});
 };
 
+Template.feed.boardUrl = function() {
+    return Router.url('home', {addressParam:Hembu.getCurrentAddress().address, boardParam:this.name});
+};
+
 Template.feed.title = function(){
 	if(this.board) {
 		return this.board.name;
