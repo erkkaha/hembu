@@ -8,7 +8,6 @@ insecure
 accounts-base
 accounts-password
 less
-iron-router
 email
 moment
 livestamp
@@ -16,4 +15,5 @@ accounts-facebook
 service-configuration
 accounts-google
 mocha-web
-jade
+iron:router
+mquandalle:jade
