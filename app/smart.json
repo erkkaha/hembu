@@ -1,9 +1,9 @@
 {
   "packages": {
-    "iron-router": {},
-    "moment": {},
-    "livestamp": {},
-    "mocha-web": {},
-    "jade": {}
+    "iron:router": {},
+    "mrt:moment": {},
+    "colllin:livestamp": {},
+    "mike:mocha": {},
+    "mquandalle:jade": {}
   }
 }
