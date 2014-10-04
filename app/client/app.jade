@@ -6,11 +6,11 @@ head
 
 body
 
-template(name="layout")
+template(name="loggedin")
   if currentUser
     +menu
   #content.uk-height-1-1
    +yield
-template(name="blank")
-  #content
+template(name="layout")
+  #content.uk-height-1-1
    +yield

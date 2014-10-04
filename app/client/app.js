@@ -4,8 +4,7 @@ if (Meteor.isClient) {
 }
 
 Meteor.subscribe("userData");
-Addresses = new Meteor.Collection('addresses');
-Meteor.subscribe("addresses");
+
 Facilities = new Meteor.Collection('facilities');
 Meteor.subscribe('facilities');
 Notices = new Meteor.Collection("notices", {
@@ -21,13 +20,7 @@ Deps.autorun(function (c) {
         Meteor.subscribe("boards", {address : Session.get('currentAddress')._id});
     }
 });
-Hembu={
-    error: function(err, howl){
-        if(howl){
-            $.UIkit.notify(err.reason, {pos:'top-right'});
-        }
-        console.log(err);
-    },
+/*
     userHasAddress:function(){
         return Addresses.find().count() > 0;
     },
@@ -43,32 +36,5 @@ Hembu={
     setCurrentAddress: function(address){
         Session.set('currentAddress', Addresses.findOne({address:address}));
     },
-    notices:{
-        create:function(notice, callback){
-           if(!callback)
-                throw new Meteor.Error(400, "callback is required");
-           Meteor.call('addNotice', notice, function(err, result){
-            if(err)
-            {
-                callback(err);
-            } 
-            else{
-                callback(null, result);
-            }
-        });
-        },
-        pin:function(args, callback){
-           if(!callback)
-                throw new Meteor.Error(400, "callback is required");
-           Meteor.call('pinNotice', args, function(err, result){
-            if(err)
-            {
-                callback(err);
-            } 
-            else{
-                callback(null, result);
-            }
-        });
-        }
-    }
-};
+    
+};*/

@@ -15,5 +15,6 @@ accounts-facebook
 service-configuration
 accounts-google
 mocha-web
-iron:router
 mquandalle:jade
+iron:router
+
