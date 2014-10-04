@@ -9,12 +9,12 @@ accounts-base
 accounts-password
 less
 email
-moment
-livestamp
 accounts-facebook
 service-configuration
 accounts-google
-mocha-web
+mike:mocha
 mquandalle:jade
 iron:router
+mrt:moment
+colllin:livestamp
 
