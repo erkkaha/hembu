@@ -21,11 +21,8 @@ Hembu.router.route('logout', {path:'/logout',
  */
  
 Hembu.router.onBeforeAction(function(pause){
-    if(Meteor.user()){
-        Hembu.router.go('home');
-      pause();
-    }  
-    if(Meteor.loggingIn() || !Meteor.user()) {
+ 
+    if(!Meteor.user()) {
           Hembu.router.go('/welcome');
           pause();
     }
