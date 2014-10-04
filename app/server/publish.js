@@ -26,7 +26,12 @@ Meteor.publish('addresses', function(){
 
 Meteor.publish("userData", function () {
   if (this.userId) {
-        return Meteor.users.find({_id: this.userId},{fields: {'services.google.picture': 1, 'services.facebook.id': 1}})
+    return Meteor.users.find({_id: this.userId},{fields: 
+         {
+           'addresses._id':1, 
+           'services.google.picture': 1, 
+           'services.facebook.id': 1
+         }})
   } else {
     this.ready();
   }

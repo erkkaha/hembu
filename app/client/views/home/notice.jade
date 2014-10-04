@@ -10,7 +10,7 @@ template(name='notice')
           li#back-button.user-menu-head
             i.uk-icon-times(style="color:white;")
     #notice-wrapper
-      img.headline-avatar(src='/api/avatar/{{notice.author._id}}', alt='...')
+      img.headline-avatar(src='/api/avatar/{{notice.author._id}}', alt='Author')
       #noticeHeadline #{notice.headline}
         #noticeMeta
           | Posted

@@ -7,11 +7,11 @@ Template.feed.pinnedClass = function(){
 };
 
 Template.feed.board = function(){
-    return Boards.findOne({_id: this.boardId});
+    return Hembu.collections.boards.findOne({_id: this.boardId});
 };
 
 Template.feed.boardUrl = function() {
-    return Router.url('home', {addressParam:Hembu.getCurrentAddress().address, boardParam:this.name});
+    return Router.url('home', {address:Hembu.methods.address.current.display(), board:this.name});
 };
 
 Template.feed.title = function(){
@@ -23,15 +23,12 @@ Template.feed.title = function(){
 };
 Template.feed.events({
    'click p.notice-headline':function(event, template){
-       var params = Router.current().params
-       params.boardParam = params.boardParam === undefined ? 'notice' : params.boardParam
-       var board = Boards.findOne({_id: this.boardId}) || {}
-       Router.go('notice', {addressParam: params.addressParam, 
-       boardParam: board.name === undefined ? 'notice' : board.name, 
-       _id: this._id})
+       var params = Hembu.router.current().params
+       params.notice = this._id;
+       Hembu.router.go('notice', params);
    }, 
    'change .notice-pin':function(event, template){
-       Hembu.notices.pin({noticeId:this._id, pinnedUntil:event.target.value}, function(err, result){
+       Hembu.methods.notices.pin({noticeId:this._id, pinnedUntil:event.target.value}, function(err, result){
             if(err){
                 //TODO
             }

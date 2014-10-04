@@ -1,20 +1,17 @@
 Template.notice.events({
     'click #back-button': function(event, template){
-        Router.back();
+        Hembu.router.back();
     },
     'click .post' : function(event, template) {
         event.preventDefault();
         var elem = template.find('#comment_' + this.notice._id);
-        Meteor.call('addComment', {
-            content: elem.value,
-            noticeId: this.notice._id
-        }, function(err, comment){
-            if(!err){
-                elem.value = '';
+        Hembu.methods.notices.comment({content: elem.value, notice: this.notice}, function(err, comment){
+            if(err){
+                console.log(err);    
             }
             else{
-                // TODO error hadling
+                elem.value = '';
             }
-        });              
+        });   
     }
 });

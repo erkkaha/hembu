@@ -1,24 +1,21 @@
 Template.menu.profile = function() {
-	if(Meteor.user()) {
-		return Meteor.user().profile;
-	} else {
-		return null;
-	}
+		return Hembu.user.profile;
 };
 Template.menu.address = function() {
-	if(Meteor.user() && Hembu.userHasAddress()) {
-		return Hembu.getCurrentAddress();
-	} else {
-		return '';
-	}
+		return Hembu.methods.address.current.get();
 };
 
 Template.menu.boards = function() {
-	return Boards.find();
+	  return Hembu.collections.boards.find();
 };
 
 Template.menu.boardUrl = function() {
-    return Router.url('home', {addressParam:Hembu.getCurrentAddress().address, boardParam:this.name});
+    return Router.url('home', {address: Hembu.methods.address.current.display(), board:this.name});
+};
+Template.menu.postUrl = function() {
+    var params = Hembu.router.current().params;
+    params.board = params.board ? params.board : Hembu.collections.boards.findOne({isDefault:true}).name;
+    return Router.url('post', params);
 };
 
 Template.menu.events({

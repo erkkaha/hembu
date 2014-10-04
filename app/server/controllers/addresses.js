@@ -5,9 +5,8 @@ Meteor.methods({
     options = options || {};
     if (!options.address)
         throw new Meteor.Error(400, "Address is missing");
-    console.log(options)
     var address = {
-        address: options.address.route.trim() + options.address.street_number ? ' ' + options.address.street_number : '',
+        display: options.address.route + (options.address.street_number ? ' ' + options.address.street_number : ''),
         country: options.address.country,
         zipCode: options.address.postal_code,
         streetAddress: options.address.route,
@@ -24,6 +23,7 @@ Meteor.methods({
             Boards.insert({
               name: 'Notice board',
               addressId: _id,
+              isDefault: true,
               ui:{
                   accentColour: 'accent-colour-3'
               }

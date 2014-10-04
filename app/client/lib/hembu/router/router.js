@@ -21,15 +21,16 @@ Hembu.router.route('logout', {path:'/logout',
  */
  
 Hembu.router.onBeforeAction(function(pause){
-    
-    if (Meteor.loggingIn() || !Meteor.user()) {
-          Hembu.router.go('/landing');
+    if(Meteor.user()){
+        Hembu.router.go('home');
+      pause();
+    }  
+    if(Meteor.loggingIn() || !Meteor.user()) {
+          Hembu.router.go('/welcome');
           pause();
     }
-    else{
-            Hembu.router.go('/root');
-    }
-}, {except: ['landing', 'login', 'signup']});
+    
+}, {except: ['welcome', 'login', 'signup']});
 
 Hembu.router.onStop(function(){
     Hembu.router._previous = Hembu.router.current();
@@ -45,7 +46,7 @@ Hembu.router.back = function(callback){
             callback(null);
     }
     else{
-        Hembu.router.go('root');
+        Hembu.router.go('home');
         var err = new Error("No previous route available");
         if(callback)
             callback(err);

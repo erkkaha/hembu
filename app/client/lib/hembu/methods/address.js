@@ -8,12 +8,21 @@ Hembu.methods.address = {
                 return Session.get('currentAddress');
             }
             else{
-                var addr = Addresses.findOne();
+                var addr = Hembu.collections.addresses.findOne();
                 return addr;
             }
         },
         set: function(address){
-            Session.set('currentAddress', Addresses.findOne({address:address}));
+            Session.set('currentAddress', Hembu.collections.addresses.findOne({display:address}));
+        },
+        display: function(){
+            var addr = Hembu.collections.addresses.findOne();
+            if(addr){
+              return addr.display.replace(/ /g, '');
+            }
+            else{
+              return '';
+            }
         }
     },
     create: function(address, done){

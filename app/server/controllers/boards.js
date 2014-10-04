@@ -6,8 +6,7 @@ Meteor.methods({
 
         if (!(typeof options.name === "string" && options.name.length ))
           throw new Meteor.Error(400, "Board name is missing");
-        if (options.name === "notice")
-          throw new Meteor.Error(400, "Board name cannot be notice"); //for routing to /home/address/noselectedboard/write
+
         if (!(typeof options.addressId === "string" && options.addressId.length ))
           throw new Meteor.Error(400, "addressId for the board name is missing");
         return Boards.insert({

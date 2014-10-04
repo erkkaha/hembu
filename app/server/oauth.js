@@ -1,3 +1,4 @@
+
 if(Meteor.settings.loginProviders){
     if(Meteor.settings.loginProviders.facebook)
     {

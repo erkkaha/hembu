@@ -12,7 +12,7 @@ Template.signup.events({
                 
             }
             else{
-                Router.setRegion('welcome');
+                Router.setRegion('pickAddress');
             }
         });
        
@@ -23,7 +23,7 @@ Template.signup.events({
                 
             }
             else{
-                Router.setRegion('welcome');
+                Router.setRegion('pickAddress');
             }
         });
     },
@@ -33,7 +33,7 @@ Template.signup.events({
                 
             }
             else{
-                Router.setRegion('welcome');
+                Router.setRegion('pickAddress');
             }
         });
     }

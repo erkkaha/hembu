@@ -2,9 +2,9 @@ var showBoardButtons = false,
 	defaultBoardId = '',
 	selectedBoardId = '';
 
-Template.writeNotice.events({
+Template.post.events({
     'click #back-button': function(event, template){
-        Router.back();
+        Hembu.router.back();
     },
     'click #pin-button': function(event, template){
 		event.preventDefault();
@@ -17,12 +17,14 @@ Template.writeNotice.events({
                 }
 		
 		console.log(notice);
-        Hembu.notices.create(notice, function(err, result){
+        Hembu.methods.notices.create(notice, function(err, result){
             if(err){
                 //TODO
+                console.log(err);
             }
             else{
-                Router.back();
+                console.log(result)
+                Hembu.router.back();
             }
                 
         });
@@ -50,14 +52,14 @@ Template.writeNotice.events({
 	
 });
 
-Template.writeNotice.boards = function() {
-	return Boards.find();
+Template.post.boards = function() {
+	return Hembu.collections.boards.find();
 };
 
-Template.writeNotice.rendered = function() {
+Template.post.rendered = function() {
 	
 	//set defaultBoardId to Id of first item in board buttons list
-	defaultBoardId = $('.board-button').attr('data-board-id');
+	defaultBoardId = selectedBoardId = $('.board-button').attr('data-board-id');
 	
 	// close the board buttons list when clicking away
 	$(document).mouseup(function (e)

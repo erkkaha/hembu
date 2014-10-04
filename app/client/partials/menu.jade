@@ -11,7 +11,7 @@ template(name="menu")
           img.header-user-pic(src="/api/avatar/{{currentUser._id}}")
          a(href="#")
           li.user-menu-item.menu-item-address
-           | #{address.displayAddress}
+           | #{address.display}
          a(href="#")
           li.user-menu-item.menu-item-bookings
            | Bookings
@@ -28,4 +28,4 @@ template(name="menu")
      li
       a(href="{{boardUrl}}") #{name}
     li
-      a(href="{{pathFor 'writeNotice'}}") Create New Notice
+      a(href="{{postUrl}}") Create New Notice
