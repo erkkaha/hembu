@@ -9,7 +9,6 @@ Template.pickAddress.initGMaps = function(){
       country: 'long_name',
       postal_code: 'short_name'
     };
-   
     
     var myOptions = {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -26,6 +25,8 @@ Template.pickAddress.initGMaps = function(){
     
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('address'),{ types: ['address'] });
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            $('#map').show();
+            google.maps.event.trigger(map, 'resize');
             var place = autocomplete.getPlace();
             for (var i = 0; i < place.address_components.length; i++) {
                 var addressType = place.address_components[i].types[0];
@@ -43,7 +44,7 @@ Template.pickAddress.initGMaps = function(){
                 } 
                 else {
                   map.setCenter(place.geometry.location);
-                  map.setZoom(12);  // Why 17? Because it looks good.
+                  map.setZoom(14);
                 }
                 marker.setIcon(/** @type {google.maps.Icon} */({
                   url: place.icon,
@@ -55,7 +56,12 @@ Template.pickAddress.initGMaps = function(){
                 marker.setPosition(place.geometry.location);
                 marker.setVisible(true);
             }
-            console.log(place, Template.welcome.address)
+            Hembu.methods.address.find({externalId:place.place_id}, function(err, result){
+                Template.pickAddress.address = result;
+                $('#create').hide();
+                $('#join').show();
+            })
+            console.log(place, Template.pickAddress.address)
         });
 }
 Template.pickAddress.rendered = function(){
@@ -70,6 +76,17 @@ Template.pickAddress.events({
     'click #create': function(event, template){
         event.preventDefault();
         Hembu.methods.address.create(Template.pickAddress.address, function(err, result){
+            if(err){
+                console.log(err)
+            }   
+            else{
+                Router.go('home');
+            }
+        });
+    },
+    'click #join': function(event, template){
+        event.preventDefault();
+        Hembu.methods.address.join(Template.pickAddress.address, function(err, result){
             if(err){
                 console.log(err)
             }   

@@ -35,5 +35,25 @@ Hembu.methods.address = {
                 done(null, result);
             }
         });
+    },
+    find: function(address, done){
+        Meteor.call('findAddress', {address:address}, function(err, result){
+            if(err){
+                done(err);
+            }
+            else{
+                done(null, result);
+            }
+        });
+    },
+    join: function(address, done){
+        Meteor.call('joinAddress', address, function(err, result){
+            if(err){
+                done(err);
+            }
+            else{
+                done(null, result);
+            }
+        });
     }
 }

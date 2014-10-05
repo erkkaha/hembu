@@ -38,5 +38,30 @@ Meteor.methods({
         }
     });
     return fut.wait();
-  }
+  },
+    findAddress: function(options){
+        if(!options){
+            throw new Meteor.Error(400, "Parameters are required");
+        }
+        return Addresses.findOne(options.address);
+    },
+    joinAddress: function(options){
+        if(!options){
+            throw new Meteor.Error(400, "Parameters are required");
+        }
+        Meteor.users.update({_id:Meteor.userId()}, 
+            {$addToSet:
+             {'addresses':{
+                _id : options._id,
+                verified: true
+             }
+            }}, function(err){
+                if(err){
+                    throw new Meteor.Error(500, "Adding of new address failed");
+                }
+                else{
+                    return true;
+                }
+            });
+    }
 });

@@ -11,7 +11,6 @@ Tracker.autorun(function (c) {
   if (user){
     _.extend(Hembu.user, user)
     Hembu.user.loggedIn = true;
-    Hembu.router.go('home');
     c.stop();
   }
   else{
@@ -22,8 +21,10 @@ Tracker.autorun(function (c) {
 
 Tracker.autorun(function () {
       var addrs = Hembu.collections.addresses.find();
+    console.log(Hembu.collections.addresses.find().count())
       Hembu.user.hasAddress = Hembu.collections.addresses.find().count() > 0;
       if(Hembu.user.hasAddress){
+        Hembu.router.go('home');
         Hembu.user.addresses = Hembu.collections.addresses;
         Hembu.user.homeAddress = Hembu.user.addresses.findOne().display
         Hembu.methods.address.current.set(Hembu.user.homeAddress);

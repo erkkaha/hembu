@@ -13,9 +13,11 @@ Template.menu.boardUrl = function() {
     return Router.url('home', {address: Hembu.methods.address.current.display(), board:this.name});
 };
 Template.menu.postUrl = function() {
-    var params = Hembu.router.current().params;
-    params.board = params.board ? params.board : Hembu.collections.boards.findOne({isDefault:true}).name;
-    return Router.url('post', params);
+    if( Hembu.collections.boards.findOne({isDefault:true})){
+        var params = Hembu.router.current().params;
+        params.board = params.board ? params.board : Hembu.collections.boards.findOne({isDefault:true}).name;
+        return Router.url('post', params);
+    }
 };
 
 Template.menu.events({
