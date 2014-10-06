@@ -8,4 +8,8 @@ Hembu.collections.notices = new Meteor.Collection('notices', {
     }
 });
 
-Meteor.subscribe('notices');
+Tracker.autorun(function (c) {
+    if(Session.get('currentAddress')){
+        Meteor.subscribe("notices", {address : Session.get('currentAddress')._id});
+    }
+});

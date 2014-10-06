@@ -1,7 +1,7 @@
 template(name="menu")
  nav.uk-navbar.uk-margin-large-bottom
     a.uk-navbar-toggle(href='#offcanvas', data-uk-offcanvas)
-    a.uk-navbar-brand(href="/home/{{address.address}}")
+    a.uk-navbar-brand(href="/{{address}}")
       img.header-logo(src="/images/hembu-logo.svg")
     .uk-navbar-flip
        .header-user-menu
@@ -10,8 +10,9 @@ template(name="menu")
           | #{profile.name}
           img.header-user-pic(src="/api/avatar/{{currentUser._id}}")
          a(href="#")
-          li.user-menu-item.menu-item-address
-           | #{address.display}
+          each addresses
+           li.user-menu-item.menu-item-address
+            | #{display}
          a(href="#")
           li.user-menu-item.menu-item-bookings
            | Bookings
@@ -21,11 +22,15 @@ template(name="menu")
          a(href="{{pathFor 'logout'}}")
           li.user-menu-item.menu-item-logout
            | Log out
+    .uk-navbar-flip
+       a(href="{{postUrl}}") 
+        img.header-icon(src="/images/icons/write-icon.svg")
  #offcanvas.uk-offcanvas(style="background: transparent;")
   .uk-offcanvas-bar
    ul.uk-nav.uk-nav-offcanvas
+    li
+      a.boards-menu-item.menu-item-post(href="{{postUrl}}") Create New Notice
     each boards
      li
-      a(href="{{boardUrl}}") #{name}
-    li
-      a(href="{{postUrl}}") Create New Notice
+      a.boards-menu-item.menu-item-board(href="{{url}}") #{name}
+     

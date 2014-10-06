@@ -20,7 +20,8 @@ Template.pickAddress.initGMaps = function(){
     
     var marker = new google.maps.Marker({
         map: map,
-        anchorPoint: new google.maps.Point(0, -29)
+        anchorPoint: new google.maps.Point(0, -29),
+        icon: '/images/apartment-block.svg'
     });
     
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('address'),{ types: ['address'] });
@@ -57,9 +58,11 @@ Template.pickAddress.initGMaps = function(){
                 marker.setVisible(true);
             }
             Hembu.methods.address.find({externalId:place.place_id}, function(err, result){
-                Template.pickAddress.address = result;
-                $('#create').hide();
-                $('#join').show();
+                if(result){
+                    Template.pickAddress.address = result;
+                    $('#create').hide();
+                    $('#join').show();
+                }
             })
             console.log(place, Template.pickAddress.address)
         });

@@ -16,13 +16,7 @@ Hembu.methods.address = {
             Session.set('currentAddress', Hembu.collections.addresses.findOne({display:address}));
         },
         display: function(){
-            var addr = Hembu.collections.addresses.findOne();
-            if(addr){
-              return addr.display.replace(/ /g, '');
-            }
-            else{
-              return '';
-            }
+              return Session.get('currentAddress').display.replace(/ /g, '');
         }
     },
     create: function(address, done){

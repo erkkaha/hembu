@@ -1,10 +1,11 @@
-Meteor.publish('notices', function () {
-  return Notices.find({},{sort:{pinnedUntil: -1, postedAt:-1}});
+Meteor.publish('notices', function (args) {
+  return Notices.find({addressId: args.address},{sort:{pinnedUntil: -1, postedAt:-1}});
 });
 
 Meteor.publish('boards', function (args) {
   //TODO publish only boards user has access to
-  return Boards.find({addressId: args.address});
+    if(args.address)
+      return Boards.find({addressId: args.address._id});
 });
 
 Meteor.publish('events', function () {

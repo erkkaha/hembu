@@ -21,6 +21,7 @@ Meteor.methods({
           content: options.content,
           pinnedUntil: options.pinnedUntil,
           boardId: options.boardId,
+          addressId: options.addressId,
           postedAt: new Date(),
           commentsAllowed: options.commentsAllowed,
           comments: []

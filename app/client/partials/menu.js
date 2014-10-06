@@ -2,7 +2,11 @@ Template.menu.profile = function() {
 		return Hembu.user.profile;
 };
 Template.menu.address = function() {
-		return Hembu.methods.address.current.get();
+		return Hembu.methods.address.current.get().url;
+};
+
+Template.menu.addresses = function() {
+		return Hembu.collections.addresses.find();
 };
 
 Template.menu.boards = function() {
@@ -23,7 +27,11 @@ Template.menu.postUrl = function() {
 Template.menu.events({
    'click .uk-nav-offcanvas > li > a': function(event, template){
        $.UIkit.offcanvas.hide();
-   } 
+   },
+    'click .menu-item-address': function(event, templace){
+        Hembu.methods.address.current.set(this.display);
+        Hembu.router.go(this.url);
+    }
 });
 
 var userMenuToggle = false;

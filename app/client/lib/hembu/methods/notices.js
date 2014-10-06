@@ -5,6 +5,7 @@ Hembu.methods.notices = {
     create:function(notice, done){
         if(!done)
             throw new Meteor.Error(400, "callback is required");
+        notice.addressId = Hembu.methods.address.current.get()._id;
         Meteor.call('addNotice', notice, function(err, result){
             if(err)
             {

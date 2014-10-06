@@ -185,9 +185,6 @@ a.user {
 }
 
 .header-user-menu {
-	position:absolute;
-	top:0;
-	right:0;
 	padding:0;
 	/*border-bottom-right-radius:8px;
 	border-bottom-left-radius:8px;*/
@@ -292,6 +289,24 @@ ul.user-menu {
                 border-color:@darkblue !important;
                 &:hover{
                     background:@blue !important;
+                }
+                &.boards-menu-item {
+                    &:before{
+                        height: 26px;
+                        content:'';
+                        width: 26px;
+                        display: inline-block;
+                        margin-right: 15px;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center;
+                    }
+                    &.menu-item-post:before{
+                        background-image: url('/images/icons/write-icon.svg');
+                    }
+                    &.menu-item-board:before{
+                        background-image: url('/images/icons/write-icon.svg');
+                    }
                 }
             }
         }
