@@ -1,0 +1,20 @@
+template(name='address')
+ .uk-container.uk-container-center
+  h3 Boards
+  ul.uk-list
+   each boards
+    li
+     span(class="board-colour {{ui.accentColour}}")
+     span {{name}}
+  h6 Add a new board
+  form.uk-form#new-board
+   ul.uk-list.accent-colour-list
+    li.accent-colour-1.board-colour(data-item="1")
+    li.accent-colour-2.board-colour(data-item="2")
+    li.accent-colour-3.board-colour(data-item="3")
+    li.accent-colour-4.board-colour(data-item="4")
+   span#board-colour
+   input.uk-input(name='board[name]')
+   input(type="hidden", name="board[ui][accentColour]")
+   input(type="hidden", name="board[addressId]", value="{{addressId}}")
+   button.uk-button.uk-button-primary#add-board Add
