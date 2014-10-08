@@ -20,8 +20,7 @@ Template.pickAddress.initGMaps = function(){
     
     var marker = new google.maps.Marker({
         map: map,
-        anchorPoint: new google.maps.Point(0, -29),
-        icon: '/images/apartment-block.svg'
+        anchorPoint: new google.maps.Point(0, -29)
     });
     
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('address'),{ types: ['address'] });
@@ -48,7 +47,7 @@ Template.pickAddress.initGMaps = function(){
                   map.setZoom(14);
                 }
                 marker.setIcon(/** @type {google.maps.Icon} */({
-                  url: place.icon,
+                  url: '/images/apartment-block.svg',
                   size: new google.maps.Size(71, 71),
                   origin: new google.maps.Point(0, 0),
                   anchor: new google.maps.Point(17, 34),

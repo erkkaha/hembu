@@ -30,7 +30,7 @@ Template.menu.events({
    },
     'click .menu-item-address': function(event, templace){
         Hembu.methods.address.current.set(this.display);
-        Hembu.router.go(this.url);
+        Hembu.router.setRegion('address')
     }
 });
 
