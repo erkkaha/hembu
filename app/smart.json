@@ -2,7 +2,7 @@
   "packages": {
     "iron:router": {},
     "mrt:moment": {},
-    "colllin:livestamp": {},
+    "copleykj:livestamp": {},
     "mike:mocha": {},
     "mquandalle:jade": {}
   }
