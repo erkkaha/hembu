@@ -5,23 +5,26 @@ template(name="menu")
       img.header-logo(src="/images/hembu-logo.svg")
     .uk-navbar-flip
        .header-user-menu
-        ul.user-menu.user-menu-closed
-         li.user-menu-head
+        .user-menu-head
           | #{profile.name}
           img.header-user-pic(src="/api/avatar/{{currentUser._id}}")
-         a(href="#")
-          each addresses
-           li.user-menu-item.menu-item-address
-            | #{display}
-         a(href="#")
-          li.user-menu-item.menu-item-bookings
+        ul.user-menu.user-menu-closed 
+         each addresses
+          li.user-menu-item.menu-item-address
+            a(href="#")
+             | #{display}
+         
+         li.user-menu-item.menu-item-bookings
+          a(href="#")
            | Bookings
-         a(href="{{pathFor 'profile'}}")
-          li.user-menu-item.menu-item-profile
+         
+         li.user-menu-item.menu-item-profile
+          a(href="{{pathFor 'profile'}}")
            | Profile
-         a(href="{{pathFor 'logout'}}")
-          li.user-menu-item.menu-item-logout
-           | Log out
+         
+         li.user-menu-item.menu-item-logout
+           a(href="{{pathFor 'logout'}}")
+            | Log out
     .uk-navbar-flip
        a(href="{{postUrl}}") 
         img.header-icon(src="/images/icons/write-icon.svg")

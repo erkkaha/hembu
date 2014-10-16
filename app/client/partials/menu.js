@@ -30,23 +30,38 @@ Template.menu.events({
    },
     'click .menu-item-address': function(event, templace){
         Hembu.methods.address.current.set(this.display);
-        Hembu.router.setRegion('address')
+        Hembu.router.go('home');
+    },
+    'click ul.user-menu li': function(event, templace){
+        Template.menu.toggleUserMenu(false);
     }
 });
 
 var userMenuToggle = false;
-
-Template.menu.rendered=function() {
-	$('.user-menu-head').on('click', function() {
-		userMenuToggle = !userMenuToggle;
+Template.menu.toggleUserMenu = function(e, show){
+        userMenuToggle = !userMenuToggle;
+        if(show !== undefined){
+            userMenuToggle = show;
+        }
 		if(userMenuToggle === true) {
 			$('ul.user-menu')
 				.removeClass('user-menu-closed')
 				.addClass('user-menu-open');
-		} else {
+            $('body').on('click', function(e){
+                if(!$.contains(document.getElementsByClassName('header-user-menu')[0], e.target)){
+                    Template.menu.toggleUserMenu(false);
+                    $('body').off('click');
+                }
+            });
+            
+		} 
+        else {
 			$('ul.user-menu')
 				.removeClass('user-menu-open')
 				.addClass('user-menu-closed');
 		}
-	});
+}
+
+Template.menu.rendered=function() {
+	$('.user-menu-head').on('click', Template.menu.toggleUserMenu);
 }

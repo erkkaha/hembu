@@ -6,6 +6,8 @@ Hembu.router.configure({
   layoutTemplate: 'layout'
 });
 
+//Hembu.router.plugin('loading', {loadingTemplate: 'loading'});
+
 Hembu.router.route('logout', {path:'/logout',
     action:function(){
         Meteor.logout(function(err){
@@ -21,7 +23,6 @@ Hembu.router.route('logout', {path:'/logout',
  */
  
 Hembu.router.onBeforeAction(function(pause){
- 
     if(!Meteor.user()) {
           Hembu.router.go('/welcome');
           pause();
