@@ -1,6 +1,15 @@
 //The actual url on client for OAuth clients 
 if (Meteor.isClient) {
     Meteor.absoluteUrl.defaultOptions.rootUrl =  window.location.host;
+   Template.mochaweb.helpers({
+  mochaWebIFrameURL: function(){
+    if (! Session.get("mochaWebMirror")){
+        return "http://"+window.location.hostname+":5000?mocha=true";
+    } else {
+      return null;
+    }
+  }
+});
 }
 
 
