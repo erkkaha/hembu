@@ -3,7 +3,7 @@ window.Hembu.methods = window.Hembu.methods || {};
 
 Hembu.methods.boards = {
     create: function(board, done){
-        Meteor.call('addBoard', board, function(err, result){
+        Hembu.collections.boards.insert(board, function(err, result){
             if(err)
             {
                 done(err);
