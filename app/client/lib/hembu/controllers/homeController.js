@@ -31,7 +31,8 @@ Hembu.controllers.HomeController = BaseController.extend({
                 data.address = Hembu.methods.address.current.get();
                 return data;
             }
-        }
+        
+  }
 });
 
 HomeController = Hembu.controllers.HomeController;
