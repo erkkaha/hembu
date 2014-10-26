@@ -8,14 +8,6 @@ Meteor.publish('boards', function (args) {
       return Boards.find({addressId: args.address._id});
 });
 
-Meteor.publish('events', function () {
-  return Events.find({});
-});
-
-Meteor.publish('facilities', function(){
-  return Facilities.find({}); 
-});
-
 Meteor.publish('addresses', function(){
     if (this.userId) {
         var user = Meteor.users.findOne({_id: this.userId},{fields: {'addresses': 1}});

@@ -4,7 +4,7 @@ if (Meteor.isClient) {
    Template.mochaweb.helpers({
   mochaWebIFrameURL: function(){
     if (! Session.get("mochaWebMirror")){
-        return "http://"+window.location.hostname+":5000?mocha=true";
+        return window.location.origin+":5000?mocha=true";
     } else {
       return null;
     }
