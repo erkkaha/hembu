@@ -1,13 +1,14 @@
-var should = chai.should();
+
 if (!(typeof MochaWeb === 'undefined')){
   MochaWeb.testOnly(function(){
-    describe("Server initialization", function(){
-      it("should have a Meteor version defined", function(){
-        chai.assert(Meteor.release);
+    describe("a group of tests", function(){
+      it("should respect equality", function(){
+        chai.assert.equal(5,5);
       });
     });
   });
 }
+/*var should = chai.should();
 describe("Client", function(){
     it("should run on client", function(){
         Meteor.isClient.should.equal(true);
@@ -62,4 +63,4 @@ describe("Client", function(){
             
         });
     });
-});
+});*/
